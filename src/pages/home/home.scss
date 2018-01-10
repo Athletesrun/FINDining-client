@@ -1,3 +1,18 @@
 page-home {
+  @media (min-width: 620px) {
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 620px 1fr;
+    }
+  }
 
+  .logo {
+    height: 48px;
+    width: auto;
+    padding: 8px 4px 4px 4px;
+  }
+
+  ion-header.notScrolled::after {
+    background-image: none !important;
+  }
 }
