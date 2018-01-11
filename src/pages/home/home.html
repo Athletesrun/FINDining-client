@@ -20,7 +20,7 @@
   <div class="container">
     <div class="space"></div>
     <div class="restaurants">
-      <fd-restaurant *ngFor="let restaurant of restaurants" [fdRestaurant]="restaurant"></fd-restaurant>
+      <fd-restaurant *ngFor="let restaurant of restaurants" [fdRestaurant]="restaurant" (click)="openDetailsPage(restaurant)"></fd-restaurant>
     </div>
     <div class="space"></div>
   </div>

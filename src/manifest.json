@@ -1,6 +1,6 @@
 {
-  "name": "Ionic",
-  "short_name": "Ionic",
+  "name": "FINDining",
+  "short_name": "FINDining",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{

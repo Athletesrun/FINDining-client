@@ -8,6 +8,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 // Pages
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { RestaurantPage } from '../pages/restaurant/restaurant';
 
 // Components
 import { RestaurantComponent } from "../components/restaurant/restaurant";
@@ -16,6 +17,7 @@ import { RestaurantComponent } from "../components/restaurant/restaurant";
   declarations: [
     MyApp,
     HomePage,
+    RestaurantPage,
     RestaurantComponent
   ],
   imports: [
@@ -26,6 +28,7 @@ import { RestaurantComponent } from "../components/restaurant/restaurant";
   entryComponents: [
     MyApp,
     HomePage,
+    RestaurantPage,
     RestaurantComponent
   ],
   providers: [
@@ -34,4 +37,5 @@ import { RestaurantComponent } from "../components/restaurant/restaurant";
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
-export class AppModule {}
+export class AppModule { }
+

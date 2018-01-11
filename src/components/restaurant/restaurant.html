@@ -3,4 +3,11 @@
   <ion-card-header>
     <ion-card-title>{{restaurant.name}}</ion-card-title>
   </ion-card-header>
+  <ion-card-content>
+    <div class="categories">{{restaurant.category.join(", ")}}</div>
+    <div class="address">{{restaurant.address[0]}}</div>
+    <div class="stars">
+      <ion-icon class="star" *ngFor="let type of stars" [name]="starName(type)"></ion-icon>
+    </div>
+  </ion-card-content>
 </ion-card>
