@@ -1,0 +1,115 @@
+@keyframes fade-in-arrow {
+  from {
+    display: initial;
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade-out-arrow {
+  0% {
+    display: initial;
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    display: none;
+  }
+}
+
+page-restaurant {
+  .restaurant-image {
+    height: 100vw;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    //z-index: 500;
+    width: 100vw;
+  }
+  .name {
+    position: sticky;
+    top: 0;
+    padding: 15px 0 15px 0;
+    background-color: white;
+  }
+  .main {
+    min-height: 1000vh;
+    position: absolute;
+    top: 100vw;
+    left: 0;
+    background-color: white;
+    width: 100vw;
+    padding: 30px;
+  }
+  .back {
+    position: fixed;
+    opacity: .75;
+    margin: 10px;
+    //text-shadow: no
+    //  -1px -1px 0 #fff,
+    //  1px -1px 0 #fff,
+    //  -1px 1px 0 #fff,
+    //  1px 1px 0 #fff;
+  }
+
+  .name-text {
+    display: inline-block;
+    transition: 500ms;
+  }
+
+  .name-text.start {
+    transform: translateX(0);
+  }
+
+  .name-text.end {
+    transform: translateX(35px);
+  }
+
+  .back-inline {
+    position: absolute;
+    left: -12px;
+  }
+
+  .back-inline.start {
+    display: none;
+  }
+
+  .back-inline.end {
+    animation: fade-in-arrow 500ms forwards;
+  }
+
+  .back-inline.hide {
+    animation: fade-out-arrow 500ms forwards;
+  }
+
+  @media (min-width: 75vh) {
+    .main {
+      top: 75vh;
+    }
+    .restaurant-image {
+      height: 75vh;
+    }
+  }
+}
+
+
+
+.ios {
+  page-restaurant {
+    .back-inline {
+      top: 4px;
+    }
+  }
+}
+
+.md {
+  page-restaurant {
+    .back-inline {
+      top: 8px;
+    }
+  }
+}

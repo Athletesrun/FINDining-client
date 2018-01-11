@@ -1,4 +1,21 @@
 <ion-content>
-  <img [src]="'assets/imgs/placeholder/' + restaurant.img">
-  <h1>{{restaurant.name}}</h1>
+  <div [ngStyle]="bg" class="restaurant-image"></div>
+  <button ion-button icon-only round class="back" (click)="back()" [ngStyle]="{'background-color': bgColor, 'color': color}">
+    <ion-icon name="arrow-back" [ngStyle]="{'background-color': bgColor, 'color': color}"></ion-icon>
+  </button>
+  <div class="main">
+    <h1 class="name">
+      <button ion-button icon-only clear class="back-inline" (click)="back()" [ngClass]="(hasScrolledDown && scrollPosition == 'start') ? 'hide' : scrollPosition">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+      <span class="name-text" [ngClass]="scrollPosition">
+        {{restaurant.name}}
+      </span>
+    </h1>
+    <p class="categories">{{restaurant.category.join(", ")}}</p>
+    <p class="address">{{restaurant.address[0]}}<br>{{restaurant.address[1]}}</p>
+    <p class="ratings">
+      <ion-icon class="star" *ngFor="let type of stars" [name]="starName(type)"></ion-icon>
+    </p>
+  </div>
 </ion-content>
