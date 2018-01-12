@@ -1,5 +1,6 @@
 import { Component, ViewChild } from "@angular/core";
 import { Content, NavController, NavParams } from "ionic-angular";
+import { StatusBar } from '@ionic-native/status-bar';
 import Vibrant from 'node-vibrant';
 import tinycolor from 'tinycolor2';
 
@@ -22,7 +23,9 @@ export class RestaurantPage {
 
   @ViewChild(Content) content: Content;
 
-  constructor(private params: NavParams, private nav: NavController) {
+  constructor(private params: NavParams, private nav: NavController, private sb: StatusBar) {
+    sb.overlaysWebView(false);
+    sb.backgroundColorByHexString("#fafafa");
     this.restaurant = params.get('rest');
     this.pathToImage = "assets/imgs/placeholder/" + this.restaurant.img;
     this.bg = {
