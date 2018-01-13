@@ -8,9 +8,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 // Pages
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { AccountPage } from '../pages/account/account';
 import { RestaurantPage } from '../pages/restaurant/restaurant';
 
-// Components
+// Components 
 import { RestaurantComponent } from "../components/restaurant/restaurant";
 
 @NgModule({
@@ -18,7 +19,8 @@ import { RestaurantComponent } from "../components/restaurant/restaurant";
     MyApp,
     HomePage,
     RestaurantPage,
-    RestaurantComponent
+    RestaurantComponent,
+    AccountPage
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,8 @@ import { RestaurantComponent } from "../components/restaurant/restaurant";
     MyApp,
     HomePage,
     RestaurantPage,
-    RestaurantComponent
+    RestaurantComponent,
+    AccountPage
   ],
   providers: [
     StatusBar,

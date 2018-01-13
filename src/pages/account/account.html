@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar [color]="'light'">
+    <ion-title>
+      Account Settings
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-list>
+      <button ion-item *ngFor="let setting of settings">
+        {{ setting.name }}
+      </button>
+    </ion-list>
+  </ion-card>
+</ion-content>
+
+ <!-- *ngFor="let setting of settings" (click)="setting.action($event)" -->

@@ -3,6 +3,7 @@ import { NavController, Content } from 'ionic-angular';
 
 import { restaurants } from '../../assets/restaurants';
 import { RestaurantPage } from '../restaurant/restaurant';
+import { AccountPage } from '../account/account';
 
 @Component({
   selector: 'page-home',
@@ -35,6 +36,10 @@ export class HomePage {
 
   getHasScrolled() {
     return this.content.scrollTop > 0;
+  }
+
+  openAccountPage() {
+    this.navCtrl.push(AccountPage);
   }
 
 }
