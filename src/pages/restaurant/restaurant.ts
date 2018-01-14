@@ -23,6 +23,7 @@ export class RestaurantPage {
   hasScrolledDown = false;
   palette;
   map;
+  mapMarker;
 
   @ViewChild(Content) content: Content;
   @ViewChild('map') mapElement;
@@ -54,6 +55,11 @@ export class RestaurantPage {
       center: this.restaurant.location,
       zoom: 17
     });
+    let el = document.createElement("img");
+    el.src = "assets/pin.svg";
+    this.mapMarker = new mapboxgl.Marker(el)
+      .setLngLat(this.restaurant.location)
+      .addTo(this.map);
   }
 
   getWideWindowStartRule(scroll) {
