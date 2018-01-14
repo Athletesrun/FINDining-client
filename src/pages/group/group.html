@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-navbar [color]="'light'">
+    <ion-title>
+      Something Here
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <fd-restaurant
+    *ngFor="let restaurant of group.restaurants"
+    [fdRestaurant]="restaurant"
+    (click)="openRestaurant(restaurant)"></fd-restaurant>
+</ion-content>

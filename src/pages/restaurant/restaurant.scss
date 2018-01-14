@@ -103,6 +103,10 @@ page-restaurant {
     .back-inline {
       top: 4px;
     }
+    .back {
+      width: 45px;
+      padding: 18px 18px 18px 16px;
+    }
   }
 }
 
@@ -110,6 +114,10 @@ page-restaurant {
   page-restaurant {
     .back-inline {
       top: 8px;
+    }
+    .back {
+      padding: 18px 0 18px 0;
+      height: 42px;
     }
   }
 }

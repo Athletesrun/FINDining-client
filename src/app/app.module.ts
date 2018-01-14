@@ -8,9 +8,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 // Pages
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { GroupPage } from '../pages/group/group';
+import { GroupsPage } from '../pages/groups/groups';
 import { AccountPage } from '../pages/account/account';
 import { RestaurantPage } from '../pages/restaurant/restaurant';
-
 // Components 
 import { RestaurantComponent } from "../components/restaurant/restaurant";
 
@@ -20,7 +21,9 @@ import { RestaurantComponent } from "../components/restaurant/restaurant";
     HomePage,
     RestaurantPage,
     RestaurantComponent,
-    AccountPage
+    AccountPage,
+    GroupsPage,
+    GroupPage
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,9 @@ import { RestaurantComponent } from "../components/restaurant/restaurant";
     HomePage,
     RestaurantPage,
     RestaurantComponent,
-    AccountPage
+    AccountPage,
+    GroupsPage,
+    GroupPage
   ],
   providers: [
     StatusBar,

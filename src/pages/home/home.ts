@@ -4,6 +4,9 @@ import { NavController, Content } from 'ionic-angular';
 import { restaurants } from '../../assets/restaurants';
 import { RestaurantPage } from '../restaurant/restaurant';
 import { AccountPage } from '../account/account';
+import { GroupsPage } from '../groups/groups';
+
+import { Restaurant } from '../../models/restaurant.model';
 
 @Component({
   selector: 'page-home',
@@ -11,7 +14,7 @@ import { AccountPage } from '../account/account';
 })
 export class HomePage {
 
-  public restaurants = restaurants;
+  public restaurants: Restaurant[] = restaurants;
   hasScrolledPastZero = false;
   cancelScrollListener = false;
 
@@ -55,6 +58,10 @@ export class HomePage {
 
   openAccountPage() {
     this.navCtrl.push(AccountPage);
+  }
+
+  openGroupsPage() {
+    this.navCtrl.push(GroupsPage);
   }
 
   ngOnDestroy() {

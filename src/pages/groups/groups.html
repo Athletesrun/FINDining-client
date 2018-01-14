@@ -1,9 +1,24 @@
+<ion-header>
+  <ion-navbar [color]="'light'">
+    <ion-title>
+      My Groups
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
 <ion-content>
-  <ion-header>
-    <ion-navbar [color]="'light'">
-      <ion-title>
-        Account Settings
-      </ion-title>
-    </ion-navbar>
-  </ion-header>
+  <ion-list>
+    <ion-item-sliding *ngFor="let group of groups; let i = index">
+      <button ion-item (click)="openGroup(group)">
+        <h2>{{group.people.join(", ")}}</h2>
+        <h4>{{getLastInArray(group.restaurants).name}}</h4>
+      </button>
+      <ion-item-options side="right">
+        <button ion-button color="danger" (click)="delete(i)">
+          <ion-icon name="trash"></ion-icon>
+          Delete
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>
