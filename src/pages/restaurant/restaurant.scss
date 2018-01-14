@@ -24,18 +24,21 @@ page-restaurant {
   .restaurant-image {
     height: 100vw;
     background-size: cover;
+    background-position: center;
     position: fixed;
     top: 0;
     left: 0;
-    //z-index: 500;
     width: 100vw;
   }
+
   .name {
     position: sticky;
     top: 0;
-    padding: 15px 0 15px 0;
+    padding: 15px 30px 15px 30px;
     background-color: white;
+    z-index: 1000;
   }
+
   .main {
     min-height: 1000vh;
     position: absolute;
@@ -43,8 +46,12 @@ page-restaurant {
     left: 0;
     background-color: white;
     width: 100vw;
+  }
+
+  .padding {
     padding: 30px;
   }
+
   .back {
     position: fixed;
     opacity: .75;
@@ -66,12 +73,12 @@ page-restaurant {
   }
 
   .name-text.end {
-    transform: translateX(35px);
+    transform: translateX(32px);
   }
 
   .back-inline {
     position: absolute;
-    left: -12px;
+    left: -16px;
   }
 
   .back-inline.start {
@@ -84,6 +91,12 @@ page-restaurant {
 
   .back-inline.hide {
     animation: fade-out-arrow 500ms forwards;
+  }
+
+  .map {
+    height: 100vw;
+    max-height: 50vh;
+    width: 100vw;
   }
 
   @media (min-width: 75vh) {
@@ -101,7 +114,8 @@ page-restaurant {
 .ios {
   page-restaurant {
     .back-inline {
-      top: 4px;
+      top: 5px;
+      left: 14px;
     }
     .back {
       width: 45px;
@@ -113,7 +127,8 @@ page-restaurant {
 .md {
   page-restaurant {
     .back-inline {
-      top: 8px;
+      top: 10px;
+      left: 14px;
     }
     .back {
       padding: 18px 0 18px 0;

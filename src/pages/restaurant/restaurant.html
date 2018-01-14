@@ -12,10 +12,14 @@
         {{restaurant.name}}
       </span>
     </h1>
-    <p class="categories">{{restaurant.category.join(", ")}}</p>
-    <p class="address">{{restaurant.address[0]}}<br>{{restaurant.address[1]}}</p>
-    <p class="ratings">
-      <ion-icon class="star" *ngFor="let type of stars" [name]="starName(type)"></ion-icon>
-    </p>
+    <div class="padding">
+      <p class="categories">{{restaurant.category.join(", ")}}</p>
+      <p class="address">{{restaurant.address[0]}}<br>{{restaurant.address[1]}}</p>
+      <p class="ratings">
+        <ion-icon class="star" *ngFor="let type of stars" [name]="starName(type)"></ion-icon>
+      </p>
+      <p class="price">{{price.join("")}}</p>
+    </div>
+    <div #map class="map"></div>
   </div>
 </ion-content>

@@ -19,34 +19,35 @@ export class GroupsPage {
       ],
       restaurants: [
         {
-          name: "Pizza Shoppe Collective",
-          url: "url",
-          img: "img",
-          rating: 4,
-          price: 1,
-          eta: 10,
-          category: [
-            "Pizza"
-          ],
-          address: [
-            "Something st",
-            "Boo"
-          ]
-        },
-        {
-          name: "Old Chicago",
-          url: "url",
-          img: "img",
+          name: "Texas Roadhouse",
+          url: "https://texasroadhouse.com",
+          img: "texasroadhouse.jpg",
           rating: 4,
           price: 2,
-          eta: 10,
+          eta: 6,
           category: [
-            "Pizza",
+            "Steakhouses",
+            "Barbeque",
             "American"
           ],
           address: [
-            "Something st",
-            "Boo"
+            "520 N. 155th Plaza",
+            "Omaha, NE 68154"
+          ]
+        },
+        {
+          name: "Thai Esarn",
+          url: "http://thaiesarninomaha.com/",
+          img: "thaiesarn.jpg",
+          rating: 4,
+          price: 2,
+          eta: 6,
+          category: [
+            "Thai"
+          ],
+          address: [
+            "555 N. 155th Plz",
+            "Omaha, NE 68154"
           ]
         }
       ]

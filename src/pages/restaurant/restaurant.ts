@@ -3,6 +3,7 @@ import { Content, NavController, NavParams } from "ionic-angular";
 import { StatusBar } from '@ionic-native/status-bar';
 import Vibrant from 'node-vibrant';
 import tinycolor from 'tinycolor2';
+import mapboxgl from 'mapbox-gl';
 
 @Component({
   selector: "page-restaurant",
@@ -13,6 +14,7 @@ export class RestaurantPage {
   restaurant;
   bg;
   stars = [];
+  price = [];
   pathToImage;
   color;
   bgColor;
@@ -20,8 +22,10 @@ export class RestaurantPage {
   scrollPosition = 'start';
   hasScrolledDown = false;
   palette;
+  map;
 
   @ViewChild(Content) content: Content;
+  @ViewChild('map') mapElement;
 
   constructor(private params: NavParams, private nav: NavController, private sb: StatusBar) {
     sb.overlaysWebView(false);
@@ -32,12 +36,24 @@ export class RestaurantPage {
       'background-image': `url(${this.pathToImage})`
     };
     this.generateStarsArray(this.restaurant.rating);
+    this.generatePriceArray(this.restaurant.price);
     this.generateColors();
   }
 
   ngAfterContentInit() {
     this.scrollListener();
-    // console.log(this.content);
+    this.initMap();
+  }
+
+  initMap() {
+    console.log(this.mapElement);
+    mapboxgl.accessToken = 'pk.eyJ1Ijoic3VwZXJtZWdhZGV4IiwiYSI6ImNqNnc4c242NDFjcG0zMm56MzlqMDk1czMifQ.gFotKrTtsriSfvGxKVzsoA';
+    this.map = new mapboxgl.Map({
+      container: this.mapElement.nativeElement,
+      style: 'mapbox://styles/mapbox/light-v9',
+      center: this.restaurant.location,
+      zoom: 17
+    });
   }
 
   getWideWindowStartRule(scroll) {
@@ -91,6 +107,10 @@ export class RestaurantPage {
       })();
       rating -= 1;
     }
+  }
+
+  generatePriceArray(price) {
+    this.price = [...new Array(price)].map(() => "$");
   }
 
   starName(type) {

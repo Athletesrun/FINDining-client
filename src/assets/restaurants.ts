@@ -1,4 +1,6 @@
-export const restaurants = [
+import { Restaurant } from '../models/restaurant.model';
+
+export const restaurants: Restaurant[] = [
   {
     name: "Block 16",
     url: "http://block16omaha.com/",
@@ -13,6 +15,10 @@ export const restaurants = [
     address: [
       "1611 Farnam St",
       "Omaha, NE 68102"
+    ],
+    location: [
+      -95.9399596,
+      41.2574411
     ]
   },
   {
@@ -28,6 +34,10 @@ export const restaurants = [
     address: [
       "2121 S 73rd St",
       "Omaha, NE 68124"
+    ],
+    location: [
+      -96.0281422,
+      41.2391492
     ]
   },
   {
@@ -45,6 +55,10 @@ export const restaurants = [
     address: [
       "1415 Farnam St",
       "Omaha, NE 68102"
+    ],
+    location: [
+      -96.0959933,
+      41.2391279
     ]
   }
 ];

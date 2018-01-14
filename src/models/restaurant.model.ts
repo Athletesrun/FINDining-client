@@ -6,5 +6,6 @@ export type Restaurant = {
   price: number,
   eta: number,
   category: string[],
-  address: string[]
+  address: string[],
+  location: number[]
 }
