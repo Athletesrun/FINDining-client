@@ -16,6 +16,9 @@ export class AccountPage {
     },
     {
       name: "Change Password"
+    },
+    {
+      name: "Log Out"
     }
   ];
 

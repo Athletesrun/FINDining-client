@@ -12,6 +12,8 @@ import { AccountPage } from '../account/account';
 export class HomePage {
 
   public restaurants = restaurants;
+  hasScrolledPastZero = false;
+  cancelScrollListener = false;
 
   @ViewChild(Content) content: Content;
 
@@ -19,8 +21,8 @@ export class HomePage {
 
   }
 
-  ngOnInit() {
-    console.log(restaurants);
+  ngAfterViewInit() {
+    this.scrollListener();
   }
 
   openDetailsPage(restaurant) {
@@ -34,12 +36,29 @@ export class HomePage {
     return val;
   }
 
+  scrollListener() {
+    if (!this.cancelScrollListener) requestAnimationFrame(() => {
+      let scroll = this.content.getNativeElement().children[1].scrollTop;
+      if (scroll > 0) {
+        this.hasScrolledPastZero = true;
+      }
+      else {
+        this.hasScrolledPastZero = false;
+      }
+      this.scrollListener();
+    })
+  }
+
   getHasScrolled() {
     return this.content.scrollTop > 0;
   }
 
   openAccountPage() {
     this.navCtrl.push(AccountPage);
+  }
+
+  ngOnDestroy() {
+    this.cancelScrollListener = true;
   }
 
 }

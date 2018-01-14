@@ -7,13 +7,11 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-list>
-      <button ion-item *ngFor="let setting of settings">
-        {{ setting.name }}
-      </button>
-    </ion-list>
-  </ion-card>
+  <ion-list>
+    <button ion-item *ngFor="let setting of settings">
+      {{ setting.name }}
+    </button>
+  </ion-list>
 </ion-content>
 
  <!-- *ngFor="let setting of settings" (click)="setting.action($event)" -->
