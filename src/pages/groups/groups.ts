@@ -9,7 +9,7 @@ import { Group } from "../../models/group.model";
 })
 export class GroupsPage {
 
-  groups: Group[] = [
+  groups = [
     {
       id: 1,
       people: [
