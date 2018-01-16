@@ -13,6 +13,7 @@ import { GroupsPage } from '../pages/groups/groups';
 import { AccountPage } from '../pages/account/account';
 import { ArchivePage } from '../pages/archive/archive';
 import { RestaurantPage } from '../pages/restaurant/restaurant';
+import { FilterPopover } from "../pages/home/filter/filter";
 
 // Components 
 import { RestaurantComponent } from '../components/restaurant/restaurant';
@@ -30,6 +31,7 @@ import { OverflowPopover } from '../pages/home/overflow/overflow';
     GroupsPage,
     GroupPage,
     ArchivePage,
+    FilterPopover
     OverflowPopover
   ],
   imports: [
@@ -46,6 +48,7 @@ import { OverflowPopover } from '../pages/home/overflow/overflow';
     GroupsPage,
     GroupPage,
     ArchivePage,
+    FilterPopover
     OverflowPopover
   ],
   providers: [

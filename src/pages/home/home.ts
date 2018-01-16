@@ -7,6 +7,7 @@ import { RestaurantPage } from '../restaurant/restaurant';
 import { AccountPage } from '../account/account';
 import { GroupsPage } from '../groups/groups';
 import { ArchivePage } from '../archive/archive';
+import { FilterPopover } from "./filter/filter";
 
 import { OverflowPopover } from './overflow/overflow';
 
@@ -16,6 +17,7 @@ import { Restaurant } from '../../models/restaurant.model';
   selector: 'page-home',
   templateUrl: 'home.html'
 })
+
 export class HomePage {
 
   public restaurants: Restaurant[] = restaurants;
@@ -23,7 +25,6 @@ export class HomePage {
   cancelScrollListener = false;
 
   @ViewChild(Content) content: Content;
-
   constructor(public nav: NavController, public pop: PopoverController) {
 
   }
@@ -78,6 +79,12 @@ export class HomePage {
     });
     popover.present({
       ev: event
+    });
+  }
+
+  openFilterPopover(event) {
+    let popover = this.pop.create(FilterPopover).present({
+      ev: event // FilterPopover needs the event to determine where on the screen it should open
     });
   }
 
