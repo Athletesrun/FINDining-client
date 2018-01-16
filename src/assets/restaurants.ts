@@ -8,6 +8,11 @@ export const restaurants: Restaurant[] = [
     rating: 4.5,
     price: 1,
     eta: 23,
+    hours: {
+      day: "Today",
+      opens: "11:00 am",
+      closes: "3:00 pm"
+    },
     category: [
       "Sandwiches",
       "American"
@@ -42,6 +47,11 @@ export const restaurants: Restaurant[] = [
     rating: 4,
     price: 3,
     eta: 17,
+    hours: {
+      day: "Today",
+      opens: "11:00 am",
+      closes: "10:00 pm"
+    },
     category: [
       "Steakhouse"
     ],
@@ -75,6 +85,11 @@ export const restaurants: Restaurant[] = [
     rating: 4.5,
     price: 2,
     eta: 22,
+    hours: {
+      day: "Today",
+      opens: "11:00 am",
+      closes: "8:00 pm"
+    },
     category: [
       "American",
       "Cafes",
