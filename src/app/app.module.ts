@@ -15,8 +15,11 @@ import { ArchivePage } from '../pages/archive/archive';
 import { RestaurantPage } from '../pages/restaurant/restaurant';
 import { FilterPopover } from "../pages/home/filter/filter";
 
-// Components
-import { RestaurantComponent } from "../components/restaurant/restaurant";
+// Components 
+import { RestaurantComponent } from '../components/restaurant/restaurant';
+
+// Popovers
+import { OverflowPopover } from '../pages/home/overflow/overflow';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,7 @@ import { RestaurantComponent } from "../components/restaurant/restaurant";
     GroupPage,
     ArchivePage,
     FilterPopover
+    OverflowPopover
   ],
   imports: [
     BrowserModule,
@@ -45,6 +49,7 @@ import { RestaurantComponent } from "../components/restaurant/restaurant";
     GroupPage,
     ArchivePage,
     FilterPopover
+    OverflowPopover
   ],
   providers: [
     StatusBar,
