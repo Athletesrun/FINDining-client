@@ -15,7 +15,7 @@ import { ArchivePage } from '../pages/archive/archive';
 import { RestaurantPage } from '../pages/restaurant/restaurant';
 import { FilterPopover } from "../pages/home/filter/filter";
 
-// Components 
+// Components
 import { RestaurantComponent } from '../components/restaurant/restaurant';
 
 // Popovers
@@ -31,7 +31,7 @@ import { OverflowPopover } from '../pages/home/overflow/overflow';
     GroupsPage,
     GroupPage,
     ArchivePage,
-    FilterPopover
+    FilterPopover,
     OverflowPopover
   ],
   imports: [
@@ -48,7 +48,7 @@ import { OverflowPopover } from '../pages/home/overflow/overflow';
     GroupsPage,
     GroupPage,
     ArchivePage,
-    FilterPopover
+    FilterPopover,
     OverflowPopover
   ],
   providers: [
