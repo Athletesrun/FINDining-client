@@ -7,5 +7,6 @@ export type Restaurant = {
   eta: number,
   category: string[],
   address: string[],
-  location: number[]
+  location: number[],
+  reviews: object[]
 }

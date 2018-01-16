@@ -24,5 +24,9 @@
       <p class="price">{{price.join("")}}</p>
     </div>
     <div #map class="map"></div>
+    <div class="reviewItem"*ngFor="let review of restaurant.reviews">
+      <p>{{review.text}}</p>
+      <p><strong>{{review.author}}</strong></p>
+    </div>
   </div>
 </ion-content>
