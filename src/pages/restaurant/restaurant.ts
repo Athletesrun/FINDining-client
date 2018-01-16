@@ -4,6 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import Vibrant from 'node-vibrant';
 import tinycolor from 'tinycolor2';
 import mapboxgl from 'mapbox-gl';
+import Tools from "../../tools/tools";
 
 @Component({
   selector: "page-restaurant",
@@ -128,6 +129,10 @@ export class RestaurantPage {
       case 2:
         return 'star';
     }
+  }
+
+  archive() {
+    Tools.Archive(this.restaurant);
   }
 
   back() {

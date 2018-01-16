@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar [color]="'light'">
+    <ion-title>
+      Archive
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <div class="space"></div>
+    <div class="restaurants" *ngIf="isAnArchive">
+      <fd-restaurant *ngFor="let restaurant of archive" [fdRestaurant]="restaurant" (click)="openDetailsPage(restaurant)"></fd-restaurant>
+    </div>
+    <div class="restaurants" *ngIf="!isAnArchive">
+      Oh. You has no restarans in arkiv.
+    </div>
+    <div class="space"></div>
+  </div>
+</ion-content>

@@ -5,6 +5,7 @@ import { restaurants } from '../../assets/restaurants';
 import { RestaurantPage } from '../restaurant/restaurant';
 import { AccountPage } from '../account/account';
 import { GroupsPage } from '../groups/groups';
+import { ArchivePage } from '../archive/archive';
 
 import { Restaurant } from '../../models/restaurant.model';
 
@@ -62,6 +63,10 @@ export class HomePage {
 
   openGroupsPage() {
     this.navCtrl.push(GroupsPage);
+  }
+
+  openArchivePage() {
+    this.navCtrl.push(ArchivePage);
   }
 
   ngOnDestroy() {

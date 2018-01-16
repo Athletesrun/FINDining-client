@@ -11,7 +11,9 @@ import { HomePage } from '../pages/home/home';
 import { GroupPage } from '../pages/group/group';
 import { GroupsPage } from '../pages/groups/groups';
 import { AccountPage } from '../pages/account/account';
+import { ArchivePage } from '../pages/archive/archive';
 import { RestaurantPage } from '../pages/restaurant/restaurant';
+
 // Components 
 import { RestaurantComponent } from "../components/restaurant/restaurant";
 
@@ -23,7 +25,8 @@ import { RestaurantComponent } from "../components/restaurant/restaurant";
     RestaurantComponent,
     AccountPage,
     GroupsPage,
-    GroupPage
+    GroupPage,
+    ArchivePage
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,8 @@ import { RestaurantComponent } from "../components/restaurant/restaurant";
     RestaurantComponent,
     AccountPage,
     GroupsPage,
-    GroupPage
+    GroupPage,
+    ArchivePage
   ],
   providers: [
     StatusBar,
