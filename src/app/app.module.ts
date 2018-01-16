@@ -13,6 +13,7 @@ import { GroupsPage } from '../pages/groups/groups';
 import { AccountPage } from '../pages/account/account';
 import { ArchivePage } from '../pages/archive/archive';
 import { RestaurantPage } from '../pages/restaurant/restaurant';
+import { FriendsPage } from "../pages/friends/friends";
 import { FilterPopover } from "../pages/home/filter/filter";
 import { WelcomeSurvey } from "../pages/welcomeSurvey/welcomeSurvey";
 
@@ -32,6 +33,7 @@ import { OverflowPopover } from '../pages/home/overflow/overflow';
     GroupsPage,
     GroupPage,
     ArchivePage,
+    FriendsPage,
     FilterPopover,
     OverflowPopover,
     WelcomeSurvey
@@ -50,6 +52,7 @@ import { OverflowPopover } from '../pages/home/overflow/overflow';
     GroupsPage,
     GroupPage,
     ArchivePage,
+    FriendsPage,
     FilterPopover,
     OverflowPopover,
     WelcomeSurvey
