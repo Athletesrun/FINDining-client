@@ -25,6 +25,7 @@ export class HomePage {
   cancelScrollListener = false;
 
   @ViewChild(Content) content: Content;
+
   constructor(public nav: NavController, public pop: PopoverController) {
 
   }
@@ -37,11 +38,6 @@ export class HomePage {
     this.nav.push(RestaurantPage, {
       rest: restaurant
     });
-  }
-
-  test(val) {
-    console.log(val);
-    return val;
   }
 
   scrollListener() {
@@ -63,14 +59,6 @@ export class HomePage {
 
   openAccountPage() {
     this.nav.push(AccountPage);
-  }
-
-  openGroupsPage() {
-    this.nav.push(GroupsPage);
-  }
-
-  openArchivePage() {
-    this.nav.push(ArchivePage);
   }
 
   openOverflowPopover(event) {
