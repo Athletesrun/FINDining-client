@@ -7,13 +7,14 @@
 </ion-header>
 
 <ion-content>
-  <div class="container">
+  <div class="grid-container">
     <div class="space"></div>
     <div class="restaurants" *ngIf="isAnArchive">
       <fd-restaurant *ngFor="let restaurant of archive" [fdRestaurant]="restaurant" (click)="openDetailsPage(restaurant)"></fd-restaurant>
     </div>
     <div class="restaurants" *ngIf="!isAnArchive">
-      Oh. You has no restarans in arkiv.
+      <h2>You haven't achived any restaurants!</h2>
+      <h5>Click the <ion-icon name="archive"></ion-icon> button in a restaurant's page to archive it.</h5>
     </div>
     <div class="space"></div>
   </div>

@@ -1,10 +1,11 @@
 import { Component, ViewChild } from "@angular/core";
-import { Content, NavController, NavParams } from "ionic-angular";
+import { Content, NavController, NavParams, Events } from "ionic-angular";
 import { StatusBar } from '@ionic-native/status-bar';
+import { Restaurant } from "../../models/restaurant.model";
+import Tools from "../../tools/tools";
 import Vibrant from 'node-vibrant';
 import tinycolor from 'tinycolor2';
 import mapboxgl from 'mapbox-gl';
-import Tools from "../../tools/tools";
 
 @Component({
   selector: "page-restaurant",
@@ -12,16 +13,17 @@ import Tools from "../../tools/tools";
 })
 export class RestaurantPage {
 
-  restaurant;
-  bg;
+  restaurant: Restaurant;
   stars = [];
   price = [];
-  pathToImage;
-  color;
-  bgColor;
   cancelScrollListener = false;
   scrollPosition = 'start';
   hasScrolledDown = false;
+  isInArchive = false;
+  bg;
+  pathToImage;
+  color;
+  bgColor;
   palette;
   map;
   mapMarker;
@@ -29,7 +31,12 @@ export class RestaurantPage {
   @ViewChild(Content) content: Content;
   @ViewChild('map') mapElement;
 
-  constructor(private params: NavParams, private nav: NavController, private sb: StatusBar) {
+  constructor(
+    private params: NavParams,
+    private nav: NavController,
+    private sb: StatusBar,
+    private event: Events
+  ) {
     sb.overlaysWebView(false);
     sb.backgroundColorByHexString("#fafafa");
     this.restaurant = params.get('rest');
@@ -39,6 +46,7 @@ export class RestaurantPage {
     };
     this.generateStarsArray(this.restaurant.rating);
     this.generatePriceArray(this.restaurant.price);
+    this.isInArchive = Tools.IsInArchive(this.restaurant);
     this.generateColors();
   }
 
@@ -48,7 +56,6 @@ export class RestaurantPage {
   }
 
   initMap() {
-    console.log(this.mapElement);
     mapboxgl.accessToken = 'pk.eyJ1Ijoic3VwZXJtZWdhZGV4IiwiYSI6ImNqNnc4c242NDFjcG0zMm56MzlqMDk1czMifQ.gFotKrTtsriSfvGxKVzsoA';
     this.map = new mapboxgl.Map({
       container: this.mapElement.nativeElement,
@@ -117,7 +124,9 @@ export class RestaurantPage {
   }
 
   generatePriceArray(price) {
-    this.price = [...new Array(price)].map(() => "$");
+    for (let i = 0; i < price; i++) {
+      this.price[i] = "$";
+    }
   }
 
   starName(type) {
@@ -133,6 +142,8 @@ export class RestaurantPage {
 
   archive() {
     Tools.Archive(this.restaurant);
+    this.isInArchive = Tools.IsInArchive(this.restaurant);
+    this.event.publish('fd:archiveChange');
   }
 
   back() {
