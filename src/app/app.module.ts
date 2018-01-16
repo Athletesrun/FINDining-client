@@ -16,7 +16,7 @@ import { RestaurantPage } from '../pages/restaurant/restaurant';
 import { FilterPopover } from "../pages/home/filter/filter";
 import { WelcomeSurvey } from "../pages/welcomeSurvey/welcomeSurvey";
 
-// Components 
+// Components
 import { RestaurantComponent } from '../components/restaurant/restaurant';
 
 // Popovers
@@ -32,8 +32,9 @@ import { OverflowPopover } from '../pages/home/overflow/overflow';
     GroupsPage,
     GroupPage,
     ArchivePage,
-    FilterPopover
-    OverflowPopover
+    FilterPopover,
+    OverflowPopover,
+    WelcomeSurvey
   ],
   imports: [
     BrowserModule,
@@ -49,8 +50,9 @@ import { OverflowPopover } from '../pages/home/overflow/overflow';
     GroupsPage,
     GroupPage,
     ArchivePage,
-    FilterPopover
-    OverflowPopover
+    FilterPopover,
+    OverflowPopover,
+    WelcomeSurvey
   ],
   providers: [
     StatusBar,

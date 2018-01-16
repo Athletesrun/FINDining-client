@@ -1,11 +1,24 @@
-<ion-header>
-  <ion-navbar [color]="'light'">
-    <ion-title>
-      FINDining
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
 <ion-content>
-  Welcome to FINDining!
+  <div class="welcomeText"><p class="welcomeTextP">Welcome to</p></div>
+  <div class="welcomeSurveyImageContainer">
+    <img class="welcomeSurveyImage" src="assets/logo.png" alt="logo">
+  </div>
+  <div class="welcomeNormalText">
+    <p class="welcomeNormalText">Let's find out what types of food you like</p>
+  </div>
+  <!--<div class="welcomeQuestionText"><p class="welcomeText">Are you vegetarian or vegan?</p></div>-->
+  <ion-list radio-group>
+    <ion-list-header>
+      Are you vegetarian or vegan?
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Yes</ion-label>
+      <ion-radio value="yes"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>No</ion-label>
+      <ion-radio checked="true" value="no"></ion-radio>
+    </ion-item>
+  </ion-list>
+  <button class="finishSurveyButton" ion-button (click)="dismissView()">Start Discovering Restaurants!</button>
 </ion-content>
