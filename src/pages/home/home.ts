@@ -2,11 +2,14 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController, Content, PopoverController } from 'ionic-angular';
 
 import { restaurants } from '../../assets/restaurants';
+
 import { RestaurantPage } from '../restaurant/restaurant';
 import { AccountPage } from '../account/account';
 import { GroupsPage } from '../groups/groups';
 import { ArchivePage } from '../archive/archive';
 import { FilterPopover } from "./filter/filter";
+
+import { OverflowPopover } from './overflow/overflow';
 
 import { Restaurant } from '../../models/restaurant.model';
 
@@ -22,8 +25,7 @@ export class HomePage {
   cancelScrollListener = false;
 
   @ViewChild(Content) content: Content;
-
-  constructor(public navCtrl: NavController, public popoverCtrl: PopoverController) {
+  constructor(public nav: NavController, public pop: PopoverController) {
 
   }
 
@@ -32,7 +34,7 @@ export class HomePage {
   }
 
   openDetailsPage(restaurant) {
-    this.navCtrl.push(RestaurantPage, {
+    this.nav.push(RestaurantPage, {
       rest: restaurant
     });
   }
@@ -60,19 +62,28 @@ export class HomePage {
   }
 
   openAccountPage() {
-    this.navCtrl.push(AccountPage);
+    this.nav.push(AccountPage);
   }
 
   openGroupsPage() {
-    this.navCtrl.push(GroupsPage);
+    this.nav.push(GroupsPage);
   }
 
   openArchivePage() {
-    this.navCtrl.push(ArchivePage);
+    this.nav.push(ArchivePage);
+  }
+
+  openOverflowPopover(event) {
+    const popover = this.pop.create(OverflowPopover, {
+      nav: this.nav
+    });
+    popover.present({
+      ev: event
+    });
   }
 
   openFilterPopover(event) {
-    let popover = this.popoverCtrl.create(FilterPopover).present({
+    let popover = this.pop.create(FilterPopover).present({
       ev: event // FilterPopover needs the event to determine where on the screen it should open
     });
   }
@@ -80,5 +91,4 @@ export class HomePage {
   ngOnDestroy() {
     this.cancelScrollListener = true;
   }
-
 }

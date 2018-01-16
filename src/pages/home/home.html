@@ -9,12 +9,17 @@
       <img src="assets/Logo Final.png" class="logo" height="36">
     </ion-title>
     <ion-buttons right>
-      <button ion-button icon-only clear (click)="openFilterPopover($event)"><ion-icon name="funnel"></ion-icon></button>
-      <button ion-button icon-only clear (click)="openGroupsPage()">
+      <button ion-button icon-only clear (click)="openFilterPopover($event)">
+        <ion-icon name="funnel"></ion-icon>
+      </button>
+      <!-- <button ion-button icon-only clear (click)="openGroupsPage()">
         <ion-icon name="people"></ion-icon>
       </button>
       <button ion-button icon-only clear (click)="openArchivePage()">
         <ion-icon name="archive"></ion-icon>
+      </button> -->
+      <button ion-button icon-only clear (click)="openOverflowPopover($event)">
+        <ion-icon name="more"></ion-icon>
       </button>
       &nbsp;
     </ion-buttons>
