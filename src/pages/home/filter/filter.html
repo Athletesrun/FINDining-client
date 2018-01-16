@@ -1,0 +1,27 @@
+<ion-list> <!-- Popover width is set in a SCSS variable in src/theme/variable.scss -->
+  <ion-list-header>Filter</ion-list-header>
+  <ion-item>
+    <ion-label>Distance: {{ distance }} miles</ion-label>
+    <ion-range min="1" max="40" [(ngModel)]="distance">
+      <ion-label range-left>1 mi.</ion-label>
+      <ion-label range-right>40 mi.</ion-label>
+    </ion-range>
+  </ion-item>
+  <ion-item>
+    <ion-label>Price</ion-label>
+    <ion-select [(ngModel)]="price">
+      <ion-option value="1">$1-$10</ion-option>
+      <ion-option value="2">$10-$100</ion-option>
+      <ion-option value="3">$100+</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Meal</ion-label>
+    <ion-select [(ngModel)]="meal">
+      <ion-option value="breakfast">Breakfast</ion-option>
+      <ion-option value="brunch">Brunch</ion-option>
+      <ion-option value="lunch">Lunch</ion-option>
+      <ion-option value="dinner">Dinner</ion-option>
+    </ion-select>
+  </ion-item>
+</ion-list>

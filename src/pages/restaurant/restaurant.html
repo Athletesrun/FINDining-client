@@ -21,8 +21,8 @@
       <p class="ratings">
         <ion-icon class="star" *ngFor="let type of stars" [name]="starName(type)"></ion-icon>
       </p>
-      <p class="hoursHeader"><strong>Hours {{restaurant.hours.day}}:</strong></p>
-      <p class="hoursText">{{restaurant.hours.opens}} - {{restaurant.hours.closes}}</p>
+      <p *ngIf="restaurant.hours" class="hoursHeader"><strong>Hours {{restaurant.hours.day}}:</strong></p>
+      <p *ngIf="restaurant.hours" class="hoursText">{{restaurant.hours.opens}} - {{restaurant.hours.closes}}</p>
       <p class="price">{{price.join("")}}</p>
     </div>
     <div #map class="map"></div>

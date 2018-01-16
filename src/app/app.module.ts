@@ -13,8 +13,9 @@ import { GroupsPage } from '../pages/groups/groups';
 import { AccountPage } from '../pages/account/account';
 import { ArchivePage } from '../pages/archive/archive';
 import { RestaurantPage } from '../pages/restaurant/restaurant';
+import { FilterPopover } from "../pages/home/filter/filter";
 
-// Components 
+// Components
 import { RestaurantComponent } from "../components/restaurant/restaurant";
 
 @NgModule({
@@ -26,7 +27,8 @@ import { RestaurantComponent } from "../components/restaurant/restaurant";
     AccountPage,
     GroupsPage,
     GroupPage,
-    ArchivePage
+    ArchivePage,
+    FilterPopover
   ],
   imports: [
     BrowserModule,
@@ -41,7 +43,8 @@ import { RestaurantComponent } from "../components/restaurant/restaurant";
     AccountPage,
     GroupsPage,
     GroupPage,
-    ArchivePage
+    ArchivePage,
+    FilterPopover
   ],
   providers: [
     StatusBar,

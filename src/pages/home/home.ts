@@ -1,11 +1,12 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController, Content } from 'ionic-angular';
+import { NavController, Content, PopoverController } from 'ionic-angular';
 
 import { restaurants } from '../../assets/restaurants';
 import { RestaurantPage } from '../restaurant/restaurant';
 import { AccountPage } from '../account/account';
 import { GroupsPage } from '../groups/groups';
 import { ArchivePage } from '../archive/archive';
+import { FilterPopover } from "./filter/filter";
 
 import { Restaurant } from '../../models/restaurant.model';
 
@@ -13,6 +14,7 @@ import { Restaurant } from '../../models/restaurant.model';
   selector: 'page-home',
   templateUrl: 'home.html'
 })
+
 export class HomePage {
 
   public restaurants: Restaurant[] = restaurants;
@@ -21,7 +23,7 @@ export class HomePage {
 
   @ViewChild(Content) content: Content;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public popoverCtrl: PopoverController) {
 
   }
 
@@ -67,6 +69,12 @@ export class HomePage {
 
   openArchivePage() {
     this.navCtrl.push(ArchivePage);
+  }
+
+  openFilterPopover(event) {
+    let popover = this.popoverCtrl.create(FilterPopover).present({
+      ev: event // FilterPopover needs the event to determine where on the screen it should open
+    });
   }
 
   ngOnDestroy() {
