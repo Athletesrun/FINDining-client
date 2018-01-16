@@ -14,6 +14,7 @@ import { AccountPage } from '../pages/account/account';
 import { ArchivePage } from '../pages/archive/archive';
 import { RestaurantPage } from '../pages/restaurant/restaurant';
 import { FilterPopover } from "../pages/home/filter/filter";
+import { WelcomeSurvey } from "../pages/welcomeSurvey/welcomeSurvey";
 
 // Components
 import { RestaurantComponent } from "../components/restaurant/restaurant";
