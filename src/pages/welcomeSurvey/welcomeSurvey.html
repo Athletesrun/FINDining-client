@@ -1,0 +1,34 @@
+<ion-content>
+  <div class="welcomeText"><p class="welcomeTextP">Welcome to</p></div>
+  <div class="welcomeSurveyImageContainer">
+    <img class="welcomeSurveyImage" src="assets/logo.png" alt="logo">
+  </div>
+  <div class="welcomeNormalText">
+    <p class="welcomeNormalText">Let's find out what types of food you like</p>
+  </div>
+  <!--<div class="welcomeQuestionText"><p class="welcomeText">Are you vegetarian or vegan?</p></div>-->
+  <ion-list radio-group>
+    <ion-list-header>
+      Are you vegetarian or vegan?
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Yes</ion-label>
+      <ion-radio value="yes"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>No</ion-label>
+      <ion-radio checked="true" value="no"></ion-radio>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-list-header>
+      Which Restaurants do you like?
+    </ion-list-header>
+  </ion-list>
+  <div class="restaurantButtonContainer">
+    <button *ngFor="let cat of categories" ion-button outline (click)="clickRestaurant($event);">
+      {{ cat }}
+    </button>
+  </div>
+  <button class="finishSurveyButton" ion-button (click)="dismissView()">Start Discovering Restaurants!</button>
+</ion-content>
