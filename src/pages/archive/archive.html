@@ -12,9 +12,9 @@
     <div class="restaurants" *ngIf="isAnArchive">
       <fd-restaurant *ngFor="let restaurant of archive" [fdRestaurant]="restaurant" (click)="openDetailsPage(restaurant)"></fd-restaurant>
     </div>
-    <div class="restaurants" *ngIf="!isAnArchive">
-      <h2>You haven't achived any restaurants!</h2>
-      <h5>Click the <ion-icon name="archive"></ion-icon> button in a restaurant's page to archive it.</h5>
+    <div class="restaurants noarchive" *ngIf="!isAnArchive">
+      <h2 class="flex-item">You haven't archived any restaurants!</h2>
+      <h5 class="flex-item">Click the <ion-icon name="archive"></ion-icon> button in a restaurant's page to archive it.</h5>
     </div>
     <div class="space"></div>
   </div>

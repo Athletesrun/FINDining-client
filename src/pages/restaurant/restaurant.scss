@@ -37,6 +37,7 @@ page-restaurant {
     padding: 15px 30px 15px 30px;
     background-color: white;
     z-index: 1000;
+    margin-top: 3rem;
   }
 
   .main {
@@ -104,10 +105,19 @@ page-restaurant {
     transition: 250ms;
   }
 
+  .scroll-hint-arrow {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    top: 10px;
+    font-size: 2em;
+  }
+
   @media (min-width: 75vh) {
     .main {
       top: 75vh;
     }
+
     .restaurant-image {
       height: 75vh;
     }
@@ -125,7 +135,7 @@ page-restaurant {
       width: 45px;
       padding: 18px 18px 18px 16px;
     }
-    
+
     .archive {
       top: 5px;
       right: 14px;

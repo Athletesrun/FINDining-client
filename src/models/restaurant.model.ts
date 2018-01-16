@@ -9,5 +9,5 @@ export type Restaurant = {
   category: string[],
   address: string[],
   location: number[],
-  reviews: object[]
+  reviews?: object[]
 }
