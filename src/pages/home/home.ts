@@ -1,11 +1,14 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController, Content } from 'ionic-angular';
+import { NavController, Content, PopoverController } from 'ionic-angular';
 
 import { restaurants } from '../../assets/restaurants';
+
 import { RestaurantPage } from '../restaurant/restaurant';
 import { AccountPage } from '../account/account';
 import { GroupsPage } from '../groups/groups';
 import { ArchivePage } from '../archive/archive';
+
+import { OverflowPopover } from './overflow/overflow';
 
 import { Restaurant } from '../../models/restaurant.model';
 
@@ -21,7 +24,7 @@ export class HomePage {
 
   @ViewChild(Content) content: Content;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public nav: NavController, public pop: PopoverController) {
 
   }
 
@@ -30,7 +33,7 @@ export class HomePage {
   }
 
   openDetailsPage(restaurant) {
-    this.navCtrl.push(RestaurantPage, {
+    this.nav.push(RestaurantPage, {
       rest: restaurant
     });
   }
@@ -58,19 +61,27 @@ export class HomePage {
   }
 
   openAccountPage() {
-    this.navCtrl.push(AccountPage);
+    this.nav.push(AccountPage);
   }
 
   openGroupsPage() {
-    this.navCtrl.push(GroupsPage);
+    this.nav.push(GroupsPage);
   }
 
   openArchivePage() {
-    this.navCtrl.push(ArchivePage);
+    this.nav.push(ArchivePage);
+  }
+
+  openOverflowPopover(event) {
+    const popover = this.pop.create(OverflowPopover, {
+      nav: this.nav
+    });
+    popover.present({
+      ev: event
+    });
   }
 
   ngOnDestroy() {
     this.cancelScrollListener = true;
   }
-
 }
