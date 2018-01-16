@@ -20,5 +20,15 @@
       <ion-radio checked="true" value="no"></ion-radio>
     </ion-item>
   </ion-list>
+  <ion-list>
+    <ion-list-header>
+      Which Restaurants do you like?
+    </ion-list-header>
+  </ion-list>
+  <div class="restaurantButtonContainer">
+    <button *ngFor="let cat of categories" ion-button outline (click)="clickRestaurant($event);">
+      {{ cat }}
+    </button>
+  </div>
   <button class="finishSurveyButton" ion-button (click)="dismissView()">Start Discovering Restaurants!</button>
 </ion-content>

@@ -27,7 +27,16 @@
   font-size: 18px;
   margin-top: 20px;
 }
+.restaurantButtonContainer {
+  width: 90%;
+  margin-left: 5%;
+}
+.clickedButton {
+  background-color: black;
+  color: white;
+}
 .finishSurveyButton {
   width: 90%;
   margin-left: 5%;
+  margin-top: 20px;
 }
