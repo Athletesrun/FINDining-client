@@ -6,8 +6,11 @@
   <ion-card-content>
     <div class="categories">{{restaurant.category.join(", ")}}</div>
     <div class="address">{{restaurant.address[0]}}</div>
-    <div class="stars">
-      <ion-icon class="star" *ngFor="let type of stars" [name]="starName(type)"></ion-icon>
+    <div class="short-info">
+      <span class="ratings">
+        <ion-icon class="star" *ngFor="let type of stars" [name]="starName(type)"></ion-icon>
+      </span> |
+      <span class="price">{{price.join("")}}</span>
     </div>
   </ion-card-content>
 </ion-card>

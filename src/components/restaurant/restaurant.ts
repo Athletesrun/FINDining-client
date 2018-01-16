@@ -1,4 +1,6 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input } from '@angular/core';
+import { Events } from 'ionic-angular';
+import Tools from '../../tools/tools';
 
 @Component({
   templateUrl: 'restaurant.html',
@@ -7,13 +9,22 @@ import { Component, Input } from "@angular/core";
 export class RestaurantComponent {
   @Input('fdRestaurant') restaurant;
   stars = [];
+  price = [];
+  isInArchive = false;
 
-  constructor() {
+  constructor(private event: Events) {
 
   }
 
   ngOnInit() {
     this.generateStarsArray(this.restaurant.rating);
+    this.generatePriceArray(this.restaurant.price);
+  }
+
+  generatePriceArray(price) {
+    for (let i = 0; i < price; i++) {
+      this.price[i] = "$";
+    }
   }
 
   generateStarsArray(rating) {
@@ -36,5 +47,15 @@ export class RestaurantComponent {
       case 2:
         return 'star';  
     }
+  }
+
+
+  // This doesn't work well.
+  // It's deprecated because it causes the details page to open anyway.
+  archive(ev) {
+    ev.preventDefault();
+    Tools.Archive(this.restaurant);
+    this.isInArchive = Tools.IsInArchive(this.restaurant);
+    this.event.publish('fd:archiveChange');
   }
 }

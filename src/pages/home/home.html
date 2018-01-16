@@ -27,7 +27,7 @@
 </ion-header>
 
 <ion-content padding>
-  <div class="container">
+  <div class="grid-container">
     <div class="space"></div>
     <div class="restaurants">
       <fd-restaurant *ngFor="let restaurant of restaurants" [fdRestaurant]="restaurant" (click)="openDetailsPage(restaurant)"></fd-restaurant>

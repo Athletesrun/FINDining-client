@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, Events } from 'ionic-angular';
 import { Restaurant } from '../../models/restaurant.model';
 import { RestaurantPage } from '../restaurant/restaurant';
 
@@ -12,10 +12,19 @@ export class ArchivePage {
   archive: Restaurant[];
   isAnArchive = true;
 
-  constructor(private nav: NavController) {
+  constructor(private nav: NavController, private event: Events) {
+    this.setArchiveFromSessionStorage();
+    event.subscribe('fd:archiveChange', () => {
+      this.setArchiveFromSessionStorage(); 
+    })
+  }
+
+  setArchiveFromSessionStorage() {
     const sessionArchive = sessionStorage.getItem('archive');
     if (sessionArchive) {
-      this.archive = JSON.parse(sessionArchive).archivedRestaurants;
+      const archivedRestaurants = JSON.parse(sessionArchive).archivedRestaurants;
+      if (archivedRestaurants.length > 0) this.archive = archivedRestaurants;
+      else this.isAnArchive = false;
     }
     else {
       this.archive = [];
@@ -28,5 +37,4 @@ export class ArchivePage {
       rest: rest
     })
   }
-
 }
