@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Group } from '../../models/group.model'
 import { RestaurantPage } from '../restaurant/restaurant';
+import Tools from "../../tools/tools";
 
 @Component({
   templateUrl: 'group.html',
@@ -10,9 +11,11 @@ import { RestaurantPage } from '../restaurant/restaurant';
 export class GroupPage {
 
   group: Group;
+  headerText;
 
   constructor(private nav: NavController, private params: NavParams) {
     this.group = params.get('group');
+    this.headerText = Tools.JoinArrayAsList(this.group.people, "and");
   }
 
   openRestaurant(rest) {

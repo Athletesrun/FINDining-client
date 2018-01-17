@@ -54,10 +54,17 @@ export default class Tools {
 
   static GetRestaurantIndex(obj: Restaurant, list: Restaurant[]) {
     for (let x in list) {
-      if (list.hasOwnProperty(x) && list[x].name === obj.name) {
+      if (list.hasOwnProperty(x) && list[x].name === (obj.name || obj)) {
         return x;
       }
     }
     return -1;
+  }
+
+  static JoinArrayAsList(arr, conjunction) {
+    const newArr = arr.map(d => d);
+    const lastElement = newArr.pop();
+    const list = newArr.join(", ");
+    return `${list}${arr.length > 2 ? ',' : ''} ${conjunction} ${lastElement}`
   }
 }
