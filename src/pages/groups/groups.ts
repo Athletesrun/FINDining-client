@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { NavController } from 'ionic-angular';
 import { GroupPage } from '../group/group';
 import { Group } from "../../models/group.model";
+import { restaurants } from "../../assets/restaurants";
 
 @Component({
   templateUrl: 'groups.html',
@@ -19,20 +20,36 @@ export class GroupsPage {
       ],
       restaurants: [
         {
-          name: "Texas Roadhouse",
-          url: "https://texasroadhouse.com",
-          img: "texasroadhouse.jpg",
-          rating: 4,
-          price: 2,
-          eta: 6,
+          name: "Chipotle",
+          url: "https://www.chipotle.com/",
+          img: "chipotle.jpg",
+          rating: 3.5,
+          price: 1,
+          eta: 10,
           category: [
-            "Steakhouses",
-            "Barbeque",
-            "American"
+            "Mexican",
+            "Fast Food"
           ],
           address: [
-            "520 N. 155th Plaza",
-            "Omaha, NE 68154"
+            "13203 W Center Rd.",
+            "Omaha, NE 68144"
+          ],
+          location: [
+            -96.1225237, 41.2337261
+          ],
+          reviews: [
+            {
+              text: "The food at Chipotle is amazing and I would highly recommend the classic burrito or the burrito bowl.",
+              author: "Mike K."
+            },
+            {
+              text: "Overall it was good, place was very busy and they kept coming around to clean tables off and sweep up the floor, staff was very nice, I would eat here again.",
+              author: "Kaeli N."
+            },
+            {
+              text: "They have added brown rice as an option and now they have corn tortillas for the soft tacos.",
+              author: "Cecil J."
+            }
           ]
         },
         {
@@ -48,6 +65,28 @@ export class GroupsPage {
           address: [
             "555 N. 155th Plz",
             "Omaha, NE 68154"
+          ],
+          hours: {
+            day: "Today",
+            opens: "11:00 am",
+            closes: "9:00 pm"
+          },
+          location: [
+            -96.1573772, 41.2651377
+          ],
+          reviews: [
+            {
+              text: "Each time I ordered the fresh rolls and cup of thom kha soup - they happily subbed tofu for chicken for me and it was delicious.",
+              author: "Jen H."
+            },
+            {
+              text: "The sweet honey sauce with the crab Rangoon is an excellent compliment to the entrees flavors.",
+              author: "Meg B."
+            },
+            {
+              text: "Next time I'd ask for a larger takeout container.",
+              author: "Kyle T."
+            }
           ]
         }
       ]
@@ -59,38 +98,7 @@ export class GroupsPage {
         "Thomas",
         "Noah"
       ],
-      restaurants: [
-        {
-          name: "My Pie",
-          url: "url",
-          img: "img",
-          rating: 3,
-          price: 2,
-          eta: 10,
-          category: [
-            "Pizza"
-          ],
-          address: [
-            "Something st",
-            "Boo"
-          ]
-        },
-        {
-          name: "Chipotle",
-          url: "url",
-          img: "img",
-          rating: 4.5,
-          price: 1,
-          eta: 10,
-          category: [
-            "Mexican"
-          ],
-          address: [
-            "Something st",
-            "Boo"
-          ]
-        }
-      ]
+      restaurants: restaurants
     }
   ];
 

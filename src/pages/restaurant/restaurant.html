@@ -4,6 +4,7 @@
     <ion-icon name="arrow-back" [ngStyle]="{'background-color': bgColor, 'color': color}"></ion-icon>
   </button>
   <div class="main">
+    <ion-icon name="ios-arrow-up" class="scroll-hint-arrow"></ion-icon>
     <h1 class="name">
       <button ion-button icon-only clear class="back-inline" (click)="back()" [ngClass]="(hasScrolledDown && scrollPosition == 'start') ? 'hide' : scrollPosition">
         <ion-icon name="arrow-back"></ion-icon>
