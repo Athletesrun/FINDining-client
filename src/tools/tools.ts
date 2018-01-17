@@ -2,8 +2,8 @@ import { Restaurant } from '../models/restaurant.model';
 
 export default class Tools {
   static Archive(restaurant) {
-    this._initializeArchive();
-    let currentArchive = JSON.parse(sessionStorage.getItem('archive'));
+    let currentArchive = this._initializeArchive();
+    // JSON.parse(sessionStorage.getItem('archive'));
     if (!this.IsInArchive(restaurant)) {
       currentArchive.archivedRestaurants.unshift(restaurant);
       sessionStorage.setItem('archive', JSON.stringify(currentArchive));
@@ -22,16 +22,14 @@ export default class Tools {
       currentArchive = {
         archivedRestaurants: []
       };
-      return;
     }
     currentArchive = JSON.parse(rawSS);
     if (!currentArchive) {
       currentArchive = {
         archivedRestaurants: []
       };
-      return;
     }
-    return;
+    return currentArchive;
   }
 
   static IsInArchive(restaurant) {
