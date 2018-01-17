@@ -9,7 +9,7 @@ import { ViewController, Events } from 'ionic-angular';
 
 export class WelcomeSurvey {
 
-  public categories: string[] = ["Steakhouse", "Salad", "Pizza", "Sandwiches", "Mexican", "Asian", "Italian", "Fish", "Noodles", "Diners", "Deli"];
+  public categories: string[] = ["Steakhouse", "Salad", "Pizza", "Sandwiches", "Mexican", "Asian", "Italian", "Fish", "Noodles", "Diners", "Deli", "Wraps", "Polish", "Middle Eastern", "Gluten-free", "Fish and Chips", "Chicken Wings"];
 
   constructor(
     private view: ViewController,

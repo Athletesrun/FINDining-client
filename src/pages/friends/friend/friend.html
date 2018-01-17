@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar [color]="'light'">
+    <ion-title>
+      Friend
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="iconContainer">
+    <ion-icon name="contact" class="personIcon"></ion-icon>
+  </div>
+  <div class="friendNameContainer">
+    <p class="friendName">{{ friend }}</p>
+  </div>
+  <div class="likesContainer">
+    <p style="font-weight: bold; font-size: 20px;">Likes</p>
+    <ul>
+      <li *ngFor="let restaurant of restaurants" style="font-size: 18px;">
+        {{ restaurant.name }}
+      </li>
+    </ul>
+  </div>
+</ion-content>

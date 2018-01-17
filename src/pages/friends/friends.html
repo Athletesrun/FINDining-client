@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar [color]="'light'">
+    <ion-title>
+      Friends
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <button *ngFor="let friend of friends" ion-item (click)="openFriendPage($event, friend)">
+      <ion-icon name="contact" item-start></ion-icon>
+      {{ friend }}
+    </button>
+  </ion-list>
+</ion-content>

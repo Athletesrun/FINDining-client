@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavParams, ViewController } from 'ionic-angular';
 import {ArchivePage} from "../../archive/archive";
 import {GroupsPage} from "../../groups/groups";
+import { FriendsPage } from "../../friends/friends";
 
 @Component({
   templateUrl: 'overflow.html',
@@ -22,6 +23,11 @@ export class OverflowPopover {
 
   openArchivePage() {
     this.nav.push(ArchivePage);
+    this.close();
+  }
+
+  openFriendsPage() {
+    this.nav.push(FriendsPage);
     this.close();
   }
 
