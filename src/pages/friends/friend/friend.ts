@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { ViewController } from 'ionic-angular';
+import { ViewController, NavParams } from 'ionic-angular';
+
+import { restaurants } from "../../../assets/restaurants";
 
 @Component({
   templateUrl: "friend.html",
@@ -8,7 +10,12 @@ import { ViewController } from 'ionic-angular';
 })
 
 export class FriendPage {
-  constructor(public viewCtrl: ViewController) {
 
+  public friend: string = "";
+  public restaurants: object[];
+
+  constructor(public viewCtrl: ViewController, public navParams: NavParams) {
+    this.friend = navParams.data.friend;
+    this.restaurants = restaurants;
   }
 }

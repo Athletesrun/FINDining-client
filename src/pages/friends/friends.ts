@@ -12,11 +12,11 @@ export class FriendsPage {
 
   public friends: string[] = ["Emilie Brunson", "Joe Hansen", "Mike Downs", "Elizabeth Rhodes", "Mary Johnson", "James Anderson"];
 
-  constructor(private navCtrl: NavController) {
-    console.log(this.friends);
-  }
+  constructor(private navCtrl: NavController) {}
 
-  private openFriendsPage(event, friend) {
-    this.navCtrl.push(FriendPage);
+  private openFriendPage(event, friend) {
+    this.navCtrl.push(FriendPage, {
+      friend: friend
+    });
   }
 }
