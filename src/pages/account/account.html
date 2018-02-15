@@ -8,7 +8,7 @@
 
 <ion-content>
   <ion-list>
-    <button ion-item *ngFor="let setting of settings">
+    <button ion-item *ngFor="let setting of settings" (click)="setting.action()">
       {{ setting.name }}
     </button>
   </ion-list>
