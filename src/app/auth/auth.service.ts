@@ -6,13 +6,13 @@ import Auth0 from 'auth0-js';
 
 const auth0Config = {
   // needed for auth0
-  clientID: 'YOUR_CLIENT_ID',
+  clientID: '8gBgFumCvhjl4fKvS3I-06cWCuundEE-',
 
   // needed for auth0cordova
-  clientId: 'YOUR_CLIENT_ID',
-  domain: 'YOUR_AUTH0_DOMAIN',
+  clientId: '8gBgFumCvhjl4fKvS3I-06cWCuundEE-',
+  domain: 'findining.auth0.com',
   callbackURL: location.href,
-  packageIdentifier: 'YOUR_PACKAGE_ID'
+  packageIdentifier: 'org.findining.client'
 };
 
 @Injectable()
