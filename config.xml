@@ -90,4 +90,5 @@
         <variable name="ANDROID_HOST" value="findining.auth0.com" />
         <variable name="ANDROID_PATHPREFIX" value="/cordova/org.findining.client/callback" />
     </plugin>
+    <engine name="android" spec="7.0.0" />
 </widget>

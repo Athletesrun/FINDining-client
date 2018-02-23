@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Platform, Events } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { Auth0Cordova } from '@auth0/cordova';
+import Auth0Cordova from '@auth0/cordova';
 
 import { HomePage } from '../pages/home/home';
 import { WelcomeSurvey } from "../pages/welcomeSurvey/welcomeSurvey";
