@@ -1,11 +1,9 @@
 import { Component } from "@angular/core";
 import { NavController } from "ionic-angular";
-import { AuthService } from "../../app/auth/auth.service";
 
 @Component({
   templateUrl: 'account.html',
-  selector: 'page-account',
-  providers: [AuthService]
+  selector: 'page-account'
 })
 export class AccountPage {
 
@@ -20,14 +18,13 @@ export class AccountPage {
       name: "Change Password"
     },
     {
-      name: "Test Login",
-      action: () => this.auth.login()
+      name: "Test Login"
     },
     {
       name: "Log Out"
     }
   ];
 
-  constructor(private nav: NavController, private auth: AuthService) { }
+  constructor(private nav: NavController) { }
 
-} 
+}
