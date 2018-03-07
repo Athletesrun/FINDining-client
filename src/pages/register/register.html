@@ -3,10 +3,10 @@
     <div class="logo-wrap">
       <img src="assets/icon/logo_avatar.png" class="logo">
     </div>
-    <ion-card class="login-card">
+    <ion-card class="card">
       <fd-error [visible]="error.visible" [message]="error.message"></fd-error>
       <ion-card-header>
-        <ion-card-title>Sign In</ion-card-title>
+        <ion-card-title>Register</ion-card-title>
       </ion-card-header>
       <ion-item>
         <ion-input placeholder="Email" [(ngModel)]="params.email" name="email" type="email"></ion-input>
@@ -14,12 +14,18 @@
       <ion-item>
         <ion-input placeholder="Password" [(ngModel)]="params.password" name="pw" type="password"></ion-input>
       </ion-item>
+      <ion-item>
+        <ion-input placeholder="First Name" [(ngModel)]="params.firstName" name="fn"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder="Last Name" [(ngModel)]="params.lastName" name="ln"></ion-input>
+      </ion-item>
     </ion-card>
     <div class="footer">
-      <button ion-button color="primary" (click)="register()">Register</button>
+      <button ion-button color="primary" (click)="login()">Sign In</button>
       <span class="buffer"></span>
-      <button ion-button color="secondary" (click)="login()">
-        Sign In&nbsp;&nbsp;
+      <button ion-button color="secondary" (click)="register()">
+        Register&nbsp;&nbsp;
         <ion-icon name="arrow-forward"></ion-icon>
       </button>
     </div>

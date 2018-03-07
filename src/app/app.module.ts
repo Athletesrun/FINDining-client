@@ -19,11 +19,13 @@ import { FriendsPage } from "../pages/friends/friends";
 import { FriendPage } from "../pages/friends/friend/friend";
 import { LoadingPage } from '../pages/loading/loading';
 import { LoginPage } from '../pages/login/login';
+import { RegisterPage } from '../pages/register/register';
 import { WelcomeSurvey } from "../pages/welcomeSurvey/welcomeSurvey";
 
 // Components
 import { RestaurantComponent } from '../components/restaurant/restaurant';
 import { LoadingComponent } from "../components/loading/loading";
+import { ErrorComponent } from '../components/error/error';
 
 // Popovers
 import { OverflowPopover } from '../pages/home/overflow/overflow';
@@ -49,7 +51,9 @@ import { HttpClientModule } from "@angular/common/http";
     WelcomeSurvey,
     LoadingPage,
     LoadingComponent,
-    LoginPage
+    LoginPage,
+    RegisterPage,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +78,9 @@ import { HttpClientModule } from "@angular/common/http";
     WelcomeSurvey,
     LoadingPage,
     LoadingComponent,
-    LoginPage
+    LoginPage,
+    RegisterPage,
+    ErrorComponent
   ],
   providers: [
     StatusBar,

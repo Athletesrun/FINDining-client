@@ -1,4 +1,4 @@
-page-login {
+page-register {
   .logo {
     height: 10vh;
   }
@@ -23,7 +23,7 @@ page-login {
     display: inline-grid;
     grid-template-columns: auto 1fr auto;
   }
-  .login-card {
+  .card {
     overflow-y: auto;
     padding-bottom: 10px;
   }
