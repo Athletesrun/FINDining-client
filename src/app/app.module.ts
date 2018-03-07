@@ -23,13 +23,14 @@ import { WelcomeSurvey } from "../pages/welcomeSurvey/welcomeSurvey";
 
 // Components
 import { RestaurantComponent } from '../components/restaurant/restaurant';
+import { LoadingComponent } from "../components/loading/loading";
 
 // Popovers
 import { OverflowPopover } from '../pages/home/overflow/overflow';
 import { FilterPopover } from "../pages/home/filter/filter";
 
 // Services
-import { HttpService } from '../providers/http.service';
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -47,11 +48,12 @@ import { HttpService } from '../providers/http.service';
     OverflowPopover,
     WelcomeSurvey,
     LoadingPage,
+    LoadingComponent,
     LoginPage
   ],
   imports: [
     BrowserModule,
-    HttpModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot()
   ],
@@ -71,6 +73,7 @@ import { HttpService } from '../providers/http.service';
     OverflowPopover,
     WelcomeSurvey,
     LoadingPage,
+    LoadingComponent,
     LoginPage
   ],
   providers: [

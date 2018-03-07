@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { LoginParams, RegisterParams } from "../models/requests.model";
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { LoginPage } from "../pages/login/login";
 import { Storage } from '@ionic/storage';
 import { HomePage } from "../pages/home/home";
@@ -9,7 +9,7 @@ import { Observable } from "rxjs/Observable";
 @Injectable()
 export class HttpService {
   static token = "";
-  root = "https://findining-database.herokuapp.com";
+  root = "https://api.findining.org";
   api = "/api/v1";
   r = this.root + this.api + "/restaurants/";
   a = this.root + this.api + "/auth/";
@@ -18,12 +18,11 @@ export class HttpService {
 
   static getHeaders() {
 
-    let headers = new Headers({ 'Content-Type': 'application/json', "Auth-Token": HttpService.token });
-    return new RequestOptions({ headers: headers });
+    return new HttpHeaders({ 'Content-Type': 'application/json', "Auth-Token": HttpService.token });
 
   }
 
-  constructor(private http: Http, private storage: Storage) {
+  constructor(private http: HttpClient, private storage: Storage) {
     console.log("Http Service instantiated.");
   }
 
@@ -33,23 +32,35 @@ export class HttpService {
         console.log(token);
         if (token !== null && token !== undefined && token !== "") {
           HttpService.token = token;
-          resolve(HomePage);
+          resolve("home");
         }
         else {
-          resolve(LoginPage);
+          setTimeout(() => resolve("login"), 1500);
         }
       })
     })
   }
 
   public Login(params: LoginParams): Observable<object> {
-    return this.http.post(this.a + "login", params).timeout(this.timeout).map((res: any) => {
+    return this.http.post(
+      this.a + "login",
+      params,
+      {
+        headers: HttpService.getHeaders()
+      }
+      ).timeout(this.timeout).map((res: any) => {
       return res.json();
     });
   }
 
   public Register(params: RegisterParams): Observable<object> {
-    return this.http.post(this.a + "register", params).timeout(this.timeout).map((res: any) => {
+    return this.http.post(
+      this.a + "register",
+      params,
+      {
+        headers: HttpService.getHeaders()
+      }
+      ).timeout(this.timeout).map((res: any) => {
       return res.json;
     })
   }

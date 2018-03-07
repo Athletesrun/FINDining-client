@@ -1,0 +1,15 @@
+page-loading {
+  fd-loading {
+    max-width: 75vw;
+    max-height: 50vh;
+  }
+  .loading-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+    height: 100%;
+  }
+}

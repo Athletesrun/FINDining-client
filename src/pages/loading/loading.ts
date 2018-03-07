@@ -5,5 +5,9 @@ import { Component } from '@angular/core';
   selector: 'page-loading'
 })
 export class LoadingPage {
-  
+  static page: LoadingPage;
+
+  ngOnInit() {
+    LoadingPage.page = this;
+  }
 }

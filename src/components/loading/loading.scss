@@ -1,0 +1,23 @@
+fd-loading {
+  @keyframes utensil-hop {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  img {
+    height: 100px;
+  }
+  @for $i from 1 through 4 {
+    .utensil-#{$i} {
+      animation: utensil-hop 1000ms ease-in-out;
+      animation-delay: #{($i - 1) * 250}ms;
+      animation-iteration-count: infinite;
+    }
+  }
+}
