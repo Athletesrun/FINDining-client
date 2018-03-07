@@ -4,6 +4,8 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { IonicStorageModule } from '@ionic/storage';
+import { HttpModule } from '@angular/http';
 
 // Pages
 import { MyApp } from './app.component';
@@ -15,7 +17,8 @@ import { ArchivePage } from '../pages/archive/archive';
 import { RestaurantPage } from '../pages/restaurant/restaurant';
 import { FriendsPage } from "../pages/friends/friends";
 import { FriendPage } from "../pages/friends/friend/friend";
-import { FilterPopover } from "../pages/home/filter/filter";
+import { LoadingPage } from '../pages/loading/loading';
+import { LoginPage } from '../pages/login/login';
 import { WelcomeSurvey } from "../pages/welcomeSurvey/welcomeSurvey";
 
 // Components
@@ -23,6 +26,10 @@ import { RestaurantComponent } from '../components/restaurant/restaurant';
 
 // Popovers
 import { OverflowPopover } from '../pages/home/overflow/overflow';
+import { FilterPopover } from "../pages/home/filter/filter";
+
+// Services
+import { HttpService } from '../providers/http.service';
 
 @NgModule({
   declarations: [
@@ -38,11 +45,15 @@ import { OverflowPopover } from '../pages/home/overflow/overflow';
     FriendPage,
     FilterPopover,
     OverflowPopover,
-    WelcomeSurvey
+    WelcomeSurvey,
+    LoadingPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    HttpModule,
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -58,7 +69,9 @@ import { OverflowPopover } from '../pages/home/overflow/overflow';
     FriendPage,
     FilterPopover,
     OverflowPopover,
-    WelcomeSurvey
+    WelcomeSurvey,
+    LoadingPage,
+    LoginPage
   ],
   providers: [
     StatusBar,

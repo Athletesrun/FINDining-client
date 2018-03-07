@@ -2,22 +2,28 @@ import { Component } from '@angular/core';
 import { Platform, Events } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import Auth0Cordova from '@auth0/cordova';
 
 import { HomePage } from '../pages/home/home';
 import { WelcomeSurvey } from "../pages/welcomeSurvey/welcomeSurvey";
+import { LoadingPage } from '../pages/loading/loading';
+import { HttpService } from '../providers/http.service';
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+  providers: [HttpService]
 })
 export class MyApp {
   // rootPage:any = HomePage;
-  public rootPage: any = WelcomeSurvey;
+  public rootPage: any = LoadingPage;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public events: Events) {
+  constructor(
+    platform: Platform,
+    statusBar: StatusBar,
+    splashScreen: SplashScreen,
+    public events: Events,
+    private http: HttpService
+  ) {
     platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       statusBar.overlaysWebView(false);
       statusBar.backgroundColorByHexString("#fafafa");
@@ -27,12 +33,13 @@ export class MyApp {
         this.rootPage = HomePage;
       });
 
-      (<any>window).handleOpenURL = (url) => {
-        Auth0Cordova.onRedirectUri(url);
-      };
+      this.prepareHttp();
     });
+  }
 
-
+  prepareHttp = async () => {
+    console.log("preparing HTTP.");
+    this.rootPage = await this.http.CheckToken();
   }
 }
 

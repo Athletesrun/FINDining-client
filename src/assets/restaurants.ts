@@ -2,17 +2,13 @@ import { Restaurant } from '../models/restaurant.model';
 
 export const restaurants: Restaurant[] = [
   {
+    id: "1",
     name: "Block 16",
     url: "http://block16omaha.com/",
     img: "block16.jpg",
     rating: 4.5,
     price: 1,
-    eta: 23,
-    hours: {
-      day: "Today",
-      opens: "11:00 am",
-      closes: "3:00 pm"
-    },
+    distance: 23,
     category: [
       "Sandwiches",
       "American"
@@ -41,17 +37,13 @@ export const restaurants: Restaurant[] = [
     ]
   },
   {
+    id: "2",
     name: "The Drover",
     url: "http://www.droverrestaurant.com/",
     img: "drover.jpg",
     rating: 4,
     price: 3,
-    eta: 17,
-    hours: {
-      day: "Today",
-      opens: "11:00 am",
-      closes: "10:00 pm"
-    },
+    distance: 17,
     category: [
       "Steakhouse"
     ],
@@ -79,17 +71,13 @@ export const restaurants: Restaurant[] = [
     ]
   },
   {
+    id: "3",
     name: "Kitchen Table",
     url: "http://kitchentableomaha.com/",
     img: "kitchentable.jpg",
     rating: 4.5,
     price: 2,
-    eta: 22,
-    hours: {
-      day: "Today",
-      opens: "11:00 am",
-      closes: "8:00 pm"
-    },
+    distance: 22,
     category: [
       "American",
       "Cafes",
