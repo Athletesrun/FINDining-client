@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, NgZone, ElementRef } from '@angular/core';
 import { NavController, Content, PopoverController } from 'ionic-angular';
 
 import { RestaurantPage } from '../restaurant/restaurant';
@@ -10,8 +10,9 @@ import { FilterPopover } from "./filter/filter";
 import { OverflowPopover } from './overflow/overflow';
 
 import { Restaurant } from '../../models/restaurant.model';
-import {HttpService} from "../../providers/http.service";
-import {GetRestaurantFeedParams} from "../../models/requests.model";
+import { HttpService } from "../../providers/http.service";
+import { GetRestaurantFeedParams } from "../../models/requests.model";
+import { LoadingComponent } from '../../components/loading/loading';
 
 @Component({
   selector: 'page-home',
@@ -33,10 +34,17 @@ export class HomePage {
 
   restaurantSegment = 0;
   isLoading = false;
+  isGettingNewRestaurants = false;
 
   @ViewChild(Content) content: Content;
+  @ViewChild('loading', {read: ElementRef}) loading: ElementRef;
 
-  constructor(public nav: NavController, public pop: PopoverController, private http: HttpService) {
+  constructor(
+    public nav: NavController,
+    public pop: PopoverController,
+    private http: HttpService,
+    private zone: NgZone
+  ) {
 
   }
 
@@ -59,6 +67,16 @@ export class HomePage {
     })
   }
 
+  loadListener(e) {
+    if (this.isLoading) {
+      this.zone.run(() => {
+        if (e.scrollTop + e.scrollHeight > this.loading.nativeElement.offsetTop) {
+          this.getRestaurants();
+        }
+      })
+    }
+  }
+
   updateRestaurants() {
     this.restaurantSegment = 0;
     this.restaurants = [];
@@ -66,14 +84,23 @@ export class HomePage {
   }
 
   getRestaurants() {
+    console.log("tring to get new restaurants");
+    if (this.isGettingNewRestaurants) return;
+    console.log("is getting new restaurants")
+    this.isGettingNewRestaurants = true;
     this.isLoading = true;
     this.http.GetRestaurantFeed(this.params, this.restaurantSegment).subscribe(res => {
       console.log(res);
       if (res.status === 10) {
+        if (res.data.length === 0) {
+          this.isLoading = false;
+          return;
+        }
         res.data.map(restaurant => {
           this.restaurants.push(restaurant);
         });
         this.restaurantSegment++;
+        setTimeout(() => this.isGettingNewRestaurants = false, 1000);        
       }
     })
   }

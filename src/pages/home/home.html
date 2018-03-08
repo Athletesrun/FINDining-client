@@ -20,13 +20,13 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding (ionScroll)="loadListener($event)">
   <div class="grid-container">
     <div class="space"></div>
     <div class="restaurants">
       <fd-restaurant *ngFor="let restaurant of restaurants" [fdRestaurant]="restaurant" (click)="openDetailsPage(restaurant)"></fd-restaurant>
       <div class="load-wrap">
-        <fd-loading *ngIf="isLoading"></fd-loading>
+        <fd-loading *ngIf="isLoading" #loading></fd-loading>
       </div>
     </div>
     <div class="space"></div>

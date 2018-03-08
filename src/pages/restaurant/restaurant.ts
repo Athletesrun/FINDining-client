@@ -64,7 +64,7 @@ export class RestaurantPage {
       container: this.mapElement.nativeElement,
       style: 'mapbox://styles/mapbox/light-v9',
       center: [this.restaurant.longitude, this.restaurant.latitude],
-      zoom: 17
+      zoom: 15
     });
     let el = document.createElement("img");
     el.src = "assets/pin.svg";
