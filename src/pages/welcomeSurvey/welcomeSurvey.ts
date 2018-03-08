@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ViewController, Events } from 'ionic-angular';
+import {Events, NavController} from 'ionic-angular';
+import {HomePage} from "../home/home";
 
 @Component({
   templateUrl: "welcomeSurvey.html",
@@ -12,17 +13,14 @@ export class WelcomeSurvey {
   public categories: string[] = ["Steakhouse", "Salad", "Pizza", "Sandwiches", "Mexican", "Asian", "Italian", "Fish", "Noodles", "Diners", "Deli", "Wraps", "Polish", "Middle Eastern", "Gluten-free", "Fish and Chips", "Chicken Wings"];
 
   constructor(
-    private view: ViewController,
+    private nav: NavController,
     public events: Events
   ) {
 
   }
 
   dismissView() {
-    this.events.publish("finishedWelcomeSurvey");
-    setTimeout(() => {
-      this.view.dismiss();
-    }, 500);
+    this.nav.setRoot(HomePage, {}, { animate: true, direction: "forward" });
   }
 
   public clickRestaurant(event) {

@@ -15,7 +15,7 @@ export class RestaurantPage {
 
   restaurant: Restaurant;
   stars = [];
-  price = [];
+  price = "";
   cancelScrollListener = false;
   scrollPosition = 'start';
   hasScrolledDown = false;
@@ -27,6 +27,7 @@ export class RestaurantPage {
   palette;
   map;
   mapMarker;
+  categories = "";
 
   @ViewChild(Content) content: Content;
   @ViewChild('map') mapElement;
@@ -40,7 +41,8 @@ export class RestaurantPage {
     sb.overlaysWebView(false);
     sb.backgroundColorByHexString("#fafafa");
     this.restaurant = params.get('rest');
-    this.pathToImage = "assets/imgs/placeholder/" + this.restaurant.img;
+    this.categories = this.restaurant.categories.values.map(d => d.title).join(", ");
+    this.pathToImage = this.restaurant.image_url;
     this.bg = {
       'background-image': `url(${this.pathToImage})`
     };
@@ -56,17 +58,18 @@ export class RestaurantPage {
   }
 
   initMap() {
+    console.log(this.restaurant);
     mapboxgl.accessToken = 'pk.eyJ1Ijoic3VwZXJtZWdhZGV4IiwiYSI6ImNqNnc4c242NDFjcG0zMm56MzlqMDk1czMifQ.gFotKrTtsriSfvGxKVzsoA';
     this.map = new mapboxgl.Map({
       container: this.mapElement.nativeElement,
       style: 'mapbox://styles/mapbox/light-v9',
-      center: this.restaurant.location,
+      center: [this.restaurant.longitude, this.restaurant.latitude],
       zoom: 17
     });
     let el = document.createElement("img");
     el.src = "assets/pin.svg";
     this.mapMarker = new mapboxgl.Marker(el)
-      .setLngLat(this.restaurant.location)
+      .setLngLat([this.restaurant.longitude, this.restaurant.latitude])
       .addTo(this.map);
   }
 
@@ -125,7 +128,7 @@ export class RestaurantPage {
 
   generatePriceArray(price) {
     for (let i = 0; i < price; i++) {
-      this.price[i] = "$";
+      this.price += "$";
     }
   }
 
@@ -138,6 +141,10 @@ export class RestaurantPage {
       case 2:
         return 'star';
     }
+  }
+
+  openYelpPage() {
+    open(this.restaurant.url);
   }
 
   archive() {

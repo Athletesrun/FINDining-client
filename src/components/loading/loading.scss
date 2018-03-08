@@ -11,7 +11,7 @@ fd-loading {
     }
   }
   img {
-    height: 100px;
+    height: 10vh;
   }
   @for $i from 1 through 4 {
     .utensil-#{$i} {

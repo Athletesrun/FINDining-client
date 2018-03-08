@@ -1,13 +1,13 @@
 import {Component, ViewChild} from '@angular/core';
-import {Platform, Events, NavController} from 'ionic-angular';
+import { Platform, Events, NavController, Keyboard } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { WelcomeSurvey } from "../pages/welcomeSurvey/welcomeSurvey";
+// import { WelcomeSurvey } from "../pages/welcomeSurvey/welcomeSurvey";
 import { LoadingPage } from '../pages/loading/loading';
 import { HttpService } from '../providers/http.service';
-import {LoginPage} from "../pages/login/login";
+import { LoginPage } from "../pages/login/login";
 
 @Component({
   templateUrl: 'app.html',
@@ -22,20 +22,17 @@ export class MyApp {
     platform: Platform,
     statusBar: StatusBar,
     splashScreen: SplashScreen,
+    keyboard: Keyboard,
     public events: Events,
     private http: HttpService
   ) {
     platform.ready().then(() => {
       statusBar.styleDefault();
+      // keyboard.disableScroll(true);
       statusBar.overlaysWebView(false);
       statusBar.backgroundColorByHexString("#fafafa");
       splashScreen.hide();
       console.log(this.nav);
-
-      events.subscribe("finishedWelcomeSurvey", () => {
-        this.rootPage = HomePage;
-      });
-
       this.prepareHttp();
     });
   }

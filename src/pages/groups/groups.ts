@@ -2,7 +2,6 @@ import { Component } from "@angular/core";
 import { NavController } from 'ionic-angular';
 import { GroupPage } from '../group/group';
 import { Group } from "../../models/group.model";
-import { restaurants } from "../../assets/restaurants";
 
 @Component({
   templateUrl: 'groups.html',
@@ -98,7 +97,6 @@ export class GroupsPage {
         "Thomas",
         "Noah"
       ],
-      restaurants: restaurants
     }
   ];
 

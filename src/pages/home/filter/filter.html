@@ -2,14 +2,15 @@
   <ion-list-header>Filter</ion-list-header>
   <ion-item>
     <ion-label>Distance: {{ distance }} miles</ion-label>
-    <ion-range min="1" max="40" [(ngModel)]="distance">
+    <ion-range min="1" max="40" [(ngModel)]="distance" (ionChange)="onChange()" [debounce]="500">
       <ion-label range-left>1 mi.</ion-label>
       <ion-label range-right>40 mi.</ion-label>
     </ion-range>
   </ion-item>
   <ion-item>
     <ion-label>Price</ion-label>
-    <ion-select [(ngModel)]="price">
+    <ion-select [(ngModel)]="price" (ionChange)="onChange()">
+      <ion-option value="0">No Preference</ion-option>
       <ion-option value="1">$1-$10</ion-option>
       <ion-option value="2">$10-$100</ion-option>
       <ion-option value="3">$100+</ion-option>
@@ -17,7 +18,8 @@
   </ion-item>
   <ion-item>
     <ion-label>Meal</ion-label>
-    <ion-select [(ngModel)]="meal">
+    <ion-select [(ngModel)]="meal" (ionChange)="onChange()">
+      <ion-option value="none">No Preference</ion-option>
       <ion-option value="breakfast">Breakfast</ion-option>
       <ion-option value="brunch">Brunch</ion-option>
       <ion-option value="lunch">Lunch</ion-option>

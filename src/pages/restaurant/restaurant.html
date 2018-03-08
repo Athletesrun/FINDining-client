@@ -17,20 +17,24 @@
       </button>
     </h1>
     <div class="padding">
-      <p class="categories">{{restaurant.category.join(", ")}}</p>
-      <p class="address">{{restaurant.address[0]}}<br>{{restaurant.address[1]}}</p>
+      <h4>Address</h4>
+      <p class="address">{{restaurant.address.display_address.join("\n")}}</p>
+      <h4 *ngIf="categories">Categories</h4>
+      <p class="categories">{{categories}}</p>
       <p class="short-info">
+        <span *ngIf="price"><span class="price">{{price}}</span> | </span>
         <span class="ratings">
-          <ion-icon class="star" *ngFor="let type of stars" [name]="starName(type)"></ion-icon>
-        </span> | <span class="price">{{price.join("")}}</span>
+          <img [src]="'assets/yelp/stars/3x/' + restaurant.rating + '.png'" class="stars">
+        </span> <span class="review-count">{{restaurant.review_count}} reviews</span>
+        <img src="assets/yelp/logo/yelp.png" class="yelp" (click)="openYelpPage()">
       </p>
-      <p *ngIf="restaurant.hours" class="hoursHeader"><strong>Hours {{restaurant.hours.day}}:</strong></p>
-      <p *ngIf="restaurant.hours" class="hoursText">{{restaurant.hours.opens}} - {{restaurant.hours.closes}}</p>
+      <!--<p *ngIf="restaurant.hours" class="hoursHeader"><strong>Hours {{restaurant.hours.day}}:</strong></p> -->
+      <!--<p *ngIf="restaurant.hours" class="hoursText">{{restaurant.hours.opens}} - {{restaurant.hours.closes}}</p>-->
     </div>
     <div #map class="map"></div>
-    <div class="reviewItem"*ngFor="let review of restaurant.reviews">
-      <p>{{review.text}}</p>
-      <p><strong>{{review.author}}</strong></p>
-    </div>
+    <!--<div class="reviewItem" *ngFor="let review of restaurant.reviews">-->
+      <!--<p>{{review.text}}</p>-->
+      <!--<p><strong>{{review.author}}</strong></p>-->
+    <!--</div>-->
   </div>
 </ion-content>

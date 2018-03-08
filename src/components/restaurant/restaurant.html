@@ -1,16 +1,18 @@
 <ion-card>
-  <img [src]="'assets/imgs/placeholder/' + restaurant.img">
+  <img [src]="restaurant.image_url">
   <ion-card-header>
     <ion-card-title>{{restaurant.name}}</ion-card-title>
   </ion-card-header>
   <ion-card-content>
-    <div class="categories">{{restaurant.category.join(", ")}}</div>
-    <div class="address">{{restaurant.address[0]}}</div>
+    <!--<div class="categories">{{restaurant.category.join(", ")}}</div>-->
+    <!--<div class="address">{{restaurant.address[0]}}</div>-->
     <div class="short-info">
       <span class="ratings">
-        <ion-icon class="star" *ngFor="let type of stars" [name]="starName(type)"></ion-icon>
-      </span> |
-      <span class="price">{{price.join("")}}</span>
+        <span *ngIf="price"><span class="price">{{price}}</span> | </span>
+        <span class="ratings">
+          <img [src]="'assets/yelp/stars/3x/' + restaurant.rating + '.png'" class="stars">
+        </span> <span class="review-count">{{restaurant.review_count}} reviews</span>
+      </span>
     </div>
   </ion-card-content>
 </ion-card>

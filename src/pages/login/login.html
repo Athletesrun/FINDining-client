@@ -1,7 +1,8 @@
 <ion-content padding>
   <div class="grid-wrap">
     <div class="logo-wrap">
-      <img src="assets/icon/logo_avatar.png" class="logo">
+      <img src="assets/icon/logo_avatar.png" class="logo" *ngIf="!isLoading">
+      <fd-loading *ngIf="isLoading"></fd-loading>
     </div>
     <ion-card class="login-card">
       <fd-error [visible]="error.visible" [message]="error.message"></fd-error>

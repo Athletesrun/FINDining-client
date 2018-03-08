@@ -9,21 +9,22 @@ import Tools from '../../tools/tools';
 export class RestaurantComponent {
   @Input('fdRestaurant') restaurant;
   stars = [];
-  price = [];
+  price = "";
   isInArchive = false;
 
   constructor(private event: Events) {
-
+    // console.log(this.restaurant);
+    // if (!this.restaurant.categories) this.restaurant.categories = [];
   }
 
   ngOnInit() {
-    this.generateStarsArray(this.restaurant.rating);
+    // this.generateStarsArray(this.restaurant.rating);
     this.generatePriceArray(this.restaurant.price);
   }
 
   generatePriceArray(price) {
     for (let i = 0; i < price; i++) {
-      this.price[i] = "$";
+      this.price += "$";
     }
   }
 
@@ -45,7 +46,7 @@ export class RestaurantComponent {
       case 1:
         return 'star-half';
       case 2:
-        return 'star';  
+        return 'star';
     }
   }
 

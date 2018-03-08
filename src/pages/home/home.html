@@ -12,9 +12,9 @@
       <button ion-button icon-only clear (click)="openFilterPopover($event)">
         <ion-icon name="funnel"></ion-icon>
       </button>
-      <button ion-button icon-only clear (click)="openOverflowPopover($event)">
-        <ion-icon name="more"></ion-icon>
-      </button>
+      <!--<button ion-button icon-only clear (click)="openOverflowPopover($event)">-->
+        <!--<ion-icon name="more"></ion-icon>-->
+      <!--</button>-->
       &nbsp;
     </ion-buttons>
   </ion-navbar>
@@ -25,6 +25,9 @@
     <div class="space"></div>
     <div class="restaurants">
       <fd-restaurant *ngFor="let restaurant of restaurants" [fdRestaurant]="restaurant" (click)="openDetailsPage(restaurant)"></fd-restaurant>
+      <div class="load-wrap">
+        <fd-loading *ngIf="isLoading"></fd-loading>
+      </div>
     </div>
     <div class="space"></div>
   </div>

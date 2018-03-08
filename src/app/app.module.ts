@@ -58,7 +58,7 @@ import { HttpClientModule } from "@angular/common/http";
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {scrollAssist: false}),
     IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],

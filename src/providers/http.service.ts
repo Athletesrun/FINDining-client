@@ -1,13 +1,12 @@
 import { Injectable } from "@angular/core";
-import { LoginParams, RegisterParams } from "../models/requests.model";
+import {GetRestaurantFeedParams, LoginParams, RegisterParams} from "../models/requests.model";
 import { HttpClient, HttpHeaders, HttpErrorResponse } from "@angular/common/http";
-import { LoginPage } from "../pages/login/login";
 import { Storage } from '@ionic/storage';
-import { HomePage } from "../pages/home/home";
 import { Observable } from "rxjs/Observable";
 import * as SHA from 'sha256';
 import { catchError } from "rxjs/operators";
 import { ErrorObservable } from "rxjs/observable/ErrorObservable";
+import {GetRestaurantsRes} from "../models/responses.model";
 
 @Injectable()
 export class HttpService {
@@ -20,7 +19,8 @@ export class HttpService {
   // timeout = 10000;
 
   static getHeaders() {
-    return new HttpHeaders({ 'Content-Type': 'application/json', "Auth-Token": HttpService.token });
+    console.log(HttpService.token);
+    return new HttpHeaders().set('Content-Type', 'application/json').set("Auth-Token", HttpService.token);
   }
 
   static CheckErrorCode(code) {
@@ -28,24 +28,33 @@ export class HttpService {
       case 10:
         return false;
       case 11:
-        return "Missing required parameters."
+        return "Missing required parameters.";
       case 20:
-        return "User with provided email already exists."
+        return "User with provided email already exists.";
       case 21:
-        return "Invalid email and/or password combination."
+        return "Invalid email and/or password combination.";
       case 22:
-        return "Missing token."
+        return "Missing token.";
       case 23:
-        return "Invalid token."
+        return "Invalid token.";
       case 50:
-        return "Internal server error."
+        return "Internal server error.";
       default:
         return "What happened?"
     }
   }
 
   constructor(private http: HttpClient, private storage: Storage) {
-    console.log("Http Service instantiated.");
+    console.log(HttpService.token);
+  }
+
+  setToken(token) {
+    HttpService.token = token;
+    return this.storage.set("token", token);
+  }
+
+  signOut() {
+    return this.setToken("");
   }
 
   private handleError(error: HttpErrorResponse) {
@@ -70,16 +79,16 @@ export class HttpService {
         console.log(token);
         if (token !== null && token !== undefined && token !== "") {
           HttpService.token = token;
-          resolve("home");
+          setTimeout(() => resolve("home"), 1000);
         }
         else {
-          setTimeout(() => resolve("login"), 1500);
+          setTimeout(() => resolve("login"), 1000);
         }
       })
     })
   }
 
-  public Login(params: LoginParams): Observable<object> {
+  public Login(params: LoginParams): Observable<any> {
     return this.http.post<object>(
       this.a + "login",
       Object.assign({}, params, { password: SHA(params.password + "findining") }),
@@ -89,8 +98,7 @@ export class HttpService {
       );
   }
 
-  public Register(params: RegisterParams): Observable<object> {
-    params.password = SHA(params.password + "findining");
+  public Register(params: RegisterParams): Observable<any> {
     return this.http.post(
       this.a + "register",
       Object.assign({}, params, { password: SHA(params.password + "findining") }),
@@ -98,5 +106,17 @@ export class HttpService {
     ).pipe(
       catchError(this.handleError)
     );
+  }
+
+  public GetRestaurantFeed(params: GetRestaurantFeedParams, segment: number): Observable<GetRestaurantsRes> {
+    let headers = HttpService.getHeaders();
+    console.log(headers);
+    return this.http.get(
+      this.r + "getRestaurantFeed/" + segment +
+      `?distance=${params.distance}&price=${params.price}&meal=${params.meal}&latitude=${41.2523630}&longitude=${-95.9979880}`,
+      {headers: HttpService.getHeaders()}
+    ).pipe(
+      catchError(this.handleError)
+    )
   }
 }
