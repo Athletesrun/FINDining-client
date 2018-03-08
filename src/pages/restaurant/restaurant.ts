@@ -42,7 +42,7 @@ export class RestaurantPage {
     sb.backgroundColorByHexString("#fafafa");
     this.restaurant = params.get('rest');
     this.categories = this.restaurant.categories.values.map(d => d.title).join(", ");
-    this.pathToImage = this.restaurant.image_url;
+    this.pathToImage = this.restaurant.image_url || 'assets/placeholder/placeholder.png';
     this.bg = {
       'background-image': `url(${this.pathToImage})`
     };

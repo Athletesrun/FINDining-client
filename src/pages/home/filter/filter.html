@@ -11,9 +11,10 @@
     <ion-label>Price</ion-label>
     <ion-select [(ngModel)]="price" (ionChange)="onChange()">
       <ion-option value="0">No Preference</ion-option>
-      <ion-option value="1">$1-$10</ion-option>
-      <ion-option value="2">$10-$100</ion-option>
-      <ion-option value="3">$100+</ion-option>
+      <ion-option value="1">⩽ $10</ion-option>
+      <ion-option value="2">$11-$30</ion-option>
+      <ion-option value="3">$31-$60</ion-option>
+      <ion-option value="4">&gt; $60</ion-option>
     </ion-select>
   </ion-item>
   <ion-item>
