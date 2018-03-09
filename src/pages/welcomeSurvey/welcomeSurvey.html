@@ -4,44 +4,22 @@
     <img class="welcomeSurveyImage" src="assets/logo.png" alt="logo">
   </div>
   <div class="welcomeNormalText">
-    <p class="welcomeNormalText">Let's find out what types of food you like</p>
+    <p class="welcomeNormalText">Choose your favorites to get started:</p>
   </div>
   <!--<div class="welcomeQuestionText"><p class="welcomeText">Are you vegetarian or vegan?</p></div>-->
-  <ion-list radio-group>
-    <ion-list-header>
-      Are you vegetarian?
-    </ion-list-header>
-    <ion-item>
-      <ion-label>Yes</ion-label>
-      <ion-radio value="yes"></ion-radio>
-    </ion-item>
-    <ion-item>
-      <ion-label>No</ion-label>
-      <ion-radio checked="true" value="no"></ion-radio>
-    </ion-item>
-  </ion-list>
-  <ion-list radio-group>
-    <ion-list-header>
-      Are you vegan?
-    </ion-list-header>
-    <ion-item>
-      <ion-label>Yes</ion-label>
-      <ion-radio value="yes"></ion-radio>
-    </ion-item>
-    <ion-item>
-      <ion-label>No</ion-label>
-      <ion-radio checked="true" value="no"></ion-radio>
-    </ion-item>
-  </ion-list>
-  <ion-list>
-    <ion-list-header>
-      Which Restaurants do you like?
-    </ion-list-header>
-  </ion-list>
+  <!--<ion-list>-->
+    <!--<ion-list-header>-->
+      <!--Which Restaurants do you like?-->
+    <!--</ion-list-header>-->
+  <!--</ion-list>-->
   <div class="restaurantButtonContainer">
-    <button *ngFor="let cat of categories" ion-button outline (click)="clickRestaurant($event);">
-      {{ cat }}
+    <button *ngFor="let button of buttons; let i = index" ion-button outline (click)="clickButton(i);" class="category-button" [ngClass]="button.enabled ? 'enabled' : 'disabled'">
+      {{ button.name }}
     </button>
+    <!--<button class="finishSurveyButton" ion-button (click)="dismissView()" color="secondary">Start Discovering Restaurants&nbsp;&nbsp;<ion-icon name="arrow-forward"></ion-icon></button>-->
   </div>
-  <button class="finishSurveyButton" ion-button (click)="dismissView()">Start Discovering Restaurants!</button>
+
+  <!--<ion-fab bottom right class="extra-bottom-padding">-->
+    <button ion-fab (click)="dismissView()" color="secondary" class="submit-fab"><ion-icon name="checkmark"></ion-icon></button>
+  <!--</ion-fab>-->
 </ion-content>

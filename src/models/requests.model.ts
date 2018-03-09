@@ -19,3 +19,7 @@ export type GetRestaurantFeedParams = {
 export type GetRestaurantParams = {
   name: string
 }
+
+export type SurveyResultsParams = {
+  categories: string[]
+}

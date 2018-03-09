@@ -21,9 +21,6 @@ export class AccountPage {
       name: "Change Password"
     },
     {
-      name: "Test Login"
-    },
-    {
       name: "Log Out",
       action: () => {
         this.http.signOut().then(() => {

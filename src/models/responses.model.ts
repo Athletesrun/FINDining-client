@@ -4,3 +4,7 @@ export type GetRestaurantsRes = {
   status: number,
   data: Restaurant[];
 }
+
+export type GenericStatusRes = {
+  status: number
+}

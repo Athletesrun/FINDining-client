@@ -8,6 +8,7 @@ import { HomePage } from '../pages/home/home';
 import { LoadingPage } from '../pages/loading/loading';
 import { HttpService } from '../providers/http.service';
 import { LoginPage } from "../pages/login/login";
+import {WelcomeSurvey} from "../pages/welcomeSurvey/welcomeSurvey";
 
 @Component({
   templateUrl: 'app.html',
@@ -17,6 +18,8 @@ export class MyApp {
   // rootPage:any = HomePage;
   public rootPage: any = LoadingPage;
   @ViewChild('nav') nav: NavController;
+  debug = false;
+  debugPage = WelcomeSurvey;
 
   constructor(
     platform: Platform,
@@ -32,15 +35,18 @@ export class MyApp {
       statusBar.overlaysWebView(false);
       statusBar.backgroundColorByHexString("#fafafa");
       splashScreen.hide();
-      console.log(this.nav);
       this.prepareHttp();
     });
   }
 
   prepareHttp() {
-    console.log("preparing HTTP.");
     this.http.CheckToken().then(page => {
-      this.nav.setRoot(page == "home" ? HomePage : LoginPage, {}, {animate: true, direction: 'forward'});
+      if (this.debug) {
+        this.nav.setRoot(this.debugPage, {}, {animate: true, direction: 'forward'})
+      }
+      else {
+        this.nav.setRoot(page == "home" ? HomePage : LoginPage, {}, {animate: true, direction: 'forward'});
+      }
     })
   }
 }

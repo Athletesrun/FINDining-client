@@ -1,12 +1,12 @@
 import { Injectable } from "@angular/core";
-import {GetRestaurantFeedParams, LoginParams, RegisterParams} from "../models/requests.model";
+import {GetRestaurantFeedParams, LoginParams, RegisterParams, SurveyResultsParams} from "../models/requests.model";
 import { HttpClient, HttpHeaders, HttpErrorResponse } from "@angular/common/http";
 import { Storage } from '@ionic/storage';
 import { Observable } from "rxjs/Observable";
 import * as SHA from 'sha256';
 import { catchError } from "rxjs/operators";
 import { ErrorObservable } from "rxjs/observable/ErrorObservable";
-import {GetRestaurantsRes} from "../models/responses.model";
+import {GenericStatusRes, GetRestaurantsRes} from "../models/responses.model";
 
 @Injectable()
 export class HttpService {
@@ -19,7 +19,6 @@ export class HttpService {
   // timeout = 10000;
 
   static getHeaders() {
-    console.log(HttpService.token);
     return new HttpHeaders().set('Content-Type', 'application/json').set("Auth-Token", HttpService.token);
   }
 
@@ -44,9 +43,7 @@ export class HttpService {
     }
   }
 
-  constructor(private http: HttpClient, private storage: Storage) {
-    console.log(HttpService.token);
-  }
+  constructor(private http: HttpClient, private storage: Storage) {}
 
   setToken(token) {
     HttpService.token = token;
@@ -76,7 +73,6 @@ export class HttpService {
   public CheckToken() {
     return new Promise((resolve, reject) => {
       this.storage.get("token").then((token) => {
-        console.log(token);
         if (token !== null && token !== undefined && token !== "") {
           HttpService.token = token;
           setTimeout(() => resolve("home"), 1000);
@@ -109,11 +105,19 @@ export class HttpService {
   }
 
   public GetRestaurantFeed(params: GetRestaurantFeedParams, segment: number): Observable<GetRestaurantsRes> {
-    let headers = HttpService.getHeaders();
-    console.log(headers);
     return this.http.get(
       this.r + "getRestaurantFeed/" + segment +
       `?distance=${params.distance}&price=${params.price}&meal=${params.meal}&latitude=${41.2523630}&longitude=${-95.9979880}`,
+      {headers: HttpService.getHeaders()}
+    ).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  public PostSurveyResults(params: SurveyResultsParams): Observable<GenericStatusRes> {
+    return this.http.post<GenericStatusRes>(
+      this.r + "initialSurveyResults",
+      params,
       {headers: HttpService.getHeaders()}
     ).pipe(
       catchError(this.handleError)

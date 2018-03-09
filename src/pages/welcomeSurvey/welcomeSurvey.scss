@@ -36,7 +36,32 @@
   color: white;
 }
 .finishSurveyButton {
-  width: 90%;
-  margin-left: 5%;
   margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+welcome-survey {
+  .enabled {
+    background-color: black;
+    color: white;
+  }
+  .restaurantButtonContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-content: flex-end;
+    align-items: stretch;
+  }
+  .category-button {
+    order: 0;
+    flex: 1 1 auto;
+    align-self: auto;
+  }
+  .submit-fab {
+    position: absolute;
+    right: 5%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
 }
