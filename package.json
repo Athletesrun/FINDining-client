@@ -30,6 +30,7 @@
         "angular2-jwt": "^0.2.3",
         "auth0-js": "^9.2.3",
         "cordova-android": "7.0.0",
+        "cordova-ios": "4.5.4",
         "cordova-plugin-customurlscheme": "^4.3.0",
         "cordova-plugin-device": "^1.1.4",
         "cordova-plugin-ionic-webview": "^1.1.11",
@@ -71,7 +72,8 @@
             "cordova-sqlite-storage": {}
         },
         "platforms": [
-            "android"
+            "android",
+            "ios"
         ]
     }
 }
