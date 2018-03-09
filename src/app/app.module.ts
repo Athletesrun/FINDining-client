@@ -1,11 +1,14 @@
 // Framework Stuff
-import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { IonicStorageModule } from '@ionic/storage';
+import { HttpClientModule } from "@angular/common/http";
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+
+// Native
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-import { IonicStorageModule } from '@ionic/storage';
-import { HttpModule } from '@angular/http';
+import { Geolocation } from '@ionic-native/geolocation';
 
 // Pages
 import { MyApp } from './app.component';
@@ -31,9 +34,6 @@ import { ErrorComponent } from '../components/error/error';
 // Popovers
 import { OverflowPopover } from '../pages/home/overflow/overflow';
 import { FilterPopover } from "../pages/home/filter/filter";
-
-// Services
-import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -88,6 +88,7 @@ import { HttpClientModule } from "@angular/common/http";
   providers: [
     StatusBar,
     SplashScreen,
+    Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

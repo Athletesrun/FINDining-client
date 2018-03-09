@@ -13,7 +13,9 @@ export type LoginParams = {
 export type GetRestaurantFeedParams = {
   distance: number,
   price? : 0 | 1 | 2 | 3 | 4,
-  meal? : string
+  meal?: string,
+  latitude: number,
+  longitude: number
 }
 
 export type GetRestaurantParams = {

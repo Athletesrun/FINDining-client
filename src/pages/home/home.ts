@@ -1,6 +1,7 @@
 import { GetRestaurantsRes } from './../../models/responses.model';
 import { Component, ViewChild, NgZone, ElementRef } from '@angular/core';
 import { NavController, Content, PopoverController } from 'ionic-angular';
+import { Geolocation } from '@ionic-native/geolocation';
 
 import { RestaurantPage } from '../restaurant/restaurant';
 import { AccountPage } from '../account/account';
@@ -30,7 +31,9 @@ export class HomePage {
   params: GetRestaurantFeedParams = {
     distance: 10,
     price: 0,
-    meal: "none"
+    meal: "none",
+    latitude: 41.2523630,
+    longitude: -95.9979880
   };
 
   error = {
@@ -49,7 +52,8 @@ export class HomePage {
     public nav: NavController,
     public pop: PopoverController,
     private http: HttpService,
-    private zone: NgZone
+    private zone: NgZone,
+    private geo: Geolocation
   ) {
 
   }
@@ -84,17 +88,27 @@ export class HomePage {
   }
 
   updateRestaurants() {
+    this.error.visible = false;
     this.restaurantSegment = 0;
     this.restaurants = [];
-    this.getRestaurants();
+    this.geo.getCurrentPosition().then((res) => {
+      this.params.latitude = res.coords.latitude;
+      this.params.longitude = res.coords.longitude;
+      this.getRestaurants();
+    }).catch((error) => {
+      console.log('Error getting location', error);
+      this.error.visible = true;
+      this.error.message = "Unable to get location.";
+    });
   }
 
   getRestaurants() {
-    console.log("tring to get new restaurants");
     if (this.isGettingNewRestaurants) return;
-    console.log("is getting new restaurants")
     this.isGettingNewRestaurants = true;
     this.isLoading = true;
+    const params: GetRestaurantFeedParams = Object.assign({}, this.params, {
+      distance: this.params.distance / 0.00062137
+    })
     this.http.GetRestaurantFeed(this.params, this.restaurantSegment).subscribe(res => {
       console.log(res);
       if (res.status === 10) {
@@ -106,11 +120,11 @@ export class HomePage {
           this.restaurants.push(restaurant);
         });
         this.restaurantSegment++;
-        setTimeout(() => this.isGettingNewRestaurants = false, 1000);        
+        setTimeout(() => this.isGettingNewRestaurants = false, 2000);        
       }
       else {
         this.error.visible = true;
-        this.error.message = (<string>HttpService.CheckErrorCode(res.status));
+        this.error.message = HttpService.CheckErrorCode(res.status, res.message);
       }
     })
   }

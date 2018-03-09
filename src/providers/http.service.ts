@@ -27,10 +27,9 @@ export class HttpService {
     return new HttpHeaders().set('Content-Type', 'application/json').set("Auth-Token", HttpService.token);
   }
 
-  static CheckErrorCode(code) {
+  static CheckErrorCode(code, message?) {
+    console.log(code);
     switch (code) {
-      case 10:
-        return false;
       case 11:
         return "Missing required parameters.";
       case 20:
@@ -44,7 +43,7 @@ export class HttpService {
       case 50:
         return "Internal server error.";
       default:
-        return "What happened?"
+        return message || "Uh, oh! We don't know what happened. Are you connected to the internet?"
     }
   }
 
@@ -100,7 +99,7 @@ export class HttpService {
   public GetRestaurantFeed(params: GetRestaurantFeedParams, segment: number): Observable<GetRestaurantsRes | GenericErrorRes> {
     return this.http.get<GetRestaurantsRes>(
       this.r + "getRestaurantFeed/" + segment +
-      `?distance=${params.distance}&price=${params.price}&meal=${params.meal}&latitude=${41.2523630}&longitude=${-95.9979880}`,
+      `?distance=${params.distance}&price=${params.price}&meal=${params.meal}&latitude=${params.latitude}&longitude=${params.longitude}`,
       {headers: HttpService.getHeaders()}
     ).pipe(
       catchError(this.handleError)
