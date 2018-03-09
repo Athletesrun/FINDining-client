@@ -23,3 +23,8 @@ export type GetRestaurantParams = {
 export type SurveyResultsParams = {
   categories: string[]
 }
+
+export type ReviewRestaurantParams = {
+  restaurantId: string,
+  rating: number
+}

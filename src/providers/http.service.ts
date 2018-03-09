@@ -1,5 +1,8 @@
 import { Injectable } from "@angular/core";
-import {GetRestaurantFeedParams, LoginParams, RegisterParams, SurveyResultsParams} from "../models/requests.model";
+import {
+  GetRestaurantFeedParams, LoginParams, RegisterParams, ReviewRestaurantParams,
+  SurveyResultsParams
+} from "../models/requests.model";
 import { HttpClient, HttpHeaders, HttpErrorResponse } from "@angular/common/http";
 import { Storage } from '@ionic/storage';
 import { Observable } from "rxjs/Observable";
@@ -117,6 +120,16 @@ export class HttpService {
   public PostSurveyResults(params: SurveyResultsParams): Observable<GenericStatusRes> {
     return this.http.post<GenericStatusRes>(
       this.r + "initialSurveyResults",
+      params,
+      {headers: HttpService.getHeaders()}
+    ).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  public ReviewRestaurant(params: ReviewRestaurantParams): Observable<GenericStatusRes> {
+    return this.http.post<GenericStatusRes>(
+      this.r + "reviewRestaurant",
       params,
       {headers: HttpService.getHeaders()}
     ).pipe(

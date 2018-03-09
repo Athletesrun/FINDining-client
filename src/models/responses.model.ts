@@ -6,5 +6,6 @@ export type GetRestaurantsRes = {
 }
 
 export type GenericStatusRes = {
-  status: number
+  status: number,
+  message?: string
 }

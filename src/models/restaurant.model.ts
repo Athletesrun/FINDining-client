@@ -4,7 +4,7 @@ type CategoryValues = {
 }
 
 export type Restaurant = {
-  id: string,
+  yelp_id: string,
   name: string,
   url: string,
   image_url: string,

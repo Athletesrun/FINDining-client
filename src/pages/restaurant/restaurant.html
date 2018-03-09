@@ -31,6 +31,7 @@
       <!--<p *ngIf="restaurant.hours" class="hoursHeader"><strong>Hours {{restaurant.hours.day}}:</strong></p> -->
       <!--<p *ngIf="restaurant.hours" class="hoursText">{{restaurant.hours.opens}} - {{restaurant.hours.closes}}</p>-->
     </div>
+    <button ion-button large full clear color="secondary" (click)="openRatePage()" class="rate-btn"><ion-icon name="star"></ion-icon>&nbsp;&nbsp;Rate this Restaurant</button>
     <div #map class="map"></div>
     <!--<div class="reviewItem" *ngFor="let review of restaurant.reviews">-->
       <!--<p>{{review.text}}</p>-->

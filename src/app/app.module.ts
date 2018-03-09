@@ -20,6 +20,7 @@ import { FriendPage } from "../pages/friends/friend/friend";
 import { LoadingPage } from '../pages/loading/loading';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
+import { RatePage } from "../pages/rate/rate";
 import { WelcomeSurvey } from "../pages/welcomeSurvey/welcomeSurvey";
 
 // Components
@@ -53,7 +54,8 @@ import { HttpClientModule } from "@angular/common/http";
     LoadingComponent,
     LoginPage,
     RegisterPage,
-    ErrorComponent
+    ErrorComponent,
+    RatePage
   ],
   imports: [
     BrowserModule,
@@ -80,7 +82,8 @@ import { HttpClientModule } from "@angular/common/http";
     LoadingComponent,
     LoginPage,
     RegisterPage,
-    ErrorComponent
+    ErrorComponent,
+    RatePage
   ],
   providers: [
     StatusBar,

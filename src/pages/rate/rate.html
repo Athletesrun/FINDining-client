@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar color="light">
+    <ion-title>
+      Rate {{restaurant.name}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="star-container">
+    <button ion-fab *ngFor="let enabled of stars; let i = index;" class="star" (click)="clickStar(i)" [color]="enabled ? 'secondary' : 'primary'"><ion-icon [name]="enabled ? 'star' : 'star-outline'"></ion-icon></button>
+  </div>
+  <button ion-fab large color="success" class="done-fab" (click)="submit()">
+    <ion-icon *ngIf="!isLoading" class="done-icon" name="checkmark"></ion-icon>
+    <ion-loading *ngIf="isLoading"></ion-loading>
+  </button>
+</ion-content>

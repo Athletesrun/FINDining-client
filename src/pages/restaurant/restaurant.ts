@@ -6,6 +6,7 @@ import Tools from "../../tools/tools";
 import Vibrant from 'node-vibrant';
 import tinycolor from 'tinycolor2';
 import mapboxgl from 'mapbox-gl';
+import {RatePage} from "../rate/rate";
 
 @Component({
   selector: "page-restaurant",
@@ -141,6 +142,12 @@ export class RestaurantPage {
       case 2:
         return 'star';
     }
+  }
+
+  openRatePage() {
+    this.nav.push(RatePage, {
+      restaurant: this.restaurant
+    });
   }
 
   openYelpPage() {

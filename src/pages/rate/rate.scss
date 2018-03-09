@@ -1,0 +1,27 @@
+page-rate {
+  .star-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+    height: 100%;
+  }
+
+  .star {
+    margin: 2px;
+    transition: background-color 500ms ease-in-out;
+  }
+
+  .done-fab {
+    position: fixed;
+    height: 84px;
+    width: 84px;
+    bottom: 25px;
+    right: 25px;
+    .done-icon {
+      font-size: 3.6rem;
+    }
+  }
+}
