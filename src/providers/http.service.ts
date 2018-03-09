@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable, NgZone } from "@angular/core";
 import {
   GetRestaurantFeedParams, LoginParams, RegisterParams, ReviewRestaurantParams,
   SurveyResultsParams
@@ -6,10 +6,12 @@ import {
 import { HttpClient, HttpHeaders, HttpErrorResponse } from "@angular/common/http";
 import { Storage } from '@ionic/storage';
 import { Observable } from "rxjs/Observable";
+import 'rxjs/add/observable/of';
 import * as SHA from 'sha256';
 import { catchError } from "rxjs/operators";
 import { ErrorObservable } from "rxjs/observable/ErrorObservable";
-import {GenericStatusRes, GetRestaurantsRes} from "../models/responses.model";
+import { GenericStatusRes, GetRestaurantsRes, GenericErrorRes } from "../models/responses.model";
+import { Events } from "ionic-angular";
 
 @Injectable()
 export class HttpService {
@@ -46,7 +48,7 @@ export class HttpService {
     }
   }
 
-  constructor(private http: HttpClient, private storage: Storage) {}
+  constructor(private http: HttpClient, private storage: Storage, public events: Events, public zone: NgZone) {}
 
   setToken(token) {
     HttpService.token = token;
@@ -58,19 +60,7 @@ export class HttpService {
   }
 
   private handleError(error: HttpErrorResponse) {
-    if (error.error instanceof ErrorEvent) {
-      // A client-side or network error occurred. Handle it accordingly.
-      console.error('An error occurred:', error.error.message);
-    } else {
-      // The backend returned an unsuccessful response code.
-      // The response body may contain clues as to what went wrong,
-      console.error(
-        `Backend returned code ${error.status}, ` +
-        `body was: ${error.error}`);
-    }
-    // return an ErrorObservable with a user-facing error message
-    return new ErrorObservable(
-      'Something bad happened; please try again later.');
+    return Observable.of<GenericErrorRes>(error.error);
   };
 
   public CheckToken() {
@@ -88,7 +78,7 @@ export class HttpService {
   }
 
   public Login(params: LoginParams): Observable<any> {
-    return this.http.post<object>(
+    return this.http.post<any>(
       this.a + "login",
       Object.assign({}, params, { password: SHA(params.password + "findining") }),
       {}
@@ -98,7 +88,7 @@ export class HttpService {
   }
 
   public Register(params: RegisterParams): Observable<any> {
-    return this.http.post(
+    return this.http.post<any>(
       this.a + "register",
       Object.assign({}, params, { password: SHA(params.password + "findining") }),
       {}
@@ -107,8 +97,8 @@ export class HttpService {
     );
   }
 
-  public GetRestaurantFeed(params: GetRestaurantFeedParams, segment: number): Observable<GetRestaurantsRes> {
-    return this.http.get(
+  public GetRestaurantFeed(params: GetRestaurantFeedParams, segment: number): Observable<GetRestaurantsRes | GenericErrorRes> {
+    return this.http.get<GetRestaurantsRes>(
       this.r + "getRestaurantFeed/" + segment +
       `?distance=${params.distance}&price=${params.price}&meal=${params.meal}&latitude=${41.2523630}&longitude=${-95.9979880}`,
       {headers: HttpService.getHeaders()}
@@ -117,7 +107,7 @@ export class HttpService {
     )
   }
 
-  public PostSurveyResults(params: SurveyResultsParams): Observable<GenericStatusRes> {
+  public PostSurveyResults(params: SurveyResultsParams): Observable<GenericStatusRes | GenericErrorRes> {
     return this.http.post<GenericStatusRes>(
       this.r + "initialSurveyResults",
       params,
@@ -127,7 +117,7 @@ export class HttpService {
     )
   }
 
-  public ReviewRestaurant(params: ReviewRestaurantParams): Observable<GenericStatusRes> {
+  public ReviewRestaurant(params: ReviewRestaurantParams): Observable<GenericStatusRes | GenericErrorRes> {
     return this.http.post<GenericStatusRes>(
       this.r + "reviewRestaurant",
       params,

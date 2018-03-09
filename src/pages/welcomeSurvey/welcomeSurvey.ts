@@ -13,7 +13,27 @@ import {LoadingPage} from "../loading/loading";
 
 export class WelcomeSurvey {
 
-  public categories: string[] = ["Steakhouse", "Salad", "Pizza", "Sandwiches", "Mexican", "Asian", "Italian", "Fish", "Noodles", "Diners", "Deli", "Wraps", "Polish", "Middle Eastern", "Gluten-free", "Fish and Chips", "Chicken Wings", "Vegan", "Vegetarian"];
+  public categories: string[][] = [
+    ["Steakhouses", "steak"],
+    ["Salad", "salad"],
+    ["Pizza", "pizza"],
+    ["Sandwiches", "sandwiches"],
+    // ["Fish"],
+    ["Noodles", "noodles"],
+    ["Diners", "diners"],
+    ["Wraps", "wraps"],
+    ["Mexican", "mexican"],
+    ["French", "french"],
+    ["Italian", "italian"],
+    ["Polish", "polish"],
+    ["Chinese", "chinese"],
+    ["Middle Eastern", "mideastern"],
+    ["Fish and Chips", "fishnchips"],
+    ["Chicken Wings", "chicken_wings"],
+    ["Gluten-free", "gluten_free"],
+    ["Vegan", "vegan"],
+    ["Vegetarian", "vegetarian"]
+  ];
   private buttons = [];
 
   constructor(
@@ -23,7 +43,8 @@ export class WelcomeSurvey {
   ) {
     this.categories.map(d => {
       this.buttons.push({
-        name: d,
+        name: d[0],
+        id: d[1],
         enabled: false
       })
     })
@@ -35,7 +56,7 @@ export class WelcomeSurvey {
       categories: []
     };
     for (let button of this.buttons) {
-      if (button.enabled) likedCategories.categories.push(button.name);
+      if (button.enabled) likedCategories.categories.push(button.id);
     }
     this.http.PostSurveyResults(likedCategories).subscribe((res: GenericStatusRes) => {
       if (res.status === 10) {

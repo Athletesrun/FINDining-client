@@ -25,6 +25,7 @@
     <div class="space"></div>
     <div class="restaurants">
       <fd-restaurant *ngFor="let restaurant of restaurants" [fdRestaurant]="restaurant" (click)="openDetailsPage(restaurant)"></fd-restaurant>
+      <fd-error [visible]="error.visible" [message]="error.message"></fd-error>
       <div class="load-wrap">
         <fd-loading *ngIf="isLoading" #loading></fd-loading>
       </div>

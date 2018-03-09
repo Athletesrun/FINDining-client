@@ -1,3 +1,4 @@
+import { GetRestaurantsRes } from './../../models/responses.model';
 import { Component, ViewChild, NgZone, ElementRef } from '@angular/core';
 import { NavController, Content, PopoverController } from 'ionic-angular';
 
@@ -30,6 +31,11 @@ export class HomePage {
     distance: 10,
     price: 0,
     meal: "none"
+  };
+
+  error = {
+    visible: false,
+    message: ""
   };
 
   restaurantSegment = 0;
@@ -92,15 +98,19 @@ export class HomePage {
     this.http.GetRestaurantFeed(this.params, this.restaurantSegment).subscribe(res => {
       console.log(res);
       if (res.status === 10) {
-        if (res.data.length === 0) {
+        if ((<GetRestaurantsRes>res).data.length === 0) {
           this.isLoading = false;
           return;
         }
-        res.data.map(restaurant => {
+        (<GetRestaurantsRes>res).data.map(restaurant => {
           this.restaurants.push(restaurant);
         });
         this.restaurantSegment++;
         setTimeout(() => this.isGettingNewRestaurants = false, 1000);        
+      }
+      else {
+        this.error.visible = true;
+        this.error.message = (<string>HttpService.CheckErrorCode(res.status));
       }
     })
   }
