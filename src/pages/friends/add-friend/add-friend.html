@@ -1,0 +1,11 @@
+<ion-header>
+  <ion-navbar [color]="'light'">
+    <ion-title>
+      Add a Friend
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar (ionChange)="findUsers($event)" [debounce]="750" placeholder="Find Users" [(ngModel)]="query" name="search"></ion-searchbar>
+</ion-content>

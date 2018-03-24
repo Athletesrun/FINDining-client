@@ -13,7 +13,7 @@
         {{restaurant.name}}
       </span>
       <button ion-button icon-only clear ion-right (click)="archive()" class="archive" [color]="isInArchive ? 'secondary' : 'dark'">
-        <ion-icon name="archive"></ion-icon>
+        <ion-icon [name]="isInArchive ? 'star' : 'star-outline'"></ion-icon>
       </button>
     </h1>
     <div class="padding">

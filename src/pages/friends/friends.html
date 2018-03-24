@@ -8,6 +8,10 @@
 
 <ion-content>
   <ion-list>
+    <button ion-item (click)="openAddFriendPage()">
+      <ion-icon name="person-add" item-start></ion-icon>
+      Add a Friend
+    </button>
     <button *ngFor="let friend of friends" ion-item (click)="openFriendPage($event, friend)">
       <ion-icon name="contact" item-start></ion-icon>
       {{ friend }}

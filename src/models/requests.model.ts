@@ -30,3 +30,24 @@ export type ReviewRestaurantParams = {
   restaurantId: string,
   rating: number
 }
+
+export type SearchUserParams = {
+  name: string
+}
+
+export type GenericUserIdParams = {
+  userId: number
+}
+
+export type CreateGroupParams = {
+  name: string
+}
+
+export type EditGroupParams = {
+  member: number,
+  groupId: number
+}
+
+export type GetGroupRecommendations = GetRestaurantFeedParams & {
+  groupId: number
+}

@@ -16,3 +16,20 @@ export type GenericErrorRes = {
   message?: string,
   invalidFields?: string[]
 }
+
+export type SearchUserRes = {
+  status: number,
+  data: {
+    id: number,
+    name: string
+  }[]
+}
+
+export type GetUserByIdRes = {
+  status: number,
+  data: {
+    id: number,
+    name: string,
+    friends: number[]
+  }[]
+}

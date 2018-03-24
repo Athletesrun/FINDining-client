@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Platform, Events, NavController, Keyboard, ToastController } from 'ionic-angular';
+import {Platform, Events, NavController, Keyboard, ToastController, MenuController} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -9,6 +9,10 @@ import { LoadingPage } from '../pages/loading/loading';
 import { HttpService } from '../providers/http.service';
 import { LoginPage } from "../pages/login/login";
 import { WelcomeSurvey } from "../pages/welcomeSurvey/welcomeSurvey";
+import {ArchivePage} from "../pages/archive/archive";
+import {FriendsPage} from "../pages/friends/friends";
+import {GroupsPage} from "../pages/groups/groups";
+import {AccountPage} from "../pages/account/account";
 
 @Component({
   templateUrl: 'app.html',
@@ -18,8 +22,9 @@ export class MyApp {
   // rootPage:any = HomePage;
   public rootPage: any = LoadingPage;
   @ViewChild('nav') nav: NavController;
+  @ViewChild('menu') menu: MenuController;
   debug = false;
-  debugPage = WelcomeSurvey;
+  debugPage = GroupsPage;
 
   constructor(
     platform: Platform,
@@ -37,8 +42,8 @@ export class MyApp {
       statusBar.backgroundColorByHexString("#fafafa");
       splashScreen.hide();
       events.subscribe("fd:error", message => {
-        
-      })
+
+      });
       this.prepareHttp();
     });
   }
@@ -58,6 +63,26 @@ export class MyApp {
         this.nav.setRoot(page == "home" ? HomePage : LoginPage, {}, {animate: true, direction: 'forward'});
       }
     })
+  }
+
+  openAccountPage() {
+    this.nav.push(AccountPage);
+    this.menu.close();
+  }
+
+  openFavoritesPage() {
+    this.nav.push(ArchivePage);
+    this.menu.close();
+  }
+
+  openFriendsPage() {
+    this.nav.push(FriendsPage);
+    this.menu.close();
+  }
+
+  openGroupsPage() {
+    this.nav.push(GroupsPage);
+    this.menu.close();
   }
 }
 

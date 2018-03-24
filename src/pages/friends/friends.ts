@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { FriendPage } from "./friend/friend";
+import { AddFriendPage } from "./add-friend/add-friend";
 
 @Component({
   templateUrl: 'friends.html',
@@ -14,9 +15,14 @@ export class FriendsPage {
 
   constructor(private navCtrl: NavController) {}
 
-  private openFriendPage(event, friend) {
+  openFriendPage(event, friend) {
     this.navCtrl.push(FriendPage, {
       friend: friend
     });
   }
+
+  openAddFriendPage() {
+    this.navCtrl.push(AddFriendPage);
+  }
+
 }

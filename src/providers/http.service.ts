@@ -1,6 +1,6 @@
 import { Injectable, NgZone } from "@angular/core";
 import {
-  GetRestaurantFeedParams, LoginParams, RegisterParams, ReviewRestaurantParams,
+  GetRestaurantFeedParams, LoginParams, RegisterParams, ReviewRestaurantParams, SearchUserParams,
   SurveyResultsParams
 } from "../models/requests.model";
 import { HttpClient, HttpHeaders, HttpErrorResponse } from "@angular/common/http";
@@ -20,11 +20,24 @@ export class HttpService {
   private api = "/api/v1";
   private r = this.root + this.api + "/restaurants/";
   private a = this.root + this.api + "/auth/";
-  private u = this.root + this.api + "/auth/";
+  private u = this.root + this.api + "/users/";
+  private f = this.root + this.api + "/friends/";
+  private g = this.root + this.api + "/groups/";
   // timeout = 10000;
 
   static getHeaders() {
     return new HttpHeaders().set('Content-Type', 'application/json').set("Auth-Token", HttpService.token);
+  }
+
+  static makeQuery(data) {
+    let query = "?";
+    let first = true;
+    for (let key of Object.keys(data)) {
+      if (!first) query += "&";
+      query += `${key}=${data[key]}`;
+      first = false;
+    }
+    return query;
   }
 
   static CheckErrorCode(code, message?) {
@@ -98,8 +111,7 @@ export class HttpService {
 
   public GetRestaurantFeed(params: GetRestaurantFeedParams, segment: number): Observable<GetRestaurantsRes | GenericErrorRes> {
     return this.http.get<GetRestaurantsRes>(
-      this.r + "getRestaurantFeed/" + segment +
-      `?distance=${params.distance}&price=${params.price}&meal=${params.meal}&latitude=${params.latitude}&longitude=${params.longitude}`,
+      this.r + "getRestaurantFeed/" + segment + HttpService.makeQuery(params),
       {headers: HttpService.getHeaders()}
     ).pipe(
       catchError(this.handleError)
@@ -120,6 +132,15 @@ export class HttpService {
     return this.http.post<GenericStatusRes>(
       this.r + "reviewRestaurant",
       params,
+      {headers: HttpService.getHeaders()}
+    ).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  public SearchUsers(params: SearchUserParams): Observable<any> {
+    return this.http.get<any>(
+      this.f + "searchUser" + HttpService.makeQuery(params),
       {headers: HttpService.getHeaders()}
     ).pipe(
       catchError(this.handleError)

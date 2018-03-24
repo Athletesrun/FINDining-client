@@ -25,6 +25,7 @@ import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { RatePage } from "../pages/rate/rate";
 import { WelcomeSurvey } from "../pages/welcomeSurvey/welcomeSurvey";
+import { AddFriendPage } from "../pages/friends/add-friend/add-friend";
 
 // Components
 import { RestaurantComponent } from '../components/restaurant/restaurant';
@@ -55,7 +56,8 @@ import { FilterPopover } from "../pages/home/filter/filter";
     LoginPage,
     RegisterPage,
     ErrorComponent,
-    RatePage
+    RatePage,
+    AddFriendPage
   ],
   imports: [
     BrowserModule,
@@ -83,7 +85,8 @@ import { FilterPopover } from "../pages/home/filter/filter";
     LoginPage,
     RegisterPage,
     ErrorComponent,
-    RatePage
+    RatePage,
+    AddFriendPage
   ],
   providers: [
     StatusBar,
