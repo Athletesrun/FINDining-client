@@ -14,19 +14,20 @@
     [(ngModel)]="query"
     name="search"
     color="grey"
+    class="search"
   ></ion-searchbar>
   <fd-error [message]="error.message" [visible]="error.isError"></fd-error>
   <ion-list>
     <ion-item *ngFor="let user of results">
       {{user.name}}
-      <button ion-button icon-only clear item-end><ion-icon name="person-add"></ion-icon></button>
+      <button ion-button icon-only clear item-end><ion-icon name="add"></ion-icon></button>
     </ion-item>
   </ion-list>
-  <div *ngIf="noResults">
-    <p>There doesn't seem to be a match for that name. Perhaps you made a typo?</p>
+  <div *ngIf="noResults" class="margin">
+    <h3>There doesn't seem to be a match for that name. Perhaps you made a typo?</h3>
   </div>
-  <div *ngIf="showHelpText">
-    <p>Search for a user above.</p>
-  </div>
+  <!--<div *ngIf="showHelpText">-->
+    <!--<h3>Search for a user above.</h3>-->
+  <!--</div>-->
   <fd-loading *ngIf="loading"></fd-loading>
 </ion-content>
