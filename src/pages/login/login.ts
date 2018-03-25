@@ -5,6 +5,7 @@ import { RegisterPage } from '../register/register';
 import { LoginParams } from '../../models/requests.model';
 import { HomePage } from "../home/home";
 import {WelcomeSurvey} from "../welcomeSurvey/welcomeSurvey";
+import { LoginRes } from '../../models/responses.model';
 
 @Component({
   templateUrl: 'login.html',
@@ -39,7 +40,7 @@ export class LoginPage {
       }
       else {
         (async () => {
-          await this.http.setToken(res.token);
+          await this.http.setToken((<LoginRes>res).data.token);
           this.nav.setRoot(HomePage, {}, {animate: true, direction: "forward"});
         })();
       }

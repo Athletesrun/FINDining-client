@@ -36,7 +36,10 @@ export class AddFriendPage {
         this.error.message = HttpService.CheckErrorCode((<GenericErrorRes>res).status);
       }
     });
-    console.log(this.query);
+  }
+
+  toggleFriendship(user) {
+    console.log(user);
   }
 
 }

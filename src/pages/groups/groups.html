@@ -10,8 +10,7 @@
   <ion-list>
     <ion-item-sliding *ngFor="let group of groups; let i = index">
       <button ion-item (click)="openGroup(group)">
-        <h2>{{group.people.join(", ")}}</h2>
-        <h4>{{getLastInArray(group.restaurants).name}}</h4>
+        <h2>{{group.name}}</h2>
       </button>
       <ion-item-options side="right">
         <button ion-button color="danger" (click)="delete(i)">
@@ -21,4 +20,5 @@
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
+  <fd-loading *ngIf="loading"></fd-loading>
 </ion-content>

@@ -20,7 +20,9 @@
   <ion-list>
     <ion-item *ngFor="let user of results">
       {{user.name}}
-      <button ion-button icon-only clear item-end><ion-icon name="add"></ion-icon></button>
+      <button ion-button icon-only clear item-end (click)="toggleFriendship(user)">
+        <ion-icon [name]="user.friend ? 'remove' : 'add'"></ion-icon>
+      </button>
     </ion-item>
   </ion-list>
   <div *ngIf="noResults" class="margin">

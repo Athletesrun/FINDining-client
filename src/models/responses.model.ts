@@ -1,4 +1,21 @@
 import { Restaurant } from "./restaurant.model";
+import { Group } from "./group.model";
+
+export type LoginRes = {
+  status: number,
+  data: {
+    id: number,
+    token: string
+  }
+}
+
+export type RegisterRes = {
+  status: number,
+  data: {
+    id: number,
+    token: string
+  }
+}
 
 export type GetRestaurantsRes = {
   status: number,
@@ -21,7 +38,8 @@ export type SearchUserRes = {
   status: number,
   data: {
     id: number,
-    name: string
+    name: string,
+    friend: boolean
   }[]
 }
 
@@ -32,4 +50,9 @@ export type GetUserByIdRes = {
     name: string,
     friends: number[]
   }[]
+}
+
+export type GetGroupsRes = {
+  status: number,
+  data: Group[]
 }

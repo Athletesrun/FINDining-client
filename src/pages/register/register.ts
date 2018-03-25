@@ -4,6 +4,7 @@ import { HttpService } from '../../providers/http.service';
 import { RegisterParams } from '../../models/requests.model';
 import { LoginPage } from '../login/login';
 import { WelcomeSurvey } from "../welcomeSurvey/welcomeSurvey";
+import { RegisterRes } from '../../models/responses.model';
 
 @Component({
   templateUrl: 'register.html',
@@ -40,7 +41,7 @@ export class RegisterPage {
       }
       else {
         (async () => {
-          await this.http.setToken(res.data.token);
+          await this.http.setToken((<RegisterRes>res).data.token);
           this.nav.setRoot(WelcomeSurvey, {}, {animate: true, direction: "forward"});
         })();
       }

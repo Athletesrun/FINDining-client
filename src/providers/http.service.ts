@@ -10,7 +10,7 @@ import 'rxjs/add/observable/of';
 import * as SHA from 'sha256';
 import { catchError } from "rxjs/operators";
 import { ErrorObservable } from "rxjs/observable/ErrorObservable";
-import { GenericStatusRes, GetRestaurantsRes, GenericErrorRes, SearchUserRes } from "../models/responses.model";
+import { GenericStatusRes, GetRestaurantsRes, GenericErrorRes, SearchUserRes, LoginRes, GetGroupsRes, GetUserByIdRes } from "../models/responses.model";
 import { Events } from "ionic-angular";
 
 @Injectable()
@@ -25,8 +25,8 @@ export class HttpService {
   private g = this.root + this.api + "/groups/";
   // timeout = 10000;
 
-  static getHeaders() {
-    return new HttpHeaders().set('Content-Type', 'application/json').set("Auth-Token", HttpService.token);
+  static getHeaders(token?) {
+    return new HttpHeaders().set('Content-Type', 'application/json').set("Auth-Token", token || HttpService.token);
   }
 
   static makeQuery(data) {
@@ -63,6 +63,7 @@ export class HttpService {
   constructor(private http: HttpClient, private storage: Storage, public events: Events, public zone: NgZone) {}
 
   setToken(token) {
+    console.log(token);
     HttpService.token = token;
     return this.storage.set("token", token);
   }
@@ -79,8 +80,20 @@ export class HttpService {
     return new Promise((resolve, reject) => {
       this.storage.get("token").then((token) => {
         if (token !== null && token !== undefined && token !== "") {
-          HttpService.token = token;
-          setTimeout(() => resolve("home"), 1000);
+          this.CheckTokenValidity(token).subscribe(res => {
+            if (res.status === 10) {
+              HttpService.token = token;
+              resolve("home");
+            }
+            else {
+              if (res.status === 23) {
+                resolve("login");
+              }
+              else {
+                reject("error!\n" + HttpService.CheckErrorCode(res.status));
+              }
+            }
+          })
         }
         else {
           setTimeout(() => resolve("login"), 1000);
@@ -89,14 +102,16 @@ export class HttpService {
     })
   }
 
-  public Login(params: LoginParams): Observable<any> {
-    return this.http.post<any>(
+  // Authentication--begin paths with this.a
+
+  public Login(params: LoginParams): Observable<LoginRes | GenericErrorRes> {
+    return this.http.post<LoginRes>(
       this.a + "login",
       Object.assign({}, params, { password: SHA(params.password + "findining") }),
       {}
     ).pipe(
-        catchError(this.handleError)
-      );
+      catchError(this.handleError)
+    );
   }
 
   public Register(params: RegisterParams): Observable<any> {
@@ -108,6 +123,17 @@ export class HttpService {
       catchError(this.handleError)
     );
   }
+
+  public CheckTokenValidity(token: string): Observable<GenericStatusRes | GenericErrorRes> {
+    return this.http.get<GenericStatusRes>(
+      this.a + "checkTokenValidity",
+      { headers: HttpService.getHeaders(token) }
+    ).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  // Restaurants--begin paths with this.r
 
   public GetRestaurantFeed(params: GetRestaurantFeedParams, segment: number): Observable<GetRestaurantsRes | GenericErrorRes> {
     return this.http.get<GetRestaurantsRes>(
@@ -138,6 +164,8 @@ export class HttpService {
     )
   }
 
+  // Friends--starts paths with this.f
+
   public SearchUsers(params: SearchUserParams): Observable<SearchUserRes | GenericErrorRes> {
     return this.http.get<SearchUserRes>(
       this.f + "searchUser" + HttpService.makeQuery(params),
@@ -146,4 +174,25 @@ export class HttpService {
       catchError(this.handleError)
     )
   }
+
+  public GetUserById(id: number): Observable<GetUserByIdRes | GenericErrorRes> {
+    return this.http.get<GetUserByIdRes>(
+      this.f + "getUserById/" + id,
+      {headers: HttpService.getHeaders()}
+    ).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  // Groups--start paths with this.g
+
+  public GetGroups(): Observable<GetGroupsRes | GenericErrorRes> {
+    return this.http.get<GetGroupsRes>(
+      this.g + "getGroups",
+      {headers: HttpService.getHeaders()}
+    ).pipe(
+      catchError(this.handleError)
+    )
+  }
+
 }

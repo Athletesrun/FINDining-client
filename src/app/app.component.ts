@@ -1,18 +1,17 @@
 import { Component, ViewChild } from '@angular/core';
-import {Platform, Events, NavController, Keyboard, ToastController, MenuController} from 'ionic-angular';
+import { Platform, Events, NavController, Keyboard, ToastController, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-// import { WelcomeSurvey } from "../pages/welcomeSurvey/welcomeSurvey";
 import { LoadingPage } from '../pages/loading/loading';
 import { HttpService } from '../providers/http.service';
 import { LoginPage } from "../pages/login/login";
 import { WelcomeSurvey } from "../pages/welcomeSurvey/welcomeSurvey";
-import {ArchivePage} from "../pages/archive/archive";
-import {FriendsPage} from "../pages/friends/friends";
-import {GroupsPage} from "../pages/groups/groups";
-import {AccountPage} from "../pages/account/account";
+import { ArchivePage } from "../pages/archive/archive";
+import { FriendsPage } from "../pages/friends/friends";
+import { GroupsPage } from "../pages/groups/groups";
+import { AccountPage } from "../pages/account/account";
 import { AddFriendPage } from "../pages/friends/add-friend/add-friend";
 
 @Component({
@@ -24,7 +23,7 @@ export class MyApp {
   public rootPage: any = LoadingPage;
   @ViewChild('nav') nav: NavController;
   @ViewChild('menu') menu: MenuController;
-  debug = true;
+  debug = false;
   debugPage = AddFriendPage;
 
   constructor(

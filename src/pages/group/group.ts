@@ -15,7 +15,8 @@ export class GroupPage {
 
   constructor(private nav: NavController, private params: NavParams) {
     this.group = params.get('group');
-    this.headerText = Tools.JoinArrayAsList(this.group.people, "and");
+    this.headerText = this.group.name
+    // Tools.JoinArrayAsList(this.group.members, "and");
   }
 
   openRestaurant(rest) {
