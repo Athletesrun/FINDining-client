@@ -2,32 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4687747-0a04-40af-9661-0363a4194ee4" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/findining-mockup.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/webResources.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/pages/friends/add-friend/add-friend.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/pages/friends/add-friend/add-friend.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/pages/friends/add-friend/add-friend.ts" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" afterPath="$PROJECT_DIR$/src/app/app.component.ts" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.html" afterPath="$PROJECT_DIR$/src/app/app.html" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" afterPath="$PROJECT_DIR$/src/app/app.module.ts" />
-      <change beforePath="$PROJECT_DIR$/src/models/requests.model.ts" afterPath="$PROJECT_DIR$/src/models/requests.model.ts" />
-      <change beforePath="$PROJECT_DIR$/src/models/responses.model.ts" afterPath="$PROJECT_DIR$/src/models/responses.model.ts" />
-      <change beforePath="$PROJECT_DIR$/src/pages/archive/archive.html" afterPath="$PROJECT_DIR$/src/pages/archive/archive.html" />
-      <change beforePath="$PROJECT_DIR$/src/pages/friends/friends.html" afterPath="$PROJECT_DIR$/src/pages/friends/friends.html" />
-      <change beforePath="$PROJECT_DIR$/src/pages/friends/friends.ts" afterPath="$PROJECT_DIR$/src/pages/friends/friends.ts" />
-      <change beforePath="$PROJECT_DIR$/src/pages/groups/groups.html" afterPath="$PROJECT_DIR$/src/pages/groups/groups.html" />
-      <change beforePath="$PROJECT_DIR$/src/pages/groups/groups.ts" afterPath="$PROJECT_DIR$/src/pages/groups/groups.ts" />
-      <change beforePath="$PROJECT_DIR$/src/pages/home/home.html" afterPath="$PROJECT_DIR$/src/pages/home/home.html" />
-      <change beforePath="$PROJECT_DIR$/src/pages/rate/rate.ts" afterPath="$PROJECT_DIR$/src/pages/rate/rate.ts" />
-      <change beforePath="$PROJECT_DIR$/src/pages/restaurant/restaurant.html" afterPath="$PROJECT_DIR$/src/pages/restaurant/restaurant.html" />
+      <change beforePath="$PROJECT_DIR$/src/pages/friends/add-friend/add-friend.html" afterPath="$PROJECT_DIR$/src/pages/friends/add-friend/add-friend.html" />
+      <change beforePath="$PROJECT_DIR$/src/pages/friends/add-friend/add-friend.ts" afterPath="$PROJECT_DIR$/src/pages/friends/add-friend/add-friend.ts" />
       <change beforePath="$PROJECT_DIR$/src/providers/http.service.ts" afterPath="$PROJECT_DIR$/src/providers/http.service.ts" />
+      <change beforePath="$PROJECT_DIR$/src/theme/variables.scss" afterPath="$PROJECT_DIR$/src/theme/variables.scss" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -53,20 +33,50 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="app.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/app.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="182">
+              <caret line="24" column="39" lean-forward="true" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="http.service.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/providers/http.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="144" column="11" lean-forward="false" selection-start-line="144" selection-start-column="11" selection-end-line="144" selection-end-column="11" />
+            <state relative-caret-position="234">
+              <caret line="73" column="48" lean-forward="false" selection-start-line="73" selection-start-column="48" selection-end-line="73" selection-end-column="48" />
               <folding>
-                <marker date="1521921589772" expanded="true" signature="3802:4564" ph="..." />
-                <marker date="1521921589772" expanded="true" signature="3848:4564" ph="..." />
-                <marker date="1521921589772" expanded="true" signature="4105:4564" ph="{...}" />
-                <marker date="1521921589772" expanded="true" signature="4108:4564" ph="..." />
-                <marker date="1521921589772" expanded="true" signature="4154:4564" ph="..." />
-                <marker date="1521921589772" expanded="true" signature="4368:4564" ph="..." />
-                <marker date="1521921589772" expanded="true" signature="4400:4564" ph="..." />
+                <marker date="1521924107690" expanded="true" signature="3817:4617" ph="..." />
+                <marker date="1521924107690" expanded="true" signature="3863:4617" ph="..." />
+                <marker date="1521924107690" expanded="true" signature="4120:4617" ph="{...}" />
+                <marker date="1521924107690" expanded="true" signature="4123:4617" ph="..." />
+                <marker date="1521924107690" expanded="true" signature="4169:4617" ph="..." />
+                <marker date="1521924107690" expanded="true" signature="4411:4617" ph="..." />
+                <marker date="1521924107690" expanded="true" signature="4453:4617" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="requests.model.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/models/requests.model.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="418">
+              <caret line="47" column="17" lean-forward="true" selection-start-line="47" selection-start-column="17" selection-end-line="47" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="responses.model.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/models/responses.model.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-489">
+              <caret line="5" column="18" lean-forward="true" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -74,8 +84,8 @@
       <file leaf-file-name="friends.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/friends/friends.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="78">
-              <caret line="4" column="56" lean-forward="false" selection-start-line="4" selection-start-column="56" selection-end-line="4" selection-end-column="56" />
+            <state relative-caret-position="234">
+              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding>
                 <element signature="e#0#42#0" expanded="true" />
               </folding>
@@ -86,8 +96,8 @@
       <file leaf-file-name="friends.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/friends/friends.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="13" />
+            <state relative-caret-position="286">
+              <caret line="14" column="51" lean-forward="true" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -96,38 +106,30 @@
       <file leaf-file-name="add-friend.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/friends/add-friend/add-friend.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="11" column="28" lean-forward="false" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
-              <folding />
+            <state relative-caret-position="343">
+              <caret line="15" column="22" lean-forward="false" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+              <folding>
+                <element signature="e#0#42#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="24" column="10" lean-forward="true" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="add-friend.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="add-friend.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/friends/add-friend/add-friend.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="9" column="123" lean-forward="false" selection-start-line="9" selection-start-column="123" selection-end-line="9" selection-end-column="123" />
+            <state relative-caret-position="286">
+              <caret line="14" column="17" lean-forward="false" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="add-friend.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/friends/add-friend/add-friend.scss">
+      <file leaf-file-name="variables.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/theme/variables.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="260">
+              <caret line="43" column="2" lean-forward="true" selection-start-line="43" selection-start-column="2" selection-end-line="43" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -156,7 +158,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <push-targets>
-      <push-target-info target-remote="ionic" target-branch="master" repo="$PROJECT_DIR$" source="master" />
+      <push-target-info target-remote="github" target-branch="master" repo="$PROJECT_DIR$" source="master" />
     </push-targets>
   </component>
   <component name="HighlightingSettingsPerFile">
@@ -195,7 +197,6 @@
         <option value="$PROJECT_DIR$/src/components/restaurant/restaurant.html" />
         <option value="$PROJECT_DIR$/src/pages/restaurant/restaurant.ts" />
         <option value="$PROJECT_DIR$/src/pages/restaurant/restaurant.scss" />
-        <option value="$PROJECT_DIR$/src/theme/variables.scss" />
         <option value="$PROJECT_DIR$/src/pages/rate/rate.scss" />
         <option value="$PROJECT_DIR$/src/pages/rate/rate.html" />
         <option value="$PROJECT_DIR$/src/models/restaurant.model.ts" />
@@ -208,14 +209,15 @@
         <option value="$PROJECT_DIR$/src/pages/groups/groups.ts" />
         <option value="$PROJECT_DIR$/src/models/requests.model.ts" />
         <option value="$PROJECT_DIR$/src/models/responses.model.ts" />
-        <option value="$PROJECT_DIR$/src/app/app.component.ts" />
         <option value="$PROJECT_DIR$/src/pages/friends/friends.html" />
         <option value="$PROJECT_DIR$/src/pages/friends/friends.ts" />
         <option value="$PROJECT_DIR$/src/app/app.module.ts" />
-        <option value="$PROJECT_DIR$/src/providers/http.service.ts" />
-        <option value="$PROJECT_DIR$/src/pages/friends/add-friend/add-friend.html" />
-        <option value="$PROJECT_DIR$/src/pages/friends/add-friend/add-friend.ts" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/providers/http.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/app.component.ts" />
+        <option value="$PROJECT_DIR$/src/pages/friends/add-friend/add-friend.ts" />
+        <option value="$PROJECT_DIR$/src/theme/variables.scss" />
+        <option value="$PROJECT_DIR$/src/pages/friends/add-friend/add-friend.html" />
       </list>
     </option>
   </component>
@@ -266,6 +268,62 @@
             <path>
               <item name="findining-mockup" type="b2602c69:ProjectViewProjectNode" />
               <item name="findining-mockup" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="findining-mockup" type="b2602c69:ProjectViewProjectNode" />
+              <item name="findining-mockup" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="findining-mockup" type="b2602c69:ProjectViewProjectNode" />
+              <item name="findining-mockup" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="findining-mockup" type="b2602c69:ProjectViewProjectNode" />
+              <item name="findining-mockup" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="findining-mockup" type="b2602c69:ProjectViewProjectNode" />
+              <item name="findining-mockup" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="loading" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="findining-mockup" type="b2602c69:ProjectViewProjectNode" />
+              <item name="findining-mockup" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="findining-mockup" type="b2602c69:ProjectViewProjectNode" />
+              <item name="findining-mockup" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="findining-mockup" type="b2602c69:ProjectViewProjectNode" />
+              <item name="findining-mockup" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="restaurant" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="findining-mockup" type="b2602c69:ProjectViewProjectNode" />
+              <item name="findining-mockup" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="welcomeSurvey" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="findining-mockup" type="b2602c69:ProjectViewProjectNode" />
+              <item name="findining-mockup" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="theme" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -337,7 +395,7 @@
       <workItem from="1520358215453" duration="43189000" />
       <workItem from="1521513618783" duration="292000" />
       <workItem from="1521661618399" duration="4183000" />
-      <workItem from="1521912596208" duration="7038000" />
+      <workItem from="1521912596208" duration="14696000" />
     </task>
     <task id="LOCAL-00001" summary="Trying stuff">
       <created>1515547207678</created>
@@ -458,11 +516,18 @@
       <option name="project" value="LOCAL" />
       <updated>1520582319201</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Add .idea files to enforce code style">
+      <created>1521923255257</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1521923255257</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98619000" />
+    <option name="totallyTimeSpent" value="106277000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1384" height="888" extended-state="6" />
@@ -536,20 +601,14 @@
     <MESSAGE value="Platform assets" />
     <MESSAGE value="Welcome Survey" />
     <MESSAGE value="preliminary rating page" />
-    <option name="LAST_COMMIT_MESSAGE" value="preliminary rating page" />
+    <MESSAGE value="Add .idea files to enforce code style" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add .idea files to enforce code style" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/components/restaurant/restaurant.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="21" column="39" lean-forward="false" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/error/error.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -656,13 +715,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/welcomeSurvey/welcomeSurvey.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="42" column="7" lean-forward="false" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/welcomeSurvey/welcomeSurvey.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="422">
@@ -703,20 +755,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="104" column="24" lean-forward="false" selection-start-line="104" selection-start-column="24" selection-end-line="104" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/theme/variables.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="37" column="22" lean-forward="false" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/welcomeSurvey/welcomeSurvey.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="19" column="8" lean-forward="true" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -731,6 +770,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="12" column="74" lean-forward="false" selection-start-line="12" selection-start-column="74" selection-end-line="12" selection-end-column="74" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -756,6 +796,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
           <caret line="7" column="22" lean-forward="true" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -771,6 +812,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -816,14 +858,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/restaurant/restaurant.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="18" column="25" lean-forward="false" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/groups/groups.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1725">
@@ -831,14 +865,6 @@
           <folding>
             <element signature="e#0#42#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/responses.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="21" column="9" lean-forward="true" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -858,13 +884,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/app.component.ts">
+    <entry file="file://$PROJECT_DIR$/src/pages/welcomeSurvey/welcomeSurvey.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="45" column="9" lean-forward="false" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
+        <state relative-caret-position="144">
+          <caret line="16" column="6" lean-forward="false" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/welcomeSurvey/welcomeSurvey.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="59" column="5" lean-forward="true" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="24" column="10" lean-forward="true" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/requests.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="47" column="17" lean-forward="true" selection-start-line="47" selection-start-column="17" selection-end-line="47" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/providers/http.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="73" column="48" lean-forward="false" selection-start-line="73" selection-start-column="48" selection-end-line="73" selection-end-column="48" />
           <folding>
-            <element signature="e#0#53#0" expanded="false" />
-            <element signature="e#395#450#0" expanded="false" />
+            <marker date="1521924107690" expanded="true" signature="3817:4617" ph="..." />
+            <marker date="1521924107690" expanded="true" signature="3863:4617" ph="..." />
+            <marker date="1521924107690" expanded="true" signature="4120:4617" ph="{...}" />
+            <marker date="1521924107690" expanded="true" signature="4123:4617" ph="..." />
+            <marker date="1521924107690" expanded="true" signature="4169:4617" ph="..." />
+            <marker date="1521924107690" expanded="true" signature="4411:4617" ph="..." />
+            <marker date="1521924107690" expanded="true" signature="4453:4617" ph="..." />
           </folding>
         </state>
       </provider>
@@ -879,68 +942,78 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/friends/friends.html">
+    <entry file="file://$PROJECT_DIR$/src/app/app.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="24" column="39" lean-forward="true" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/loading/loading.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="13" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/requests.model.ts">
+    <entry file="file://$PROJECT_DIR$/src/models/responses.model.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="47" column="17" lean-forward="true" selection-start-line="47" selection-start-column="17" selection-end-line="47" selection-end-column="17" />
+        <state relative-caret-position="-489">
+          <caret line="5" column="18" lean-forward="true" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/providers/http.service.ts">
+    <entry file="file://$PROJECT_DIR$/src/pages/restaurant/restaurant.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="144" column="11" lean-forward="false" selection-start-line="144" selection-start-column="11" selection-end-line="144" selection-end-column="11" />
-          <folding>
-            <marker date="1521921589772" expanded="true" signature="3802:4564" ph="..." />
-            <marker date="1521921589772" expanded="true" signature="3848:4564" ph="..." />
-            <marker date="1521921589772" expanded="true" signature="4105:4564" ph="{...}" />
-            <marker date="1521921589772" expanded="true" signature="4108:4564" ph="..." />
-            <marker date="1521921589772" expanded="true" signature="4154:4564" ph="..." />
-            <marker date="1521921589772" expanded="true" signature="4368:4564" ph="..." />
-            <marker date="1521921589772" expanded="true" signature="4400:4564" ph="..." />
-          </folding>
+        <state relative-caret-position="168">
+          <caret line="14" column="14" lean-forward="false" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="50" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/friends/friends.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="4" column="56" lean-forward="false" selection-start-line="4" selection-start-column="56" selection-end-line="4" selection-end-column="56" />
+        <state relative-caret-position="234">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding>
             <element signature="e#0#42#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/friends/add-friend/add-friend.html">
+    <entry file="file://$PROJECT_DIR$/src/pages/friends/friends.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="9" column="123" lean-forward="false" selection-start-line="9" selection-start-column="123" selection-end-line="9" selection-end-column="123" />
+        <state relative-caret-position="286">
+          <caret line="14" column="51" lean-forward="true" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/friends/add-friend/add-friend.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="11" column="28" lean-forward="false" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+        <state relative-caret-position="343">
+          <caret line="15" column="22" lean-forward="false" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/theme/variables.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="43" column="2" lean-forward="true" selection-start-line="43" selection-start-column="2" selection-end-line="43" selection-end-column="2" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/src/pages/friends/add-friend/add-friend.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="24" column="10" lean-forward="true" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
+        <state relative-caret-position="286">
+          <caret line="14" column="17" lean-forward="false" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
           <folding />
         </state>
       </provider>

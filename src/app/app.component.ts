@@ -13,6 +13,7 @@ import {ArchivePage} from "../pages/archive/archive";
 import {FriendsPage} from "../pages/friends/friends";
 import {GroupsPage} from "../pages/groups/groups";
 import {AccountPage} from "../pages/account/account";
+import { AddFriendPage } from "../pages/friends/add-friend/add-friend";
 
 @Component({
   templateUrl: 'app.html',
@@ -23,8 +24,8 @@ export class MyApp {
   public rootPage: any = LoadingPage;
   @ViewChild('nav') nav: NavController;
   @ViewChild('menu') menu: MenuController;
-  debug = false;
-  debugPage = GroupsPage;
+  debug = true;
+  debugPage = AddFriendPage;
 
   constructor(
     platform: Platform,

@@ -10,7 +10,7 @@ import 'rxjs/add/observable/of';
 import * as SHA from 'sha256';
 import { catchError } from "rxjs/operators";
 import { ErrorObservable } from "rxjs/observable/ErrorObservable";
-import { GenericStatusRes, GetRestaurantsRes, GenericErrorRes } from "../models/responses.model";
+import { GenericStatusRes, GetRestaurantsRes, GenericErrorRes, SearchUserRes } from "../models/responses.model";
 import { Events } from "ionic-angular";
 
 @Injectable()
@@ -138,8 +138,8 @@ export class HttpService {
     )
   }
 
-  public SearchUsers(params: SearchUserParams): Observable<any> {
-    return this.http.get<any>(
+  public SearchUsers(params: SearchUserParams): Observable<SearchUserRes | GenericErrorRes> {
+    return this.http.get<SearchUserRes>(
       this.f + "searchUser" + HttpService.makeQuery(params),
       {headers: HttpService.getHeaders()}
     ).pipe(
