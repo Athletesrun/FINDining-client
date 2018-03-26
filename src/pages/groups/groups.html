@@ -21,4 +21,9 @@
     </ion-item-sliding>
   </ion-list>
   <fd-loading *ngIf="loading"></fd-loading>
+  <ion-fab bottom right>
+    <button ion-fab color="secondary" (click)="openCreateGroup()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
 </ion-content>

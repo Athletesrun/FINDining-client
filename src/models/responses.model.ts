@@ -57,3 +57,8 @@ export type GetGroupsRes = {
   status: number,
   data: Group[]
 }
+
+export type CreateGroupRes = {
+  status: number,
+  data: number
+}

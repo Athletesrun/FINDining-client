@@ -4,6 +4,7 @@ import { GroupPage } from '../group/group';
 import { Group } from "../../models/group.model";
 import { HttpService } from "../../providers/http.service";
 import { GetGroupsRes } from "../../models/responses.model";
+import { CreateGroupPage } from "./create-group/create-group";
 
 @Component({
   templateUrl: 'groups.html',
@@ -17,7 +18,7 @@ export class GroupsPage {
   error = {
     enabled: false,
     message: ""
-  }
+  };
 
   constructor(private nav: NavController, private http: HttpService) {
 
@@ -35,6 +36,10 @@ export class GroupsPage {
     this.nav.push(GroupPage, {
       group: group
     })
+  }
+
+  openCreateGroup() {
+    this.nav.push(CreateGroupPage);
   }
 
   getLastInArray(arr) {

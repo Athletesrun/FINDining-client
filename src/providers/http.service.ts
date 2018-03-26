@@ -1,5 +1,6 @@
 import { Injectable, NgZone } from "@angular/core";
 import {
+  CreateGroupParams,
   GenericUserQueryParams,
   GetRestaurantFeedParams, LoginParams, RegisterParams, ReviewRestaurantParams, SearchUserParams,
   SurveyResultsParams
@@ -11,7 +12,10 @@ import 'rxjs/add/observable/of';
 import * as SHA from 'sha256';
 import { catchError } from "rxjs/operators";
 import { ErrorObservable } from "rxjs/observable/ErrorObservable";
-import { GenericStatusRes, GetRestaurantsRes, GenericErrorRes, SearchForFriendRes, LoginRes, GetGroupsRes, GetUserByIdRes } from "../models/responses.model";
+import {
+  GenericStatusRes, GetRestaurantsRes, GenericErrorRes, SearchForFriendRes, LoginRes, GetGroupsRes,
+  GetUserByIdRes, CreateGroupRes
+} from "../models/responses.model";
 import { Events } from "ionic-angular";
 
 @Injectable()
@@ -169,7 +173,7 @@ export class HttpService {
 
   public SearchForFriend(name: string): Observable<SearchForFriendRes | GenericErrorRes> {
     return this.http.get<SearchForFriendRes>(
-      this.f + "searchUser/" + name,
+      this.f + "searchforFriend/" + name,
       {headers: HttpService.getHeaders()}
     ).pipe(
       catchError(this.handleError)
@@ -197,7 +201,7 @@ export class HttpService {
 
   public RemoveFriend(body: GenericUserQueryParams): Observable<GenericStatusRes | GenericErrorRes> {
     return this.http.post<GenericStatusRes>(
-      this.f + "addFriend",
+      this.f + "removeFriend",
       body,
       {headers: HttpService.getHeaders()}
     ).pipe(
@@ -210,6 +214,16 @@ export class HttpService {
   public GetGroups(): Observable<GetGroupsRes | GenericErrorRes> {
     return this.http.get<GetGroupsRes>(
       this.g + "getGroups",
+      {headers: HttpService.getHeaders()}
+    ).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  public CreateGroup(body: CreateGroupParams): Observable<CreateGroupRes | GenericErrorRes> {
+    return this.http.post<CreateGroupRes>(
+      this.g + "createGroup",
+      body,
       {headers: HttpService.getHeaders()}
     ).pipe(
       catchError(this.handleError)

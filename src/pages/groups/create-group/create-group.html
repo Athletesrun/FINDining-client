@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar [color]="'light'">
+    <ion-title>
+      Create a Group
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="create-group-card">
+    <fd-error [visible]="error.visible" [message]="error.message"></fd-error>
+    <ion-item>
+      <ion-input placeholder="Group Name" [(ngModel)]="groupName" name="name"></ion-input>
+    </ion-item>
+  </ion-card>
+  <div class="footer">
+    <!--<button ion-button color="primary">Register</button>-->
+    <!--<span class="buffer"></span>-->
+    <button ion-button color="secondary" (click)="void()">
+      Finish&nbsp;&nbsp;
+      <ion-icon name="arrow-forward"></ion-icon>
+    </button>
+  </div>
+</ion-content>

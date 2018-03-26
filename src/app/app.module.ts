@@ -35,6 +35,7 @@ import { ErrorComponent } from '../components/error/error';
 // Popovers
 import { OverflowPopover } from '../pages/home/overflow/overflow';
 import { FilterPopover } from "../pages/home/filter/filter";
+import { CreateGroupPage } from "../pages/groups/create-group/create-group";
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { FilterPopover } from "../pages/home/filter/filter";
     RegisterPage,
     ErrorComponent,
     RatePage,
-    AddFriendPage
+    AddFriendPage,
+    CreateGroupPage
   ],
   imports: [
     BrowserModule,
@@ -86,7 +88,8 @@ import { FilterPopover } from "../pages/home/filter/filter";
     RegisterPage,
     ErrorComponent,
     RatePage,
-    AddFriendPage
+    AddFriendPage,
+    CreateGroupPage
   ],
   providers: [
     StatusBar,
