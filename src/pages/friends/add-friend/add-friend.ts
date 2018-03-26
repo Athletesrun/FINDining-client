@@ -47,7 +47,9 @@ export class AddFriendPage {
   }
 
   addFriend(user) {
-    return this.http.AddFriend()
+    return this.http.AddFriend({ userId: user.id }).subscribe(then => {
+      
+    })
   }
 
 }
