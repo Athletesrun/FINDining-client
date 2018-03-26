@@ -1,5 +1,6 @@
 import { Injectable, NgZone } from "@angular/core";
 import {
+  GenericUserQueryParams,
   GetRestaurantFeedParams, LoginParams, RegisterParams, ReviewRestaurantParams, SearchUserParams,
   SurveyResultsParams
 } from "../models/requests.model";
@@ -10,7 +11,7 @@ import 'rxjs/add/observable/of';
 import * as SHA from 'sha256';
 import { catchError } from "rxjs/operators";
 import { ErrorObservable } from "rxjs/observable/ErrorObservable";
-import { GenericStatusRes, GetRestaurantsRes, GenericErrorRes, SearchUserRes, LoginRes, GetGroupsRes, GetUserByIdRes } from "../models/responses.model";
+import { GenericStatusRes, GetRestaurantsRes, GenericErrorRes, SearchForFriendRes, LoginRes, GetGroupsRes, GetUserByIdRes } from "../models/responses.model";
 import { Events } from "ionic-angular";
 
 @Injectable()
@@ -166,9 +167,9 @@ export class HttpService {
 
   // Friends--starts paths with this.f
 
-  public SearchUsers(params: SearchUserParams): Observable<SearchUserRes | GenericErrorRes> {
-    return this.http.get<SearchUserRes>(
-      this.f + "searchUser" + HttpService.makeQuery(params),
+  public SearchForFriend(name: string): Observable<SearchForFriendRes | GenericErrorRes> {
+    return this.http.get<SearchForFriendRes>(
+      this.f + "searchUser/" + name,
       {headers: HttpService.getHeaders()}
     ).pipe(
       catchError(this.handleError)
@@ -178,6 +179,26 @@ export class HttpService {
   public GetUserById(id: number): Observable<GetUserByIdRes | GenericErrorRes> {
     return this.http.get<GetUserByIdRes>(
       this.f + "getUserById/" + id,
+      {headers: HttpService.getHeaders()}
+    ).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  public AddFriend(body: GenericUserQueryParams): Observable<GenericStatusRes | GenericErrorRes> {
+    return this.http.post<GenericStatusRes>(
+      this.f + "addFriend",
+      body,
+      {headers: HttpService.getHeaders()}
+    ).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  public RemoveFriend(body: GenericUserQueryParams): Observable<GenericStatusRes | GenericErrorRes> {
+    return this.http.post<GenericStatusRes>(
+      this.f + "addFriend",
+      body,
       {headers: HttpService.getHeaders()}
     ).pipe(
       catchError(this.handleError)

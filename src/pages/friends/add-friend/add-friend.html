@@ -19,9 +19,9 @@
   <fd-error [message]="error.message" [visible]="error.isError"></fd-error>
   <ion-list>
     <ion-item *ngFor="let user of results">
-      {{user.name}}
+      {{user.first_name}} {{user.last_name}}
       <button ion-button icon-only clear item-end (click)="toggleFriendship(user)">
-        <ion-icon [name]="user.friend ? 'remove' : 'add'"></ion-icon>
+        <ion-icon [name]="user.alreadyFriend ? 'remove' : 'add'"></ion-icon>
       </button>
     </ion-item>
   </ion-list>
@@ -31,5 +31,7 @@
   <!--<div *ngIf="showHelpText">-->
     <!--<h3>Search for a user above.</h3>-->
   <!--</div>-->
-  <fd-loading *ngIf="loading"></fd-loading>
+  <div class="load-wrap">
+    <fd-loading *ngIf="loading"></fd-loading>
+  </div>
 </ion-content>

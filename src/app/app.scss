@@ -25,3 +25,13 @@
 .grid-container {
   min-height: 100%;
 }
+
+.load-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: stretch;
+  align-items: center;
+  padding: 50px;
+}

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpService } from "../../../providers/http.service";
-import { GenericErrorRes, SearchUserRes } from "../../../models/responses.model";
+import { GenericErrorRes, SearchForFriendRes } from "../../../models/responses.model";
 
 @Component({
   selector: 'page-friend-add',
@@ -22,13 +22,17 @@ export class AddFriendPage {
   constructor (private http: HttpService) {}
 
   findUsers() {
-    this.error.isError = false;
-    this.loading = true;
     this.noResults = false;
-    this.http.SearchUsers({name: this.query}).subscribe(res => {
+    this.error.isError = false;
+    if (this.query.length == 0) {
+      this.results = [];
+      return;
+    }
+    this.loading = true;
+    this.http.SearchForFriend(this.query).subscribe(res => {
       this.loading = false;
       if (res.status === 10) {
-        this.results = (<SearchUserRes>res).data;
+        this.results = (<SearchForFriendRes>res).data;
         if (this.results.length == 0) this.noResults = true;
       }
       else {
@@ -39,7 +43,11 @@ export class AddFriendPage {
   }
 
   toggleFriendship(user) {
-    console.log(user);
+
+  }
+
+  addFriend(user) {
+    return this.http.AddFriend()
   }
 
 }

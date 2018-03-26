@@ -35,7 +35,7 @@ export type SearchUserParams = {
   name: string
 }
 
-export type GenericUserIdParams = {
+export type GenericUserQueryParams = {
   userId: number
 }
 

@@ -42,7 +42,7 @@ export class MyApp {
       statusBar.backgroundColorByHexString("#fafafa");
       splashScreen.hide();
       events.subscribe("fd:error", message => {
-
+        this.showErrorPopover(message);
       });
       this.prepareHttp();
     });

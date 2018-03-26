@@ -34,12 +34,13 @@ export type GenericErrorRes = {
   invalidFields?: string[]
 }
 
-export type SearchUserRes = {
+export type SearchForFriendRes = {
   status: number,
   data: {
     id: number,
-    name: string,
-    friend: boolean
+    first_name: string,
+    last_name: string,
+    alreadyFriend: boolean
   }[]
 }
 
