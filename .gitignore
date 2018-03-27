@@ -12,6 +12,11 @@ log.txt
 .vscode/
 npm-debug.log*
 
+.idea/workspace.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/webresources.xml
+.idea/inspectionProfiles
 .sourcemaps/
 .sass-cache/
 .tmp/
