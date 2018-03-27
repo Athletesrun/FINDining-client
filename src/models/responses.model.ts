@@ -1,5 +1,6 @@
 import { Restaurant } from "./restaurant.model";
 import { Group } from "./group.model";
+import { Friend } from "./friend.model";
 
 export type LoginRes = {
   status: number,
@@ -61,4 +62,9 @@ export type GetGroupsRes = {
 export type CreateGroupRes = {
   status: number,
   data: number
+}
+
+export type GetFriendsRes = {
+  status: number,
+  data: Friend[]
 }

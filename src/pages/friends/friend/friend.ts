@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ViewController, NavParams } from 'ionic-angular';
+import { Friend } from '../../../models/friend.model';
+import { Restaurant } from '../../../models/restaurant.model';
 
 @Component({
   templateUrl: "friend.html",
@@ -9,8 +11,8 @@ import { ViewController, NavParams } from 'ionic-angular';
 
 export class FriendPage {
 
-  public friend: string = "";
-  public restaurants: object[];
+  public friend: Friend;
+  public restaurants: Restaurant[];
 
   constructor(public viewCtrl: ViewController, public navParams: NavParams) {
     this.friend = navParams.data.friend;

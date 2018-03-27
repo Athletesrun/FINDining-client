@@ -8,7 +8,7 @@
 
 <ion-content>
   <fd-restaurant
-    *ngFor="let restaurant of group.restaurants"
+    *ngFor="let restaurant of restaurants"
     [fdRestaurant]="restaurant"
     (click)="openRestaurant(restaurant)"></fd-restaurant>
 </ion-content>
