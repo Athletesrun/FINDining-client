@@ -1,12 +1,12 @@
 import { Component, ViewChild } from "@angular/core";
-import { Content, NavController, NavParams, Events } from "ionic-angular";
+import { Content, NavController, NavParams, Events, Platform } from "ionic-angular";
 import { StatusBar } from '@ionic-native/status-bar';
 import { Restaurant } from "../../models/restaurant.model";
 import Tools from "../../tools/tools";
 import Vibrant from 'node-vibrant';
 import tinycolor from 'tinycolor2';
 import mapboxgl from 'mapbox-gl';
-import {RatePage} from "../rate/rate";
+import { RatePage } from "../rate/rate";
 
 @Component({
   selector: "page-restaurant",
@@ -37,7 +37,8 @@ export class RestaurantPage {
     private params: NavParams,
     private nav: NavController,
     private sb: StatusBar,
-    private event: Events
+    private event: Events,
+    private plt: Platform
   ) {
     sb.overlaysWebView(false);
     sb.backgroundColorByHexString("#fafafa");
@@ -151,7 +152,11 @@ export class RestaurantPage {
   }
 
   openYelpPage() {
-    open(this.restaurant.url);
+    if(this.plt.is("ios")) {
+      window.open(this.restaurant.url, '_system');
+    } else {
+      open(this.restaurant.url);
+    }
   }
 
   archive() {

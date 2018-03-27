@@ -47,7 +47,3 @@ export type EditGroupParams = {
   member: number,
   groupId: number
 }
-
-export type GetGroupRecommendations = GetRestaurantFeedParams & {
-  groupId: number
-}

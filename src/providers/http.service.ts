@@ -14,7 +14,7 @@ import { catchError } from "rxjs/operators";
 import { ErrorObservable } from "rxjs/observable/ErrorObservable";
 import {
   GenericStatusRes, GetRestaurantsRes, GenericErrorRes, SearchForFriendRes, LoginRes, GetGroupsRes,
-  GetUserByIdRes, CreateGroupRes
+  GetUserByIdRes, CreateGroupRes, GetFriendsRes
 } from "../models/responses.model";
 import { Events } from "ionic-angular";
 
@@ -180,6 +180,15 @@ export class HttpService {
     )
   }
 
+  public GetFriends(): Observable<GetFriendsRes | GenericErrorRes> {
+    return this.http.get<GetFriendsRes>(
+      this.f + "getFriends",
+      {headers: HttpService.getHeaders()}
+    ).pipe(
+      catchError(this.handleError)
+    )
+  }
+
   public GetUserById(id: number): Observable<GetUserByIdRes | GenericErrorRes> {
     return this.http.get<GetUserByIdRes>(
       this.f + "getUserById/" + id,
@@ -227,6 +236,13 @@ export class HttpService {
       {headers: HttpService.getHeaders()}
     ).pipe(
       catchError(this.handleError)
+    )
+  }
+
+  public GetGroupRecommendations(groupId: number, segment: number, query: GetRestaurantFeedParams): Observable<GetRestaurantsRes | GenericErrorRes> {
+    return this.http.get<GetRestaurantsRes>(
+      this.g + `getRecommendations/${groupId}/${segment}` + HttpService.makeQuery(query),
+      {headers: HttpService.getHeaders()}
     )
   }
 

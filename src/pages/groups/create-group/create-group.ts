@@ -9,7 +9,7 @@ import { HttpService } from "../../../providers/http.service";
 export class CreateGroupPage {
 
   groupName = "";
-  error: {
+  error = {
     visible: false,
     message: ""
   }

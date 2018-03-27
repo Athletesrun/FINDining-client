@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar [color]="'light'">
     <ion-title>
-      {{ friend }}
+      {{ friend.first_name }}
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -11,7 +11,7 @@
     <ion-icon name="contact" class="personIcon"></ion-icon>
   </div>
   <div class="friendNameContainer">
-    <p class="friendName">{{ friend }}</p>
+    <p class="friendName">{{ friend.first_name }} {{ friend.last_name }}</p>
   </div>
   <div class="likesContainer">
     <p style="font-weight: bold; font-size: 20px;">Likes</p>
