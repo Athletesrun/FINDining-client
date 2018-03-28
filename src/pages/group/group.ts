@@ -7,13 +7,45 @@ import { HttpService } from '../../providers/http.service';
 import { GetRestaurantFeedParams } from '../../models/requests.model';
 import { Restaurant } from '../../models/restaurant.model';
 import { GetRestaurantsRes } from '../../models/responses.model';
+import { AddGroupMemberPage } from './add-group-member/add-group-member';
+
+@Component({
+  template: `
+<ion-header>
+  <ion-navbar [color]="'light'">
+    <ion-title>
+      {{headerText}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-tabs>
+    <ion-tab [root]="recommendations" [rootParams]="p" tabIcon="list-box"></ion-tab>
+    <ion-tab [rootParams]="p" tabIcon="heart"></ion-tab>
+    <ion-tab [rootParams]="p" tabIcon="person"></ion-tab>
+  </ion-tabs>
+</ion-content>
+  `,
+  selector: 'page-group'
+})
+export class GroupPage {
+  recommendations = GroupRecommendationsPage;
+  headerText;
+  p;
+
+  constructor(private params: NavParams) {
+    this.p = params.data;
+    this.headerText = params.get('group').name;
+  }
+}
 
 @Component({
   templateUrl: 'group.html',
   selector: 'page-group',
   providers: [HttpService]
 })
-export class GroupPage {
+export class GroupRecommendationsPage {
 
   group: Group;
   headerText;
@@ -67,4 +99,18 @@ export class GroupPage {
     })
   }
 
+  openAddGroupMember() {
+    this.nav.push(AddGroupMemberPage, {
+      currentMembers: this.group.members
+    });
+  }
+
 }
+
+/* 
+  <ion-buttons right>
+    <button ion-button icon-only clear (click)="openAddGroupMember()">
+      <ion-icon name="person-add"></ion-icon>
+    </button>
+  </ion-buttons>
+*/

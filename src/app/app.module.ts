@@ -13,7 +13,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 // Pages
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { GroupPage } from '../pages/group/group';
+import { GroupPage, GroupRecommendationsPage } from '../pages/group/group';
 import { GroupsPage } from '../pages/groups/groups';
 import { AccountPage } from '../pages/account/account';
 import { ArchivePage } from '../pages/archive/archive';
@@ -37,6 +37,7 @@ import { FriendListComponent } from "../components/friend-list/friend-list";
 import { OverflowPopover } from '../pages/home/overflow/overflow';
 import { FilterPopover } from "../pages/home/filter/filter";
 import { CreateGroupPage } from "../pages/groups/create-group/create-group";
+import { AddGroupMemberPage } from '../pages/group/add-group-member/add-group-member';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,9 @@ import { CreateGroupPage } from "../pages/groups/create-group/create-group";
     RatePage,
     AddFriendPage,
     CreateGroupPage,
-    FriendListComponent
+    FriendListComponent,
+    AddGroupMemberPage,
+    GroupRecommendationsPage
   ],
   imports: [
     BrowserModule,
@@ -92,7 +95,9 @@ import { CreateGroupPage } from "../pages/groups/create-group/create-group";
     RatePage,
     AddFriendPage,
     CreateGroupPage,
-    FriendListComponent
+    FriendListComponent,
+    AddGroupMemberPage,
+    GroupRecommendationsPage
   ],
   providers: [
     StatusBar,

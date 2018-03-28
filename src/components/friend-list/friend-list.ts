@@ -23,6 +23,8 @@ export class FriendListComponent {
     return this.friends;
   }
 
+  @Input() exclude: number[] = [];
+
   @Output() updateFriendIds = new EventEmitter();
   set friendIds(val) {
     this.friends = val;
@@ -43,9 +45,16 @@ export class FriendListComponent {
   }
 
   getFriends() {
+    console.log(this.exclude);
     this.http.GetFriends().subscribe(res => {
       if (res.status == 10) {
-        this.friends = (<GetFriendsRes>res).data.map(d => {
+        let data = (<GetFriendsRes>res).data;
+        if (this.exclude.length > 0) {
+          let tmpData = [];
+          data.map(d => this.exclude.indexOf(d.id) == -1 ? tmpData.push(d) : false);
+          data = tmpData;
+        }
+        this.friends = data.map(d => {
           return Object.assign({}, d, {selected: false})
         });
       }
