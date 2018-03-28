@@ -25,7 +25,9 @@ import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { RatePage } from "../pages/rate/rate";
 import { WelcomeSurvey } from "../pages/welcomeSurvey/welcomeSurvey";
+import { CreateGroupPage } from "../pages/groups/create-group/create-group";
 import { AddFriendPage } from "../pages/friends/add-friend/add-friend";
+import { AddGroupMemberPage } from '../pages/group/add-group-member/add-group-member';
 
 // Components
 import { RestaurantComponent } from '../components/restaurant/restaurant';
@@ -36,8 +38,7 @@ import { FriendListComponent } from "../components/friend-list/friend-list";
 // Popovers
 import { OverflowPopover } from '../pages/home/overflow/overflow';
 import { FilterPopover } from "../pages/home/filter/filter";
-import { CreateGroupPage } from "../pages/groups/create-group/create-group";
-import { AddGroupMemberPage } from '../pages/group/add-group-member/add-group-member';
+import { ReasonPopover } from '../pages/restaurant/restaurant';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { AddGroupMemberPage } from '../pages/group/add-group-member/add-group-me
     CreateGroupPage,
     FriendListComponent,
     AddGroupMemberPage,
-    GroupRecommendationsPage
+    GroupRecommendationsPage,
+    ReasonPopover
   ],
   imports: [
     BrowserModule,
@@ -97,7 +99,8 @@ import { AddGroupMemberPage } from '../pages/group/add-group-member/add-group-me
     CreateGroupPage,
     FriendListComponent,
     AddGroupMemberPage,
-    GroupRecommendationsPage
+    GroupRecommendationsPage,
+    ReasonPopover
   ],
   providers: [
     StatusBar,

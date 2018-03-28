@@ -11,6 +11,9 @@
       </button>
       <span class="name-text" [ngClass]="scrollPosition">
         {{restaurant.name}}
+        <a class="show-reason-link" (click)="showReason($event)" *ngIf="restaurant.reasons">
+          <ion-icon name="help-circle"></ion-icon>
+        </a>
       </span>
       <button ion-button icon-only clear ion-right (click)="archive()" class="archive" [color]="isInArchive ? 'secondary' : 'dark'">
         <ion-icon [name]="isInArchive ? 'star' : 'star-outline'"></ion-icon>

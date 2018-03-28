@@ -31,5 +31,8 @@ export type Restaurant = {
   display_phone: string,
   phone: string,
   score: number,
-  review_count: number
+  review_count: number,
+  reasons: {
+    initial_survey?: string[]
+  }
 }

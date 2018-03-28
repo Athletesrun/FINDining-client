@@ -60,6 +60,7 @@ export default class Tools {
   }
 
   static JoinArrayAsList(arr, conjunction) {
+    if (arr.length == 1) return arr.join("");
     const newArr = arr.map(d => d);
     const lastElement = newArr.pop();
     const list = newArr.join(", ");

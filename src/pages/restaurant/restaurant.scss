@@ -40,6 +40,11 @@ page-restaurant {
     margin-top: 3rem;
   }
 
+  .show-reason-link {
+    color: color($colors, secondary, base);
+    font-size: .75em;
+  }
+
   .main {
     min-height: 110vh;
     position: absolute;

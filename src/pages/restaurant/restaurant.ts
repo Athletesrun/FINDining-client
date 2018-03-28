@@ -1,5 +1,5 @@
 import { Component, ViewChild } from "@angular/core";
-import { Content, NavController, NavParams, Events, Platform } from "ionic-angular";
+import { Content, NavController, NavParams, Events, Platform, PopoverController } from "ionic-angular";
 import { StatusBar } from '@ionic-native/status-bar';
 import { Restaurant } from "../../models/restaurant.model";
 import Tools from "../../tools/tools";
@@ -38,7 +38,8 @@ export class RestaurantPage {
     private nav: NavController,
     private sb: StatusBar,
     private event: Events,
-    private plt: Platform
+    private plt: Platform,
+    private pop: PopoverController
   ) {
     sb.overlaysWebView(false);
     sb.backgroundColorByHexString("#fafafa");
@@ -145,6 +146,13 @@ export class RestaurantPage {
     }
   }
 
+  showReason(e) {
+    let popover = this.pop.create(ReasonPopover, {
+      reasons: this.restaurant.reasons
+    })
+    popover.present({ev: e})
+  }
+
   openRatePage() {
     this.nav.push(RatePage, {
       restaurant: this.restaurant
@@ -168,5 +176,26 @@ export class RestaurantPage {
   back() {
     this.cancelScrollListener = true;
     this.nav.pop();
+  }
+}
+
+@Component({
+  selector: 'popover-reason',
+  template: `
+<ion-content padding>
+  <h3>Why?</h3>
+  <p>{{reasonText}}</p>
+</ion-content>
+`
+})
+export class ReasonPopover {
+  reasonText = "";
+
+  constructor(private params: NavParams) {
+    const reasons = params.get('reasons');
+    if (reasons.initial_survey) this.reasonText =
+      `We think you'd like this because you said you liked ${Tools.JoinArrayAsList(reasons.initial_survey, 'and')} in the welcome survey.`;
+    else this.reasonText =
+      `We are showing you this restaurant to show you something new you might want to try.`;  
   }
 }
