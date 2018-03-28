@@ -20,7 +20,9 @@
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
-  <fd-loading *ngIf="loading"></fd-loading>
+  <div class="load-wrap">
+    <fd-loading *ngIf="loading" #loading></fd-loading>
+  </div>
   <ion-fab bottom right>
     <button ion-fab color="secondary" (click)="openCreateGroup()">
       <ion-icon name="add"></ion-icon>

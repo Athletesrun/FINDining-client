@@ -17,6 +17,7 @@ export class GroupPage {
 
   group: Group;
   headerText;
+  loading = false;
   segment = 0;
   parameters: GetRestaurantFeedParams = {
     distance: 10,
@@ -29,7 +30,7 @@ export class GroupPage {
   error = {
     visible: false,
     message: ""
-  }
+  };
 
   constructor(
     private nav: NavController,
@@ -47,7 +48,9 @@ export class GroupPage {
   }
 
   getRecommendations() {
+    this.loading = true;
     this.http.GetGroupRecommendations(this.group.id, this.segment, this.parameters).subscribe(res => {
+      this.loading = false;
       if (res.status == 10) {
         this.restaurants = (<GetRestaurantsRes>res).data;
       }

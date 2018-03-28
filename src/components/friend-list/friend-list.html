@@ -1,0 +1,8 @@
+<div class="wrapper">
+  <ion-list>
+    <ion-item *ngFor="let friend of friends; let i = index;">
+      <ion-label>{{friend.first_name}} {{friend.last_name}}</ion-label>
+      <ion-checkbox color="secondary" (ionChange)="selectFriend(i, $event)"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+</div>

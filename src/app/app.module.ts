@@ -31,6 +31,7 @@ import { AddFriendPage } from "../pages/friends/add-friend/add-friend";
 import { RestaurantComponent } from '../components/restaurant/restaurant';
 import { LoadingComponent } from "../components/loading/loading";
 import { ErrorComponent } from '../components/error/error';
+import { FriendListComponent } from "../components/friend-list/friend-list";
 
 // Popovers
 import { OverflowPopover } from '../pages/home/overflow/overflow';
@@ -59,7 +60,8 @@ import { CreateGroupPage } from "../pages/groups/create-group/create-group";
     ErrorComponent,
     RatePage,
     AddFriendPage,
-    CreateGroupPage
+    CreateGroupPage,
+    FriendListComponent
   ],
   imports: [
     BrowserModule,
@@ -89,7 +91,8 @@ import { CreateGroupPage } from "../pages/groups/create-group/create-group";
     ErrorComponent,
     RatePage,
     AddFriendPage,
-    CreateGroupPage
+    CreateGroupPage,
+    FriendListComponent
   ],
   providers: [
     StatusBar,

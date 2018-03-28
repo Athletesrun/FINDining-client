@@ -4,4 +4,13 @@ page-group-create {
     display: grid;
     grid-template-columns: 1fr auto;
   }
+
+  .section-header {
+    margin: 20px;
+  }
+
+  .create-group-card {
+    max-height: 80%;
+    overflow-y: auto;
+  }
 }

@@ -9,14 +9,18 @@
 <ion-content>
   <ion-card class="create-group-card">
     <fd-error [visible]="error.visible" [message]="error.message"></fd-error>
+    <h1 class="section-header">Name Your Group:</h1>
     <ion-item>
-      <ion-input placeholder="Group Name" [(ngModel)]="groupName" name="name"></ion-input>
+      <ion-input [(ngModel)]="groupName" placeholder="Group Name" required name="name"></ion-input>
     </ion-item>
+    <hr>
+    <h1 class="section-header">Choose Your Friends:</h1>
+    <fd-friend-list (updateFriendIds)="friendChange($event)"></fd-friend-list>
   </ion-card>
   <div class="footer">
     <!--<button ion-button color="primary">Register</button>-->
     <span class="buffer"></span>
-    <button ion-button color="secondary" (click)="void()">
+    <button ion-button color="secondary" (click)="finish()">
       Finish&nbsp;&nbsp;
       <ion-icon name="arrow-forward"></ion-icon>
     </button>

@@ -1,6 +1,6 @@
 import { Injectable, NgZone } from "@angular/core";
 import {
-  CreateGroupParams,
+  CreateGroupParams, EditGroupParams,
   GenericUserQueryParams,
   GetRestaurantFeedParams, LoginParams, RegisterParams, ReviewRestaurantParams, SearchUserParams,
   SurveyResultsParams
@@ -242,6 +242,14 @@ export class HttpService {
   public GetGroupRecommendations(groupId: number, segment: number, query: GetRestaurantFeedParams): Observable<GetRestaurantsRes | GenericErrorRes> {
     return this.http.get<GetRestaurantsRes>(
       this.g + `getRecommendations/${groupId}/${segment}` + HttpService.makeQuery(query),
+      {headers: HttpService.getHeaders()}
+    )
+  }
+
+  public AddToGroup(body: EditGroupParams): Observable<GenericStatusRes | GenericErrorRes> {
+    return this.http.post<GenericStatusRes>(
+      this.g + "addToGroup",
+      body,
       {headers: HttpService.getHeaders()}
     )
   }

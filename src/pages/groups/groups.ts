@@ -24,7 +24,7 @@ export class GroupsPage {
 
   }
 
-  ionViewDidLoad() {
+  ionViewDidEnter() {
     this.getGroups();
   }
 
