@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { NavController } from 'ionic-angular';
+import { NavController, Events } from 'ionic-angular';
 import { GroupPage } from '../group/group';
 import { Group } from "../../models/group.model";
 import { HttpService } from "../../providers/http.service";
@@ -20,8 +20,10 @@ export class GroupsPage {
     message: ""
   };
 
-  constructor(private nav: NavController, private http: HttpService) {
-
+  constructor(private nav: NavController, private http: HttpService, event: Events) {
+    event.subscribe('fd:updateGroups', (callback) => {
+      this.getGroups(callback);
+    })
   }
 
   ionViewDidEnter() {
@@ -48,13 +50,14 @@ export class GroupsPage {
     return arr[arr.length - 1];
   }
 
-  getGroups() {
+  getGroups(callback?) {
     this.error.enabled = false;
     this.loading = true;
     this.http.GetGroups().subscribe(res => {
       this.loading = false;
       if (res.status === 10) {
         this.groups = (<GetGroupsRes>res).data;
+        if (callback) callback();
       }
       else {
         this.error.enabled = true;

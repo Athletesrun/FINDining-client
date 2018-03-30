@@ -1,3 +1,14 @@
 <ion-content padding>
-  <fd-friend-list [exclude]="currentMembers" (updateFriendIds)="setMembers($event)"></fd-friend-list>
+  <ion-card>
+    <h1 class="section-header">Choose Friends to Add:</h1>
+    <fd-friend-list [exclude]="currentMembers" (updateFriendIds)="setMembers($event)"></fd-friend-list>
+  </ion-card>
+  <div class="footer">
+    <!--<button ion-button color="primary">Register</button>-->
+    <span class="buffer"></span>
+    <button ion-button color="secondary" (click)="finish()">
+      Done&nbsp;&nbsp;
+      <ion-icon name="arrow-forward"></ion-icon>
+    </button>
+  </div>
 </ion-content>

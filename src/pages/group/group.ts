@@ -7,7 +7,7 @@ import { HttpService } from '../../providers/http.service';
 import { GetRestaurantFeedParams } from '../../models/requests.model';
 import { Restaurant } from '../../models/restaurant.model';
 import { GetRestaurantsRes } from '../../models/responses.model';
-import { AddGroupMemberPage } from './add-group-member/add-group-member';
+import { GroupMembersPage } from './group-members/group-members';
 
 @Component({
   template: `
@@ -21,9 +21,9 @@ import { AddGroupMemberPage } from './add-group-member/add-group-member';
 
 <ion-content>
   <ion-tabs>
-    <ion-tab [root]="recommendations" [rootParams]="p" tabIcon="list-box"></ion-tab>
-    <ion-tab [rootParams]="p" tabIcon="heart"></ion-tab>
-    <ion-tab [rootParams]="p" tabIcon="person"></ion-tab>
+    <ion-tab [tabsHideOnSubPages]="true" [root]="recommendations" [rootParams]="p" tabIcon="list-box"></ion-tab>
+    <ion-tab [tabsHideOnSubPages]="true" [rootParams]="p" tabIcon="heart"></ion-tab>
+    <ion-tab [tabsHideOnSubPages]="true" [root]="members" [rootParams]="p" tabIcon="person"></ion-tab>
   </ion-tabs>
 </ion-content>
   `,
@@ -31,6 +31,7 @@ import { AddGroupMemberPage } from './add-group-member/add-group-member';
 })
 export class GroupPage {
   recommendations = GroupRecommendationsPage;
+  members = GroupMembersPage;
   headerText;
   p;
 
@@ -97,12 +98,6 @@ export class GroupRecommendationsPage {
     this.nav.push(RestaurantPage, {
       rest: rest
     })
-  }
-
-  openAddGroupMember() {
-    this.nav.push(AddGroupMemberPage, {
-      currentMembers: this.group.members
-    });
   }
 
 }

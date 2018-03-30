@@ -1,0 +1,13 @@
+<ion-content>
+  <fd-error [visible]="error.visible" [message]="error.message"></fd-error>
+  <ion-list>
+    <ion-item *ngFor="let member of members">
+      {{member.first_name}} {{member.last_name}}
+    </ion-item>
+  </ion-list>
+  <ion-fab bottom right>
+    <button ion-fab color="secondary" (click)="openAddGroupMember()">
+      <ion-icon name="person-add"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

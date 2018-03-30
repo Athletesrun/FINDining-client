@@ -27,6 +27,7 @@ import { RatePage } from "../pages/rate/rate";
 import { WelcomeSurvey } from "../pages/welcomeSurvey/welcomeSurvey";
 import { CreateGroupPage } from "../pages/groups/create-group/create-group";
 import { AddFriendPage } from "../pages/friends/add-friend/add-friend";
+import { GroupMembersPage } from '../pages/group/group-members/group-members';
 import { AddGroupMemberPage } from '../pages/group/add-group-member/add-group-member';
 
 // Components
@@ -66,7 +67,8 @@ import { ReasonPopover } from '../pages/restaurant/restaurant';
     FriendListComponent,
     AddGroupMemberPage,
     GroupRecommendationsPage,
-    ReasonPopover
+    ReasonPopover,
+    GroupMembersPage
   ],
   imports: [
     BrowserModule,
@@ -100,7 +102,8 @@ import { ReasonPopover } from '../pages/restaurant/restaurant';
     FriendListComponent,
     AddGroupMemberPage,
     GroupRecommendationsPage,
-    ReasonPopover
+    ReasonPopover,
+    GroupMembersPage
   ],
   providers: [
     StatusBar,
