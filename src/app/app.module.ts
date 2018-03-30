@@ -25,6 +25,7 @@ import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { RatePage } from "../pages/rate/rate";
 import { WelcomeSurvey } from "../pages/welcomeSurvey/welcomeSurvey";
+import { CarouselTestPage } from '../pages/carousel-test/carousel-test';
 import { CreateGroupPage } from "../pages/groups/create-group/create-group";
 import { AddFriendPage } from "../pages/friends/add-friend/add-friend";
 import { GroupMembersPage } from '../pages/group/group-members/group-members';
@@ -68,7 +69,8 @@ import { ReasonPopover } from '../pages/restaurant/restaurant';
     AddGroupMemberPage,
     GroupRecommendationsPage,
     ReasonPopover,
-    GroupMembersPage
+    GroupMembersPage,
+    CarouselTestPage
   ],
   imports: [
     BrowserModule,
@@ -103,7 +105,8 @@ import { ReasonPopover } from '../pages/restaurant/restaurant';
     AddGroupMemberPage,
     GroupRecommendationsPage,
     ReasonPopover,
-    GroupMembersPage
+    GroupMembersPage,
+    CarouselTestPage
   ],
   providers: [
     StatusBar,
