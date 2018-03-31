@@ -13,6 +13,7 @@ import { GetRestaurantsRes } from "../../models/responses.model";
 export class CarouselTestPage {
   
   restaurants: Restaurant[] = [];
+  currentRestaurants: Restaurant[] = [];
   params: GetRestaurantFeedParams = {
     distance: 10,
     price: 0,
@@ -20,6 +21,7 @@ export class CarouselTestPage {
     latitude: 41.2523630,
     longitude: -95.9979880
   };
+  currentRestaurant = 0;
 
   constructor(private http: HttpService, private geo: Geolocation) {
 
@@ -44,14 +46,14 @@ export class CarouselTestPage {
     const params: GetRestaurantFeedParams = Object.assign({}, this.params, {
       distance: this.params.distance / 0.00062137
     })
-    this.http.GetRestaurantFeed(this.params, 0).subscribe(res => {
-      console.log(res);
+    this.http.GetRestaurantFeed(params, 0).subscribe(res => {
       if (res.status === 10) {
         if ((<GetRestaurantsRes>res).data.length === 0) {
           return;
         }
         (<GetRestaurantsRes>res).data.map(restaurant => {
           this.restaurants.push(restaurant);
+          this.currentRestaurants = [this.restaurants[0]];
         });
       }
     })
