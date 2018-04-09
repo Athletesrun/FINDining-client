@@ -16,6 +16,7 @@ import { HomePage } from '../pages/home/home';
 import { GroupPage, GroupRecommendationsPage } from '../pages/group/group';
 import { GroupsPage } from '../pages/groups/groups';
 import { AccountPage } from '../pages/account/account';
+import { AboutPage } from '../pages/account/about/about';
 import { ArchivePage } from '../pages/archive/archive';
 import { RestaurantPage } from '../pages/restaurant/restaurant';
 import { FriendsPage } from "../pages/friends/friends";
@@ -68,7 +69,8 @@ import { ReasonPopover } from '../pages/restaurant/restaurant';
     AddGroupMemberPage,
     GroupRecommendationsPage,
     ReasonPopover,
-    GroupMembersPage
+    GroupMembersPage,
+    AboutPage
   ],
   imports: [
     BrowserModule,
@@ -103,7 +105,8 @@ import { ReasonPopover } from '../pages/restaurant/restaurant';
     AddGroupMemberPage,
     GroupRecommendationsPage,
     ReasonPopover,
-    GroupMembersPage
+    GroupMembersPage,
+    AboutPage
   ],
   providers: [
     StatusBar,

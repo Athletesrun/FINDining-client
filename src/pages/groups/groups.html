@@ -20,6 +20,11 @@
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
+  <ion-card *ngIf="hasNoGroups">
+    <ion-card-content>
+      You're not in any groups. Click the orange button in the bottom right of the screen to create a new group!
+    </ion-card-content>
+  </ion-card>
   <div class="load-wrap">
     <fd-loading *ngIf="loading" #loading></fd-loading>
   </div>

@@ -15,6 +15,7 @@ export class GroupsPage {
 
   groups: Group[] = [];
   loading = true;
+  public hasNoGroups: boolean = false;
   error = {
     enabled: false,
     message: ""
@@ -56,6 +57,11 @@ export class GroupsPage {
     this.http.GetGroups().subscribe(res => {
       this.loading = false;
       if (res.status === 10) {
+        if(this.groups.length === 0 && (<GetGroupsRes>res).data.length === 0) {
+          this.hasNoGroups = true;
+        } else {
+          this.hasNoGroups = false;
+        }
         this.groups = (<GetGroupsRes>res).data;
         if (callback) callback();
       }

@@ -16,7 +16,7 @@ import {
   GenericStatusRes, GetRestaurantsRes, GenericErrorRes, SearchForFriendRes, LoginRes, GetGroupsRes,
   GetUserByIdRes, CreateGroupRes, GetFriendsRes
 } from "../models/responses.model";
-import { Events } from "ionic-angular";
+import { Events, MenuController } from "ionic-angular";
 
 @Injectable()
 export class HttpService {
@@ -65,7 +65,7 @@ export class HttpService {
     }
   }
 
-  constructor(private http: HttpClient, private storage: Storage, public events: Events, public zone: NgZone) {}
+  constructor(private http: HttpClient, private storage: Storage, public events: Events, public zone: NgZone, private menu: MenuController) {}
 
   setToken(token) {
     console.log(token);
@@ -74,6 +74,7 @@ export class HttpService {
   }
 
   signOut() {
+    this.menu.enable(false);
     return this.setToken("");
   }
 

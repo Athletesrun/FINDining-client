@@ -12,6 +12,11 @@
       <ion-icon name="contact" item-start></ion-icon>
       {{ friend.first_name }} {{ friend.last_name }}
     </button>
+    <ion-card *ngIf="hasNoFriends">
+      <ion-card-content>
+        You don't have any friends. Click the orange button on the bottom right to begin adding friends!
+      </ion-card-content>
+    </ion-card>
   </ion-list>
 
   <ion-fab bottom right>

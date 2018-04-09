@@ -15,22 +15,26 @@ import { GetFriendsRes } from '../../models/responses.model';
 
 export class FriendsPage {
 
+  public hasNoFriends:boolean = false;
   public friends: Friend[] = [];
   error = {
     visible: false,
     message: ""
-  }
+  };
 
   constructor(private navCtrl: NavController, private http: HttpService) { }
 
   ionViewDidEnter() {
     this.getFriends();
   }
-  
+
   getFriends() {
     this.http.GetFriends().subscribe(res => {
       if (res.status == 10) {
         this.friends = (<GetFriendsRes>res).data;
+        if(this.friends.length === 0) {
+          this.hasNoFriends = true;
+        }
       }
       else {
         this.error.visible = true;

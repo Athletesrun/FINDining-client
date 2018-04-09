@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar [color]="'light'">
+    <ion-title>
+      About
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      FINDining is a new app that uses your favorite restaurants and eating history to intelligently provide you with perfect restaurant recommendations. <br><br>
+      All restaurant data has been provided by Yelp. FINDining claims no ownership of restaurant data included in the app.
+    </ion-card-content>
+  </ion-card>
+  <ion-list>
+    <ion-item (click)="openWebsite($event);">
+      Website
+    </ion-item>
+    <ion-item (click)="openPrivacyPolicy($event);">
+      Privacy Policy
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<!-- *ngFor="let setting of settings" (click)="setting.action($event)" -->

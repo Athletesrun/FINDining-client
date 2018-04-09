@@ -60,6 +60,7 @@ export class MyApp {
         this.nav.setRoot(this.debugPage, {}, {animate: true, direction: 'forward'})
       }
       else {
+        this.menu.enable(page === "home");
         this.nav.setRoot(page == "home" ? HomePage : LoginPage, {}, {animate: true, direction: 'forward'});
       }
     })

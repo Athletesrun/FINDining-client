@@ -1,4 +1,4 @@
-import { NavController } from 'ionic-angular';
+import { NavController, MenuController } from 'ionic-angular';
 import { Component } from '@angular/core';
 import { HttpService } from '../../providers/http.service';
 import { RegisterPage } from '../register/register';
@@ -25,7 +25,7 @@ export class LoginPage {
 
   isLoading = false;
 
-  constructor(private nav: NavController, private http: HttpService) { }
+  constructor(private nav: NavController, private http: HttpService, private menu: MenuController) { }
 
   login() {
     this.error.visible = false;
@@ -41,6 +41,7 @@ export class LoginPage {
       else {
         (async () => {
           await this.http.setToken((<LoginRes>res).data.token);
+          this.menu.enable(true);
           this.nav.setRoot(HomePage, {}, {animate: true, direction: "forward"});
         })();
       }

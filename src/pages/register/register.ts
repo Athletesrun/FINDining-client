@@ -1,4 +1,4 @@
-import { NavController } from 'ionic-angular';
+import { NavController, MenuController } from 'ionic-angular';
 import { Component } from '@angular/core';
 import { HttpService } from '../../providers/http.service';
 import { RegisterParams } from '../../models/requests.model';
@@ -26,7 +26,7 @@ export class RegisterPage {
 
   isLoading = false;
 
-  constructor(private nav: NavController, private http: HttpService) { }
+  constructor(private nav: NavController, private http: HttpService, private menu: MenuController) { }
 
   register() {
     this.error.visible = false;
@@ -42,6 +42,7 @@ export class RegisterPage {
       else {
         (async () => {
           await this.http.setToken((<RegisterRes>res).data.token);
+          this.menu.enable(true);
           this.nav.setRoot(WelcomeSurvey, {}, {animate: true, direction: "forward"});
         })();
       }
