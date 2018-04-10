@@ -21,7 +21,13 @@ export class CarouselTestPage {
     latitude: 41.2523630,
     longitude: -95.9979880
   };
-  currentRestaurant = 0;
+  currentIndex = 0;
+  currentRestaurant: Restaurant;
+  leftRestaurant: Restaurant;
+  rightRestaurant: Restaurant;
+  currentRestaurantClass = 'center';
+  leftRestaurantClass = 'left';
+  rightRestaurantClass = 'right';
 
   constructor(private http: HttpService, private geo: Geolocation) {
 
@@ -29,6 +35,36 @@ export class CarouselTestPage {
 
   ionViewDidLoad() {
     this.loadRestaurants();
+  }
+
+  swipeLeft() {
+    this.currentRestaurantClass = 'center-to-left';
+    this.rightRestaurantClass = 'right-to-center';
+    setTimeout(() => {
+      this.currentIndex++;
+      this.leftRestaurant = this.currentRestaurant;
+      this.currentRestaurant = this.rightRestaurant;
+      this.rightRestaurant = this.restaurants[this.currentIndex + 1];
+      this.currentRestaurantClass = 'center';
+      this.rightRestaurantClass = 'right';
+    }, 300);
+  }
+
+  swipeRight() {
+    this.currentRestaurantClass = 'center-to-right';
+    this.leftRestaurantClass = 'left-to-center';
+    setTimeout(() => {
+      this.currentIndex--;
+      this.rightRestaurant = this.currentRestaurant;
+      this.currentRestaurant = this.leftRestaurant;
+      this.leftRestaurant = this.restaurants[this.currentIndex - 1];
+      this.currentRestaurantClass = 'center';
+      this.leftRestaurantClass = 'left';
+    }, 300);
+  }
+
+  swipeHandler(e) {
+    e.direction == 4 ? this.swipeRight() : this.swipeLeft();
   }
 
   loadRestaurants() {
@@ -51,10 +87,12 @@ export class CarouselTestPage {
         if ((<GetRestaurantsRes>res).data.length === 0) {
           return;
         }
-        (<GetRestaurantsRes>res).data.map(restaurant => {
-          this.restaurants.push(restaurant);
-          this.currentRestaurants = [this.restaurants[0]];
-        });
+        this.restaurants = (<GetRestaurantsRes>res).data;
+        if (this.currentIndex > 0)
+          this.leftRestaurant = this.restaurants[this.currentIndex - 1];
+        this.currentRestaurant = this.restaurants[this.currentIndex];
+        if (this.currentIndex < this.restaurants.length)
+          this.rightRestaurant = this.restaurants[this.currentIndex + 1];
       }
     })
   }

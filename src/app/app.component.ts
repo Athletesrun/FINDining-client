@@ -58,7 +58,7 @@ export class MyApp {
   prepareHttp() {
     this.http.CheckToken().then(page => {
       if (this.debug) {
-        this.nav.setRoot(this.debugPage, {}, {animate: true, direction: 'forward'})
+        this.nav.setRoot(page == "home" ? this.debugPage : LoginPage, {}, {animate: true, direction: 'forward'})
       }
       else {
         this.nav.setRoot(page == "home" ? HomePage : LoginPage, {}, {animate: true, direction: 'forward'});

@@ -1,0 +1,59 @@
+@keyframes right-rest-to-center {
+  from {
+    transform: translateX(100vw);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes left-rest-to-center {
+  from {
+    transform: translateX(-100vw);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes center-rest-to-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100vw);
+  }
+}
+
+@keyframes center-rest-to-right {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100vw);
+  }
+}
+
+page-carousel-test {
+  .restaurant {
+    position: absolute;
+  }
+  .left.restaurant {
+    transform: translateX(-100vw);
+  }
+  .right.restaurant {
+    transform: translateX(100vw);
+  }
+  .restaurant.right-to-center {
+    animation: right-rest-to-center 250ms ease-in-out forwards;
+  }
+  .restaurant.left-to-center {
+    animation: left-rest-to-center 250ms ease-in-out forwards;
+  }
+  .restaurant.center-to-left {
+    animation: center-rest-to-left 250ms ease-in-out forwards;
+  }
+  .restaurant.center-to-right {
+    animation: center-rest-to-right 250ms ease-in-out forwards;
+  }
+}

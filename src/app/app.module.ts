@@ -5,6 +5,10 @@ import { IonicStorageModule } from '@ionic/storage';
 import { HttpClientModule } from "@angular/common/http";
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
+//hammer.js
+import 'hammerjs';
+import 'hammer-timejs';
+
 // Native
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
