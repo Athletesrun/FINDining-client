@@ -13,6 +13,7 @@ import { FriendsPage } from "../pages/friends/friends";
 import { GroupsPage } from "../pages/groups/groups";
 import { AccountPage } from "../pages/account/account";
 import { AddFriendPage } from "../pages/friends/add-friend/add-friend";
+import { CarouselTestPage } from '../pages/carousel-test/carousel-test';
 
 @Component({
   templateUrl: 'app.html',
@@ -23,8 +24,8 @@ export class MyApp {
   public rootPage: any = LoadingPage;
   @ViewChild('nav') nav: NavController;
   @ViewChild('menu') menu: MenuController;
-  debug = false;
-  debugPage = AddFriendPage;
+  debug = true;
+  debugPage = CarouselTestPage;
 
   constructor(
     platform: Platform,
@@ -57,7 +58,7 @@ export class MyApp {
   prepareHttp() {
     this.http.CheckToken().then(page => {
       if (this.debug) {
-        this.nav.setRoot(this.debugPage, {}, {animate: true, direction: 'forward'})
+        this.nav.setRoot(page == "home" ? this.debugPage : LoginPage, {}, {animate: true, direction: 'forward'})
       }
       else {
         this.menu.enable(page === "home");

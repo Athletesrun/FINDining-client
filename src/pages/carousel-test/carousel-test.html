@@ -1,0 +1,5 @@
+<ion-content>
+  <fd-restaurant *ngIf="leftRestaurant" [fdRestaurant]="leftRestaurant" class="restaurant" [ngClass]="leftRestaurantClass"></fd-restaurant>
+  <fd-restaurant *ngIf="currentRestaurant" [fdRestaurant]="currentRestaurant" class="restaurant" [ngClass]="currentRestaurantClass" (swipe)="swipeHandler($event)"></fd-restaurant>
+  <fd-restaurant *ngIf="rightRestaurant" [fdRestaurant]="rightRestaurant" class="restaurant right" [ngClass]="rightRestaurantClass"></fd-restaurant>  
+</ion-content>

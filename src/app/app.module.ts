@@ -5,6 +5,10 @@ import { IonicStorageModule } from '@ionic/storage';
 import { HttpClientModule } from "@angular/common/http";
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
+//hammer.js
+import 'hammerjs';
+import 'hammer-timejs';
+
 // Native
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -26,6 +30,7 @@ import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { RatePage } from "../pages/rate/rate";
 import { WelcomeSurvey } from "../pages/welcomeSurvey/welcomeSurvey";
+import { CarouselTestPage } from '../pages/carousel-test/carousel-test';
 import { CreateGroupPage } from "../pages/groups/create-group/create-group";
 import { AddFriendPage } from "../pages/friends/add-friend/add-friend";
 import { GroupMembersPage } from '../pages/group/group-members/group-members';
@@ -70,7 +75,8 @@ import { ReasonPopover } from '../pages/restaurant/restaurant';
     GroupRecommendationsPage,
     ReasonPopover,
     GroupMembersPage,
-    AboutPage
+    AboutPage,
+    CarouselTestPage
   ],
   imports: [
     BrowserModule,
@@ -106,6 +112,7 @@ import { ReasonPopover } from '../pages/restaurant/restaurant';
     GroupRecommendationsPage,
     ReasonPopover,
     GroupMembersPage,
+    CarouselTestPage,
     AboutPage
   ],
   providers: [
