@@ -20,12 +20,15 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding (ionScroll)="loadListener($event)">
+<ion-content>
   <div class="grid-container">
     <div class="space"></div>
     <div class="restaurants">
-      <fd-restaurant *ngFor="let restaurant of restaurants" [fdRestaurant]="restaurant" (click)="openDetailsPage(restaurant)"></fd-restaurant>
+      <!--<fd-restaurant *ngFor="let restaurant of restaurants" [fdRestaurant]="restaurant" (click)="openDetailsPage(restaurant)"></fd-restaurant>-->
       <fd-error [visible]="error.visible" [message]="error.message"></fd-error>
+      <fd-restaurant *ngIf="leftRestaurant" [fdRestaurant]="leftRestaurant" class="restaurant" [ngClass]="leftRestaurantClass"></fd-restaurant>
+      <fd-restaurant *ngIf="currentRestaurant" [fdRestaurant]="currentRestaurant" class="restaurant" [ngClass]="currentRestaurantClass" (swipe)="swipeHandler($event)" (click)="openDetailsPage(currentRestaurant)"></fd-restaurant>
+      <fd-restaurant *ngIf="rightRestaurant" [fdRestaurant]="rightRestaurant" class="restaurant right" [ngClass]="rightRestaurantClass"></fd-restaurant>
       <div class="load-wrap">
         <fd-loading *ngIf="isLoading" #loading></fd-loading>
       </div>

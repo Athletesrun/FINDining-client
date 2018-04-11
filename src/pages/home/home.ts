@@ -1,4 +1,4 @@
-import { GetRestaurantsRes } from './../../models/responses.model';
+import { GetRestaurantsRes } from '../../models/responses.model';
 import { Component, ViewChild, NgZone, ElementRef } from '@angular/core';
 import { NavController, Content, PopoverController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
@@ -25,7 +25,13 @@ import { LoadingComponent } from '../../components/loading/loading';
 export class HomePage {
 
   public restaurants: Restaurant[] = [];
-  hasScrolledPastZero = false;
+  currentIndex = 0;
+  currentRestaurant: Restaurant;
+  leftRestaurant: Restaurant;
+  rightRestaurant: Restaurant;
+  currentRestaurantClass = 'center';
+  leftRestaurantClass = 'left';
+  rightRestaurantClass = 'right';
   cancelScrollListener = false;
 
   params: GetRestaurantFeedParams = {
@@ -59,7 +65,7 @@ export class HomePage {
   }
 
   ngAfterViewInit() {
-    this.scrollListener();
+    // this.scrollListener();
     this.updateRestaurants();
   }
 
@@ -69,23 +75,56 @@ export class HomePage {
     });
   }
 
-  scrollListener() {
-    if (!this.cancelScrollListener) requestAnimationFrame(() => {
-      let scroll = this.content.getNativeElement().children[1].scrollTop;
-      this.hasScrolledPastZero = scroll > 0;
-      this.scrollListener();
-    })
+  swipeLeft() {
+    if (this.currentIndex >= this.restaurants.length - 1) return;
+    if (this.currentIndex >= this.restaurants.length - 2) this.getRestaurants();
+    this.currentRestaurantClass = 'center-to-left';
+    this.rightRestaurantClass = 'right-to-center';
+    setTimeout(() => {
+      this.currentIndex++;
+      this.leftRestaurant = this.currentRestaurant;
+      this.currentRestaurant = this.rightRestaurant;
+      this.rightRestaurant = this.restaurants[this.currentIndex + 1];
+      this.currentRestaurantClass = 'center';
+      this.rightRestaurantClass = 'right';
+    }, 300);
   }
 
-  loadListener(e) {
-    if (this.isLoading) {
-      this.zone.run(() => {
-        if (e.scrollTop + e.scrollHeight > this.loading.nativeElement.offsetTop) {
-          this.getRestaurants();
-        }
-      })
-    }
+  swipeRight() {
+    if (this.currentIndex <= 0) return;
+    this.currentRestaurantClass = 'center-to-right';
+    this.leftRestaurantClass = 'left-to-center';
+    setTimeout(() => {
+      this.currentIndex--;
+      this.rightRestaurant = this.currentRestaurant;
+      this.currentRestaurant = this.leftRestaurant;
+      this.leftRestaurant = this.restaurants[this.currentIndex - 1];
+      this.currentRestaurantClass = 'center';
+      this.leftRestaurantClass = 'left';
+    }, 300);
   }
+
+  swipeHandler(e) {
+    e.direction == 4 ? this.swipeRight() : this.swipeLeft();
+  }
+
+  // scrollListener() {
+  //   if (!this.cancelScrollListener) requestAnimationFrame(() => {
+  //     let scroll = this.content.getNativeElement().children[1].scrollTop;
+  //     this.hasScrolledPastZero = scroll > 0;
+  //     this.scrollListener();
+  //   })
+  // }
+
+  // loadListener(e) {
+  //   if (this.isLoading) {
+  //     this.zone.run(() => {
+  //       if (e.scrollTop + e.scrollHeight > this.loading.nativeElement.offsetTop) {
+  //         this.getRestaurants();
+  //       }
+  //     })
+  //   }
+  // }
 
   updateRestaurants() {
     this.error.visible = false;
@@ -108,9 +147,9 @@ export class HomePage {
     this.isLoading = true;
     const params: GetRestaurantFeedParams = Object.assign({}, this.params, {
       distance: this.params.distance / 0.00062137
-    })
-    this.http.GetRestaurantFeed(this.params, this.restaurantSegment).subscribe(res => {
-      console.log(res);
+    });
+    this.http.GetRestaurantFeed(params, this.restaurantSegment).subscribe(res => {
+      this.isLoading = false;
       if (res.status === 10) {
         if ((<GetRestaurantsRes>res).data.length === 0) {
           this.isLoading = false;
@@ -120,7 +159,12 @@ export class HomePage {
           this.restaurants.push(restaurant);
         });
         this.restaurantSegment++;
-        setTimeout(() => this.isGettingNewRestaurants = false, 2000);        
+        setTimeout(() => this.isGettingNewRestaurants = false, 2000);
+        if (this.currentIndex > 0)
+          this.leftRestaurant = this.restaurants[this.currentIndex - 1];
+        this.currentRestaurant = this.restaurants[this.currentIndex];
+        if (this.currentIndex < this.restaurants.length)
+          this.rightRestaurant = this.restaurants[this.currentIndex + 1];
       }
       else {
         this.error.visible = true;

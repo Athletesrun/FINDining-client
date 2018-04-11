@@ -24,7 +24,7 @@ export class MyApp {
   public rootPage: any = LoadingPage;
   @ViewChild('nav') nav: NavController;
   @ViewChild('menu') menu: MenuController;
-  debug = true;
+  debug = false;
   debugPage = CarouselTestPage;
 
   constructor(
@@ -42,6 +42,7 @@ export class MyApp {
       statusBar.overlaysWebView(false);
       statusBar.backgroundColorByHexString("#fafafa");
       splashScreen.hide();
+      this.menu.swipeEnable(false);
       events.subscribe("fd:error", message => {
         this.showErrorPopover(message);
       });

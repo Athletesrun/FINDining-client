@@ -4,7 +4,6 @@ import { HttpService } from '../../providers/http.service';
 import { RegisterPage } from '../register/register';
 import { LoginParams } from '../../models/requests.model';
 import { HomePage } from "../home/home";
-import {WelcomeSurvey} from "../welcomeSurvey/welcomeSurvey";
 import { LoginRes } from '../../models/responses.model';
 
 @Component({
