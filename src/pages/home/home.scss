@@ -41,24 +41,45 @@ page-home {
     padding: 8px 4px 4px 4px;
   }
 
+  .card-title {
+    white-space: pre-wrap;
+  }
+
+  .restaurants {
+    display: flex;
+    height: calc(100vh - 61px);
+    align-items: center;
+  }
+
   .restaurant {
     position: absolute;
+
+    img {
+      object-fit: cover;
+      max-height: 70vh;
+    }
   }
+
   .left.restaurant {
     transform: translateX(-100vw);
   }
+
   .right.restaurant {
     transform: translateX(100vw);
   }
+
   .restaurant.right-to-center {
     animation: right-rest-to-center 250ms ease-in-out forwards;
   }
+
   .restaurant.left-to-center {
     animation: left-rest-to-center 250ms ease-in-out forwards;
   }
+
   .restaurant.center-to-left {
     animation: center-rest-to-left 250ms ease-in-out forwards;
   }
+
   .restaurant.center-to-right {
     animation: center-rest-to-right 250ms ease-in-out forwards;
   }

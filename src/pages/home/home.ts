@@ -50,6 +50,7 @@ export class HomePage {
   restaurantSegment = 0;
   isLoading = false;
   isGettingNewRestaurants = false;
+  disableSwipe = false;
 
   @ViewChild(Content) content: Content;
   @ViewChild('loading', {read: ElementRef}) loading: ElementRef;
@@ -78,6 +79,7 @@ export class HomePage {
   swipeLeft() {
     if (this.currentIndex >= this.restaurants.length - 1) return;
     if (this.currentIndex >= this.restaurants.length - 2) this.getRestaurants();
+    this.disableSwipe = true;
     this.currentRestaurantClass = 'center-to-left';
     this.rightRestaurantClass = 'right-to-center';
     setTimeout(() => {
@@ -87,6 +89,7 @@ export class HomePage {
       this.rightRestaurant = this.restaurants[this.currentIndex + 1];
       this.currentRestaurantClass = 'center';
       this.rightRestaurantClass = 'right';
+      this.disableSwipe = false;
     }, 300);
   }
 
@@ -94,6 +97,7 @@ export class HomePage {
     if (this.currentIndex <= 0) return;
     this.currentRestaurantClass = 'center-to-right';
     this.leftRestaurantClass = 'left-to-center';
+    this.disableSwipe = true;
     setTimeout(() => {
       this.currentIndex--;
       this.rightRestaurant = this.currentRestaurant;
@@ -101,10 +105,12 @@ export class HomePage {
       this.leftRestaurant = this.restaurants[this.currentIndex - 1];
       this.currentRestaurantClass = 'center';
       this.leftRestaurantClass = 'left';
+      this.disableSwipe = false;
     }, 300);
   }
 
   swipeHandler(e) {
+    if (this.disableSwipe) return;
     e.direction == 4 ? this.swipeRight() : this.swipeLeft();
   }
 

@@ -31,6 +31,11 @@ page-restaurant {
     width: 100vw;
   }
 
+  .image-container {
+    z-index: 1;
+    position: fixed;
+  }
+
   .name {
     position: sticky;
     top: 0;
@@ -86,6 +91,7 @@ page-restaurant {
     position: fixed;
     opacity: .75;
     margin: 10px;
+    z-index: 999;
     //text-shadow: no
     //  -1px -1px 0 #fff,
     //  1px -1px 0 #fff,
