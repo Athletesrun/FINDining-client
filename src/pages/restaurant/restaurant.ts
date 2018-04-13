@@ -103,14 +103,8 @@ export class RestaurantPage {
     v.getPalette().then((palette) => {
       this.palette = palette;
       let m = palette.Muted;
-      if (tinycolor({r: m.r, g: m.g, b: m.b}).isLight()) {
-        this.chooseArrowColor("#fff", this.color);
-        this.chooseArrowColor("#000", this.bgColor);
-      }
-      else {
-        this.chooseArrowColor("#000", this.color);
-        this.chooseArrowColor("#fff", this.bgColor);
-      }
+      this.bgColor = '#fff';
+      this.color = '#000';
     })
   }
 
@@ -149,7 +143,7 @@ export class RestaurantPage {
   showReason(e) {
     let popover = this.pop.create(ReasonPopover, {
       reasons: this.restaurant.reasons
-    })
+    });
     popover.present({ev: e})
   }
 
@@ -196,6 +190,6 @@ export class ReasonPopover {
     if (reasons.initial_survey) this.reasonText =
       `We think you'd like this because you said you liked ${Tools.JoinArrayAsList(reasons.initial_survey, 'and')} in the welcome survey.`;
     else this.reasonText =
-      `We are showing you this restaurant to show you something new you might want to try.`;  
+      `We are showing you this restaurant to show you something new you might want to try.`;
   }
 }

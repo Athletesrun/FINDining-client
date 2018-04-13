@@ -1,14 +1,13 @@
 <ion-content>
-  <div [ngStyle]="bg" class="restaurant-image"></div>
-  <button ion-button icon-only round class="back" (click)="back()" [ngStyle]="{'background-color': bgColor, 'color': color}">
-    <ion-icon name="arrow-back" [ngStyle]="{'background-color': bgColor, 'color': color}"></ion-icon>
-  </button>
+  <div class="image-container" ion-fixed>
+    <div [ngStyle]="bg" class="restaurant-image"></div>
+  </div>
   <div class="main">
     <ion-icon name="ios-arrow-up" class="scroll-hint-arrow"></ion-icon>
     <h1 class="name">
-      <button ion-button icon-only clear class="back-inline" (click)="back()" [ngClass]="(hasScrolledDown && scrollPosition == 'start') ? 'hide' : scrollPosition">
-        <ion-icon name="arrow-back"></ion-icon>
-      </button>
+      <!--<button ion-button icon-only clear class="back-inline" (click)="back()" [ngClass]="(hasScrolledDown && scrollPosition == 'start') ? 'hide' : scrollPosition">-->
+        <!--<ion-icon name="arrow-back"></ion-icon>-->
+      <!--</button>-->
       <span class="name-text" [ngClass]="scrollPosition">
         {{restaurant.name}}
         <a class="show-reason-link" (click)="showReason($event)" *ngIf="restaurant.reasons">
@@ -42,3 +41,7 @@
     <!--</div>-->
   </div>
 </ion-content>
+
+<button ion-button icon-only clear round class="back" (click)="back()" [ngStyle]="{'background-color': bgColor, 'color': color}">
+  <ion-icon name="arrow-back" [ngStyle]="{'background-color': bgColor, 'color': color}"></ion-icon>
+</button>
