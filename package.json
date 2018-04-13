@@ -75,9 +75,6 @@
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-ionic-webview": {},
       "cordova-sqlite-storage": {},
-      "cordova-plugin-geolocation": {
-        "GEOLOCATION_USAGE_DESCRIPTION": "To get restaurants that are your specified distance from you."
-      },
       "cordova-plugin-ionic": {
         "APP_ID": "72984834",
         "CHANNEL_NAME": "Production",
@@ -85,6 +82,9 @@
         "WARN_DEBUG": "true",
         "UPDATE_API": "https://api.ionicjs.com",
         "MAX_STORE": "2"
+      },
+      "cordova-plugin-geolocation": {
+        "GEOLOCATION_USAGE_DESCRIPTION": "Recommend nearby restaurants using your location."
       }
     },
     "platforms": [

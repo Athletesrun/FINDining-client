@@ -67,6 +67,7 @@ export class HomePage {
 
   ngAfterViewInit() {
     // this.scrollListener();
+    console.log("ngafterviewinit");
     this.updateRestaurants();
   }
 
@@ -137,7 +138,9 @@ export class HomePage {
     this.error.visible = false;
     this.restaurantSegment = 0;
     this.restaurants = [];
+    console.log("getting pos")
     this.geo.getCurrentPosition().then((res) => {
+      console.log("got pos");
       this.params.latitude = res.coords.latitude;
       this.params.longitude = res.coords.longitude;
       this.getRestaurants();
@@ -149,11 +152,13 @@ export class HomePage {
   }
 
   getRestaurants() {
+    console.log("getRests");
     if (this.isGettingNewRestaurants) return;
     this.isGettingNewRestaurants = true;
     const params: GetRestaurantFeedParams = Object.assign({}, this.params, {
       distance: this.params.distance / 0.00062137
     });
+    console.log("getting new rests");
     this.http.GetRestaurantFeed(params, this.restaurantSegment).subscribe(res => {
       this.isLoading = false;
       if (res.status === 10) {
