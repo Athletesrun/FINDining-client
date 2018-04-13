@@ -20,6 +20,7 @@
     <preference name="AndroidLaunchMode" value="singleTask" />
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
+    <preference name="ShowSplashScreenSpinner" value="false" />
     <platform name="android">
         <allow-intent href="market:*" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
@@ -79,8 +80,6 @@
     </platform>
     <preference name="AndroidLaunchMode" value="singleTask" />
     <allow-navigation href="http://192.168.1.21:8100" />
-    <engine name="android" spec="^7.0.0" />
-    <engine name="ios" spec="4.5.4" />
     <plugin name="cordova-plugin-customurlscheme" spec="^4.3.0">
         <variable name="URL_SCHEME" value="org.findining.client" />
         <variable name="ANDROID_SCHEME" value="org.findining.client" />
@@ -98,4 +97,6 @@
     <plugin name="cordova-sqlite-storage" spec="^2.2.1" />
     <plugin name="ionic-plugin-keyboard" spec="~2.2.1" />
     <plugin name="cordova-plugin-firebase" spec="~0.1.25" />
+    <engine name="android" spec="^7.1.0" />
+    <engine name="ios" spec="4.5.4" />
 </widget>

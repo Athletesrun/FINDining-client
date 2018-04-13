@@ -133,6 +133,7 @@ export class HomePage {
   // }
 
   updateRestaurants() {
+    this.isLoading = true;
     this.error.visible = false;
     this.restaurantSegment = 0;
     this.restaurants = [];
@@ -150,7 +151,6 @@ export class HomePage {
   getRestaurants() {
     if (this.isGettingNewRestaurants) return;
     this.isGettingNewRestaurants = true;
-    this.isLoading = true;
     const params: GetRestaurantFeedParams = Object.assign({}, this.params, {
       distance: this.params.distance / 0.00062137
     });
