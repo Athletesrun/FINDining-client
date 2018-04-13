@@ -34,6 +34,10 @@ export class HomePage {
   rightRestaurantClass = 'right';
   cancelScrollListener = false;
 
+  private allowedRadius: number = 0.6; //degrees
+  private omahaLatitude: number = 41.263074;
+  private omahaLongitude: number = -96.023956;
+
   params: GetRestaurantFeedParams = {
     distance: 10,
     price: 0,
@@ -67,7 +71,6 @@ export class HomePage {
 
   ngAfterViewInit() {
     // this.scrollListener();
-    console.log("ngafterviewinit");
     this.updateRestaurants();
   }
 
@@ -138,27 +141,32 @@ export class HomePage {
     this.error.visible = false;
     this.restaurantSegment = 0;
     this.restaurants = [];
-    console.log("getting pos")
     this.geo.getCurrentPosition().then((res) => {
-      console.log("got pos");
-      this.params.latitude = res.coords.latitude;
-      this.params.longitude = res.coords.longitude;
-      this.getRestaurants();
+      if((res.coords.latitude >= this.omahaLatitude - this.allowedRadius && res.coords.latitude <= this.omahaLatitude + this.allowedRadius)
+        && (res.coords.longitude >= this.omahaLongitude - this.allowedRadius && res.coords.longitude <= this.omahaLongitude + this.allowedRadius))
+      {
+        this.params.latitude = res.coords.latitude;
+        this.params.longitude = res.coords.longitude;
+        this.getRestaurants();
+      } else {
+        this.isLoading = false;
+        this.error.visible = true;
+        this.error.message = "We're sorry! FINDining is currently only available in the Omaha, NE area.";
+      }
     }).catch((error) => {
+      this.isLoading = false;
       console.log('Error getting location', error);
       this.error.visible = true;
-      this.error.message = "Unable to get location.";
+      this.error.message = "FINDining can't get your location. FINDining requires location access in order to recommend nearby restaurants";
     });
   }
 
   getRestaurants() {
-    console.log("getRests");
     if (this.isGettingNewRestaurants) return;
     this.isGettingNewRestaurants = true;
     const params: GetRestaurantFeedParams = Object.assign({}, this.params, {
       distance: this.params.distance / 0.00062137
     });
-    console.log("getting new rests");
     this.http.GetRestaurantFeed(params, this.restaurantSegment).subscribe(res => {
       this.isLoading = false;
       if (res.status === 10) {
