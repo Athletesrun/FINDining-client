@@ -12,27 +12,11 @@ import { Restaurant } from '../../../models/restaurant.model';
 export class FriendPage {
 
   public friend: Friend;
-  public restaurants = [
-    {
-      name: "American Heroes"
-    },
-    {
-      name: "My Pie Pizza"
-    },
-    {
-      name: "La Esmeralda"
-    },
-    {
-      name: "Pickleman's Gourmet Cafe"
-    },
-    {
-      name: "China Wok"
-    }
-  ];
-
-  friends = ["Aidan Buechler", "Daniel Noon", "Ben Wingerter"];
+  public restaurants = [];
+  public friends = [];
 
   constructor(public viewCtrl: ViewController, public navParams: NavParams) {
     this.friend = navParams.data.friend;
+    console.log(this.friend);
   }
 }

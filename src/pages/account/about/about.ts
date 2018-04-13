@@ -11,6 +11,7 @@ export class AboutPage {
 
   private websiteUrl:string = 'https://findining.org';
   private privacyUrl:string = 'https://findining.org/privacy/';
+  private yelpUrl:string = 'https://www.yelp.com/';
 
   constructor(private nav: NavController, private plt: Platform) { }
 
@@ -27,6 +28,14 @@ export class AboutPage {
       window.open(this.privacyUrl, '_system');
     } else {
       open(this.privacyUrl);
+    }
+  }
+
+  private openYelpPage(event) {
+    if(this.plt.is("ios")) {
+      window.open(this.yelpUrl, '_system');
+    } else {
+      open(this.yelpUrl);
     }
   }
 

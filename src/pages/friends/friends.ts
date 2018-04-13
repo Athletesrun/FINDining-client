@@ -32,9 +32,7 @@ export class FriendsPage {
     this.http.GetFriends().subscribe(res => {
       if (res.status == 10) {
         this.friends = (<GetFriendsRes>res).data;
-        if(this.friends.length === 0) {
-          this.hasNoFriends = true;
-        }
+        this.hasNoFriends = this.friends.length === 0;
       }
       else {
         this.error.visible = true;

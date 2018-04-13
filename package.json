@@ -31,10 +31,11 @@
     "angular2-jwt": "^0.2.3",
     "auth0-js": "^9.2.3",
     "cordova-android": "^7.0.0",
-    "cordova-ios": "4.5.4",
+    "cordova-ios": "~4.5.4",
     "cordova-plugin-customurlscheme": "^4.3.0",
     "cordova-plugin-device": "^1.1.4",
     "cordova-plugin-geolocation": "^4.0.1",
+    "cordova-plugin-ionic": "^3.1.3",
     "cordova-plugin-ionic-webview": "^1.1.11",
     "cordova-plugin-nativestorage": "^2.3.1",
     "cordova-plugin-safariviewcontroller": "^1.5.2",
@@ -76,6 +77,14 @@
       "cordova-sqlite-storage": {},
       "cordova-plugin-geolocation": {
         "GEOLOCATION_USAGE_DESCRIPTION": "To get restaurants that are your specified distance from you."
+      },
+      "cordova-plugin-ionic": {
+        "APP_ID": "72984834",
+        "CHANNEL_NAME": "Production",
+        "UPDATE_METHOD": "background",
+        "WARN_DEBUG": "true",
+        "UPDATE_API": "https://api.ionicjs.com",
+        "MAX_STORE": "2"
       }
     },
     "platforms": [

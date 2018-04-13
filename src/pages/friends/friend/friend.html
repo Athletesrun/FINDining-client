@@ -20,6 +20,7 @@
         {{ restaurant.name }}
       </li>
     </ul>
+    <p *ngIf="restaurants.length === 0">{{friend.first_name }} hasn't liked any restaurants</p>
   </div>
   <div class="friendsContainer">
     <p style="font-weight: bold; font-size: 20px;">Friends</p>
@@ -28,5 +29,6 @@
         <a href="#">{{ friend }}</a>
       </li>
     </ul>
+    <p *ngIf="friends.length === 0">{{friend.first_name}} has no friends yet.</p>
   </div>
 </ion-content>
