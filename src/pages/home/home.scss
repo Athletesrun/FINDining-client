@@ -34,11 +34,43 @@
   }
 }
 
+@keyframes help {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: .8;
+  }
+  20% {
+    transform: translateX(0);
+  }
+  80% {
+    opacity: .8;
+    transform: translateX(calc(-50vw + 25px));
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(calc(-50vw + 25px));
+  }
+}
+
 page-home {
   .logo {
     height: 48px;
     width: auto;
     padding: 8px 4px 4px 4px;
+  }
+
+  .help {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    top: calc(50% - 25px);
+    right: 20px;
+    border-radius: 100%;
+    background: #424242;
+    border: 2px solid #ddd;
+    animation: help 3s ease-in-out infinite;
   }
 
   .card-title {

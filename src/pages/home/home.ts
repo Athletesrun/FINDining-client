@@ -1,20 +1,16 @@
 import { GetRestaurantsRes } from '../../models/responses.model';
-import { Component, ViewChild, NgZone, ElementRef } from '@angular/core';
+import { Component, ViewChild, NgZone, ElementRef, AfterViewInit } from '@angular/core';
 import { NavController, Content, PopoverController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 import { Geolocation } from '@ionic-native/geolocation';
 
 import { RestaurantPage } from '../restaurant/restaurant';
 import { AccountPage } from '../account/account';
-import { GroupsPage } from '../groups/groups';
-import { ArchivePage } from '../archive/archive';
 import { FilterPopover } from "./filter/filter";
-
-import { OverflowPopover } from './overflow/overflow';
 
 import { Restaurant } from '../../models/restaurant.model';
 import { HttpService } from "../../providers/http.service";
 import { GetRestaurantFeedParams } from "../../models/requests.model";
-import { LoadingComponent } from '../../components/loading/loading';
 
 @Component({
   selector: 'page-home',
@@ -22,7 +18,7 @@ import { LoadingComponent } from '../../components/loading/loading';
   providers: [HttpService]
 })
 
-export class HomePage {
+export class HomePage implements AfterViewInit {
 
   public restaurants: Restaurant[] = [];
   currentIndex = 0;
@@ -32,7 +28,7 @@ export class HomePage {
   currentRestaurantClass = 'center';
   leftRestaurantClass = 'left';
   rightRestaurantClass = 'right';
-  cancelScrollListener = false;
+  showHelp = false;
 
   params: GetRestaurantFeedParams = {
     distance: 10,
@@ -60,14 +56,14 @@ export class HomePage {
     public pop: PopoverController,
     private http: HttpService,
     private zone: NgZone,
-    private geo: Geolocation
-  ) {
-
-  }
+    private geo: Geolocation,
+    private storage: Storage
+  ) {}
 
   ngAfterViewInit() {
-    // this.scrollListener();
-    this.updateRestaurants();
+    this.storage.ready().then(() => {
+      this.updateRestaurants();
+    });
   }
 
   openDetailsPage(restaurant) {
@@ -77,6 +73,10 @@ export class HomePage {
   }
 
   swipeLeft() {
+    if (this.showHelp) {
+      this.showHelp = false;
+      this.storage.set("helpShown", true);
+    }
     if (this.currentIndex >= this.restaurants.length - 1) return;
     if (this.currentIndex >= this.restaurants.length - 2) this.getRestaurants();
     this.disableSwipe = true;
@@ -113,24 +113,6 @@ export class HomePage {
     if (this.disableSwipe) return;
     e.direction == 4 ? this.swipeRight() : this.swipeLeft();
   }
-
-  // scrollListener() {
-  //   if (!this.cancelScrollListener) requestAnimationFrame(() => {
-  //     let scroll = this.content.getNativeElement().children[1].scrollTop;
-  //     this.hasScrolledPastZero = scroll > 0;
-  //     this.scrollListener();
-  //   })
-  // }
-
-  // loadListener(e) {
-  //   if (this.isLoading) {
-  //     this.zone.run(() => {
-  //       if (e.scrollTop + e.scrollHeight > this.loading.nativeElement.offsetTop) {
-  //         this.getRestaurants();
-  //       }
-  //     })
-  //   }
-  // }
 
   updateRestaurants() {
     this.isLoading = true;
@@ -171,6 +153,9 @@ export class HomePage {
         this.currentRestaurant = this.restaurants[this.currentIndex];
         if (this.currentIndex < this.restaurants.length)
           this.rightRestaurant = this.restaurants[this.currentIndex + 1];
+        this.storage.get("helpShown").then(show => {
+          if (!show) this.showHelp = true;
+        })
       }
       else {
         this.error.visible = true;
@@ -179,21 +164,8 @@ export class HomePage {
     })
   }
 
-  getHasScrolled() {
-    return this.content.scrollTop > 0;
-  }
-
   openAccountPage() {
     this.nav.push(AccountPage);
-  }
-
-  openOverflowPopover(event) {
-    const popover = this.pop.create(OverflowPopover, {
-      nav: this.nav
-    });
-    popover.present({
-      ev: event
-    });
   }
 
   openFilterPopover(event) {
@@ -206,9 +178,5 @@ export class HomePage {
     popover.present({
       ev: event, // FilterPopover needs the event to determine where on the screen it should open
     });
-  }
-
-  ngOnDestroy() {
-    this.cancelScrollListener = true;
   }
 }
