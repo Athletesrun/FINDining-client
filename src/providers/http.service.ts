@@ -11,7 +11,6 @@ import { Observable } from "rxjs/Observable";
 import 'rxjs/add/observable/of';
 import * as SHA from 'sha256';
 import { catchError } from "rxjs/operators";
-import { ErrorObservable } from "rxjs/observable/ErrorObservable";
 import {
   GenericStatusRes, GetRestaurantsRes, GenericErrorRes, SearchForFriendRes, LoginRes, GetGroupsRes,
   GetUserByIdRes, CreateGroupRes, GetFriendsRes

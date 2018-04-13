@@ -7,12 +7,10 @@ import { HomePage } from '../pages/home/home';
 import { LoadingPage } from '../pages/loading/loading';
 import { HttpService } from '../providers/http.service';
 import { LoginPage } from "../pages/login/login";
-import { WelcomeSurvey } from "../pages/welcomeSurvey/welcomeSurvey";
 import { ArchivePage } from "../pages/archive/archive";
 import { FriendsPage } from "../pages/friends/friends";
 import { GroupsPage } from "../pages/groups/groups";
 import { AccountPage } from "../pages/account/account";
-import { AddFriendPage } from "../pages/friends/add-friend/add-friend";
 import { CarouselTestPage } from '../pages/carousel-test/carousel-test';
 
 @Component({
@@ -20,7 +18,6 @@ import { CarouselTestPage } from '../pages/carousel-test/carousel-test';
   providers: [HttpService]
 })
 export class MyApp {
-  // rootPage:any = HomePage;
   public rootPage: any = LoadingPage;
   @ViewChild('nav') nav: NavController;
   @ViewChild('menu') menu: MenuController;
@@ -38,7 +35,6 @@ export class MyApp {
   ) {
     platform.ready().then(() => {
       statusBar.styleDefault();
-      // keyboard.disableScroll(true);
       statusBar.overlaysWebView(false);
       statusBar.backgroundColorByHexString("#fafafa");
       splashScreen.hide();
