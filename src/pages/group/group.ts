@@ -22,7 +22,7 @@ import { GroupMembersPage } from './group-members/group-members';
 <ion-content>
   <ion-tabs>
     <ion-tab [tabsHideOnSubPages]="true" [root]="recommendations" [rootParams]="p" tabIcon="list-box"></ion-tab>
-    <ion-tab [tabsHideOnSubPages]="true" [rootParams]="p" tabIcon="heart"></ion-tab>
+    <!--<ion-tab [tabsHideOnSubPages]="true" [rootParams]="p" tabIcon="heart"></ion-tab>-->
     <ion-tab [tabsHideOnSubPages]="true" [root]="members" [rootParams]="p" tabIcon="person"></ion-tab>
   </ion-tabs>
 </ion-content>
@@ -102,7 +102,7 @@ export class GroupRecommendationsPage {
 
 }
 
-/* 
+/*
   <ion-buttons right>
     <button ion-button icon-only clear (click)="openAddGroupMember()">
       <ion-icon name="person-add"></ion-icon>
