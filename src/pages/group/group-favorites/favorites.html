@@ -1,0 +1,7 @@
+<ion-content>
+  <fd-error [visible]="error.visible" [message]="error.message"></fd-error>
+  <fd-restaurant *ngFor="let restaurant of restaurants" [fdRestaurant]="restaurant" (click)="openRestaurant(restaurant)"></fd-restaurant>
+  <div class="load-wrap">
+    <fd-loading *ngIf="loading" #loading></fd-loading>
+  </div>
+</ion-content>

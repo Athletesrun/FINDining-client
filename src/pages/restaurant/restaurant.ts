@@ -7,10 +7,13 @@ import Vibrant from 'node-vibrant';
 import tinycolor from 'tinycolor2';
 import mapboxgl from 'mapbox-gl';
 import { RatePage } from "../rate/rate";
+import { HttpService } from "../../providers/http.service";
+import { GetRestaurantsRes } from "../../models/responses.model";
 
 @Component({
   selector: "page-restaurant",
-  templateUrl: "restaurant.html"
+  templateUrl: "restaurant.html",
+  providers: [HttpService]
 })
 export class RestaurantPage {
 
@@ -29,6 +32,8 @@ export class RestaurantPage {
   map;
   mapMarker;
   categories = "";
+  isFromGroup = false;
+  groupId = 0;
 
   @ViewChild(Content) content: Content;
   @ViewChild('map') mapElement;
@@ -39,8 +44,14 @@ export class RestaurantPage {
     private sb: StatusBar,
     private event: Events,
     private plt: Platform,
-    private pop: PopoverController
+    private pop: PopoverController,
+    private http: HttpService
   ) {
+    let group = params.get('groupId');
+    if (group) {
+      this.isFromGroup = true;
+      this.groupId = group;
+    }
     sb.overlaysWebView(false);
     sb.backgroundColorByHexString("#fafafa");
     this.restaurant = params.get('rest');
@@ -51,8 +62,21 @@ export class RestaurantPage {
     };
     this.generateStarsArray(this.restaurant.rating);
     this.generatePriceArray(this.restaurant.price);
-    this.isInArchive = Tools.IsInArchive(this.restaurant);
+    if (!this.isFromGroup) this.isInArchive = Tools.IsInArchive(this.restaurant);
+    else this.checkFavoriteStatus();
     this.generateColors();
+  }
+
+  checkFavoriteStatus() {
+    this.http.GetGroupFavorites(this.groupId).subscribe((res) => {
+      if (res.status === 10) {
+        (<GetRestaurantsRes>res).data.forEach(restaurant => {
+          if (restaurant.yelp_id == this.restaurant.yelp_id) {
+            this.isInArchive = true;
+          }
+        });
+      }
+    })
   }
 
   ngAfterContentInit() {
@@ -162,9 +186,21 @@ export class RestaurantPage {
   }
 
   archive() {
-    Tools.Archive(this.restaurant);
-    this.isInArchive = Tools.IsInArchive(this.restaurant);
-    this.event.publish('fd:archiveChange');
+    if (!this.isFromGroup) {
+      Tools.Archive(this.restaurant);
+      this.isInArchive = Tools.IsInArchive(this.restaurant);
+      this.event.publish('fd:archiveChange');
+    }
+    else {
+      this.http.AddGroupFavorite({
+        groupId: this.groupId,
+        restaurantId: this.restaurant.yelp_id
+      }).subscribe(res => {
+        if (res.status === 10) {
+          this.isInArchive = true;
+        }
+      })
+    }
   }
 
   back() {

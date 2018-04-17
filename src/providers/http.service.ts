@@ -3,7 +3,8 @@ import {
   CreateGroupParams, EditGroupParams,
   GenericUserQueryParams,
   GetRestaurantFeedParams, LoginParams, RegisterParams, ReviewRestaurantParams, SearchUserParams,
-  SurveyResultsParams
+  SurveyResultsParams,
+  AddGroupFavoriteParams
 } from "../models/requests.model";
 import { HttpClient, HttpHeaders, HttpErrorResponse } from "@angular/common/http";
 import { Storage } from '@ionic/storage';
@@ -243,6 +244,8 @@ export class HttpService {
     return this.http.get<GetRestaurantsRes>(
       this.g + `getRecommendations/${groupId}/${segment}` + HttpService.makeQuery(query),
       {headers: HttpService.getHeaders()}
+    ).pipe(
+      catchError(this.handleError)
     )
   }
 
@@ -251,6 +254,27 @@ export class HttpService {
       this.g + "addToGroup",
       body,
       {headers: HttpService.getHeaders()}
+    ).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  public AddGroupFavorite(body: AddGroupFavoriteParams): Observable<GenericStatusRes | GenericErrorRes> {
+    return this.http.post<GenericStatusRes>(
+      this.g + "addFavorite",
+      body,
+      {headers: HttpService.getHeaders()}
+    ).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  public GetGroupFavorites(groupId: number): Observable<GetRestaurantsRes | GenericErrorRes> {
+    return this.http.get<GetRestaurantsRes>(
+      this.g + "favoriteList/" + groupId,
+      {headers: HttpService.getHeaders()}
+    ).pipe(
+      catchError(this.handleError)
     )
   }
 

@@ -33,6 +33,7 @@ import { WelcomeSurvey } from "../pages/welcomeSurvey/welcomeSurvey";
 import { CarouselTestPage } from '../pages/carousel-test/carousel-test';
 import { CreateGroupPage } from "../pages/groups/create-group/create-group";
 import { AddFriendPage } from "../pages/friends/add-friend/add-friend";
+import { GroupFavoritesPage } from '../pages/group/group-favorites/favorites';
 import { GroupMembersPage } from '../pages/group/group-members/group-members';
 import { AddGroupMemberPage } from '../pages/group/add-group-member/add-group-member';
 
@@ -76,7 +77,8 @@ import { ReasonPopover } from '../pages/restaurant/restaurant';
     ReasonPopover,
     GroupMembersPage,
     AboutPage,
-    CarouselTestPage
+    CarouselTestPage,
+    GroupFavoritesPage
   ],
   imports: [
     BrowserModule,
@@ -113,7 +115,8 @@ import { ReasonPopover } from '../pages/restaurant/restaurant';
     ReasonPopover,
     GroupMembersPage,
     CarouselTestPage,
-    AboutPage
+    AboutPage,
+    GroupFavoritesPage
   ],
   providers: [
     StatusBar,

@@ -47,3 +47,8 @@ export type EditGroupParams = {
   member: number,
   groupId: number
 }
+
+export type AddGroupFavoriteParams = {
+  groupId: number,
+  restaurantId: string
+}

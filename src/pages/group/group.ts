@@ -8,6 +8,7 @@ import { GetRestaurantFeedParams } from '../../models/requests.model';
 import { Restaurant } from '../../models/restaurant.model';
 import { GetRestaurantsRes } from '../../models/responses.model';
 import { GroupMembersPage } from './group-members/group-members';
+import { GroupFavoritesPage } from './group-favorites/favorites';
 
 @Component({
   template: `
@@ -22,7 +23,7 @@ import { GroupMembersPage } from './group-members/group-members';
 <ion-content>
   <ion-tabs>
     <ion-tab [tabsHideOnSubPages]="true" [root]="recommendations" [rootParams]="p" tabIcon="list-box"></ion-tab>
-    <!--<ion-tab [tabsHideOnSubPages]="true" [rootParams]="p" tabIcon="heart"></ion-tab>-->
+    <ion-tab [tabsHideOnSubPages]="true" [root]="favorites" [rootParams]="p" tabIcon="heart"></ion-tab>
     <ion-tab [tabsHideOnSubPages]="true" [root]="members" [rootParams]="p" tabIcon="person"></ion-tab>
   </ion-tabs>
 </ion-content>
@@ -32,6 +33,7 @@ import { GroupMembersPage } from './group-members/group-members';
 export class GroupPage {
   recommendations = GroupRecommendationsPage;
   members = GroupMembersPage;
+  favorites = GroupFavoritesPage;
   headerText;
   p;
 
@@ -96,7 +98,8 @@ export class GroupRecommendationsPage {
 
   openRestaurant(rest) {
     this.nav.push(RestaurantPage, {
-      rest: rest
+      rest: rest,
+      groupId: this.group.id
     })
   }
 
